@@ -6,6 +6,8 @@ import { defineConfig } from 'vite';
 const projectRoot = dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
+  // Relative base: the bundle works at the domain root or in a subfolder (hash routing, static hosting).
+  base: './',
   plugins: [react()],
   resolve: {
     alias: {

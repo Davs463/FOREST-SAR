@@ -1,0 +1,3769 @@
+{
+ "schema_version": 1,
+ "retrieved_at": "2026-11-15T17:03:31Z",
+ "source": "OpenStreetMap via Overpass API",
+ "license": "ODbL 1.0 — © OpenStreetMap contributors",
+ "bbox": [
+  -87.4,
+  13.95,
+  -87.0,
+  14.4
+ ],
+ "bbox_order": "west,south,east,north",
+ "places": [
+  {
+   "id": "osm:node/10030734382",
+   "name": "Colonia Guillen",
+   "kind": "neighbourhood",
+   "lat": 14.114517,
+   "lon": -87.185969
+  },
+  {
+   "id": "osm:node/10035286670",
+   "name": "Residencial El Rodeo",
+   "kind": "neighbourhood",
+   "lat": 14.008997,
+   "lon": -87.088225
+  },
+  {
+   "id": "osm:node/10096403782",
+   "name": "Linaca",
+   "kind": "village",
+   "lat": 13.994924,
+   "lon": -87.10322
+  },
+  {
+   "id": "osm:node/10604954898",
+   "name": "El Lolo",
+   "kind": "hamlet",
+   "lat": 14.131117,
+   "lon": -87.249553
+  },
+  {
+   "id": "osm:node/10604956860",
+   "name": "El Durazno",
+   "kind": "hamlet",
+   "lat": 14.133685,
+   "lon": -87.25913
+  },
+  {
+   "id": "osm:node/11159598228",
+   "name": "Colonia Las Casitas",
+   "kind": "hamlet",
+   "lat": 14.051146,
+   "lon": -87.258054
+  },
+  {
+   "id": "osm:node/11166055280",
+   "name": "Colonia El Amarillo",
+   "kind": "neighbourhood",
+   "lat": 14.093737,
+   "lon": -87.273264
+  },
+  {
+   "id": "osm:node/11166124442",
+   "name": "Colonia Nueva Capital 5",
+   "kind": "neighbourhood",
+   "lat": 14.097207,
+   "lon": -87.261374
+  },
+  {
+   "id": "osm:node/11166154694",
+   "name": "Colonia Nueva Capital 4",
+   "kind": "neighbourhood",
+   "lat": 14.094648,
+   "lon": -87.260679
+  },
+  {
+   "id": "osm:node/11166168283",
+   "name": "Colonia Nueva Capital 2",
+   "kind": "neighbourhood",
+   "lat": 14.090913,
+   "lon": -87.254949
+  },
+  {
+   "id": "osm:node/11166210907",
+   "name": "Colonia Nueva Capital 1",
+   "kind": "neighbourhood",
+   "lat": 14.087821,
+   "lon": -87.254665
+  },
+  {
+   "id": "osm:node/11166213212",
+   "name": "Colonia Unidad y Paz",
+   "kind": "neighbourhood",
+   "lat": 14.085239,
+   "lon": -87.271936
+  },
+  {
+   "id": "osm:node/11166218404",
+   "name": "Colonia Monte de los Olivos",
+   "kind": "neighbourhood",
+   "lat": 14.080854,
+   "lon": -87.260402
+  },
+  {
+   "id": "osm:node/11166253493",
+   "name": "Laguna del Pedregal",
+   "kind": "hamlet",
+   "lat": 14.122158,
+   "lon": -87.272102
+  },
+  {
+   "id": "osm:node/11166253494",
+   "name": "El Portillo",
+   "kind": "neighbourhood",
+   "lat": 14.131142,
+   "lon": -87.272313
+  },
+  {
+   "id": "osm:node/11166253495",
+   "name": "Santa Cruz Arriba",
+   "kind": "hamlet",
+   "lat": 14.138049,
+   "lon": -87.283792
+  },
+  {
+   "id": "osm:node/11166253953",
+   "name": "Aldea La Soledad",
+   "kind": "neighbourhood",
+   "lat": 14.082662,
+   "lon": -87.250676
+  },
+  {
+   "id": "osm:node/11166265348",
+   "name": "Colonia Planes del Mogote",
+   "kind": "neighbourhood",
+   "lat": 14.077724,
+   "lon": -87.260744
+  },
+  {
+   "id": "osm:node/11167188450",
+   "name": "Colonia Nueva Jerusalén 2",
+   "kind": "neighbourhood",
+   "lat": 14.07625,
+   "lon": -87.253676
+  },
+  {
+   "id": "osm:node/11168607027",
+   "name": "Barrio El Chile",
+   "kind": "neighbourhood",
+   "lat": 14.112901,
+   "lon": -87.210948
+  },
+  {
+   "id": "osm:node/11170817788",
+   "name": "Colonia María Cristina",
+   "kind": "neighbourhood",
+   "lat": 14.073324,
+   "lon": -87.20649
+  },
+  {
+   "id": "osm:node/11170847677",
+   "name": "Colonia Betania (El Zarzal)",
+   "kind": "neighbourhood",
+   "lat": 14.073273,
+   "lon": -87.209476
+  },
+  {
+   "id": "osm:node/11171026963",
+   "name": "Barrio Juana A. Laínez",
+   "kind": "neighbourhood",
+   "lat": 14.090964,
+   "lon": -87.199438
+  },
+  {
+   "id": "osm:node/11176709503",
+   "name": "Colonia San Ángel",
+   "kind": "neighbourhood",
+   "lat": 14.07149,
+   "lon": -87.179931
+  },
+  {
+   "id": "osm:node/11176896158",
+   "name": "Colonia Rubén Antúnez",
+   "kind": "neighbourhood",
+   "lat": 14.080533,
+   "lon": -87.173325
+  },
+  {
+   "id": "osm:node/11186264615",
+   "name": "Colonia Buena Vista",
+   "kind": "neighbourhood",
+   "lat": 14.088896,
+   "lon": -87.250504
+  },
+  {
+   "id": "osm:node/11186301879",
+   "name": "Colonia Fuerzas Unidas",
+   "kind": "neighbourhood",
+   "lat": 14.097822,
+   "lon": -87.255014
+  },
+  {
+   "id": "osm:node/11186448127",
+   "name": "Colonia Altos del Paraíso 2",
+   "kind": "neighbourhood",
+   "lat": 14.100751,
+   "lon": -87.252452
+  },
+  {
+   "id": "osm:node/11186591110",
+   "name": "Colonia Nueva Japón",
+   "kind": "neighbourhood",
+   "lat": 14.081638,
+   "lon": -87.23939
+  },
+  {
+   "id": "osm:node/11186629115",
+   "name": "Colonia Israel Sur",
+   "kind": "neighbourhood",
+   "lat": 14.078616,
+   "lon": -87.237866
+  },
+  {
+   "id": "osm:node/11186636951",
+   "name": "Colonia Hermanos Reina",
+   "kind": "neighbourhood",
+   "lat": 14.076673,
+   "lon": -87.237002
+  },
+  {
+   "id": "osm:node/11186668388",
+   "name": "Colonia El Mirador",
+   "kind": "neighbourhood",
+   "lat": 14.082974,
+   "lon": -87.241273
+  },
+  {
+   "id": "osm:node/11186759429",
+   "name": "Colonia Arciery 2",
+   "kind": "neighbourhood",
+   "lat": 14.075443,
+   "lon": -87.247655
+  },
+  {
+   "id": "osm:node/11186781375",
+   "name": "Colonia IPM",
+   "kind": "neighbourhood",
+   "lat": 14.078144,
+   "lon": -87.245835
+  },
+  {
+   "id": "osm:node/11186788224",
+   "name": "Colonia Arciery",
+   "kind": "neighbourhood",
+   "lat": 14.076923,
+   "lon": -87.243955
+  },
+  {
+   "id": "osm:node/11186797204",
+   "name": "Colonia La Huerta",
+   "kind": "neighbourhood",
+   "lat": 14.078865,
+   "lon": -87.248108
+  },
+  {
+   "id": "osm:node/11186799179",
+   "name": "Colonia Nueva Galilea",
+   "kind": "neighbourhood",
+   "lat": 14.076632,
+   "lon": -87.247642
+  },
+  {
+   "id": "osm:node/11186802959",
+   "name": "Colonia David Betancourt",
+   "kind": "neighbourhood",
+   "lat": 14.075131,
+   "lon": -87.246171
+  },
+  {
+   "id": "osm:node/11186818442",
+   "name": "Colonia Nueva España",
+   "kind": "neighbourhood",
+   "lat": 14.077613,
+   "lon": -87.249151
+  },
+  {
+   "id": "osm:node/11186829615",
+   "name": "Colonia Altos de la Quezada",
+   "kind": "neighbourhood",
+   "lat": 14.080016,
+   "lon": -87.249733
+  },
+  {
+   "id": "osm:node/11186865807",
+   "name": "Colonia Altos de Ciudad Lempira",
+   "kind": "neighbourhood",
+   "lat": 14.079898,
+   "lon": -87.247051
+  },
+  {
+   "id": "osm:node/11186866196",
+   "name": "Colonia Vicente López",
+   "kind": "neighbourhood",
+   "lat": 14.07871,
+   "lon": -87.251896
+  },
+  {
+   "id": "osm:node/11186867842",
+   "name": "Caserío El Mogote",
+   "kind": "neighbourhood",
+   "lat": 14.078259,
+   "lon": -87.250634
+  },
+  {
+   "id": "osm:node/11186878435",
+   "name": "Colonia Brisas del Mogote",
+   "kind": "neighbourhood",
+   "lat": 14.079194,
+   "lon": -87.253647
+  },
+  {
+   "id": "osm:node/11186878436",
+   "name": "Colonia Montes de Gerizin",
+   "kind": "neighbourhood",
+   "lat": 14.080221,
+   "lon": -87.251445
+  },
+  {
+   "id": "osm:node/11186888722",
+   "name": "Colonia Australia",
+   "kind": "neighbourhood",
+   "lat": 14.08126,
+   "lon": -87.251805
+  },
+  {
+   "id": "osm:node/11186896827",
+   "name": "Colonia Brisas del Norte",
+   "kind": "neighbourhood",
+   "lat": 14.103031,
+   "lon": -87.245572
+  },
+  {
+   "id": "osm:node/11186914866",
+   "name": "Colonia Jardines del Norte",
+   "kind": "neighbourhood",
+   "lat": 14.107539,
+   "lon": -87.246359
+  },
+  {
+   "id": "osm:node/11186920916",
+   "name": "Colonia Vista Hermosa del Norte",
+   "kind": "neighbourhood",
+   "lat": 14.104071,
+   "lon": -87.243993
+  },
+  {
+   "id": "osm:node/11186946015",
+   "name": "Colonia José Arturo Duarte",
+   "kind": "neighbourhood",
+   "lat": 14.099236,
+   "lon": -87.249126
+  },
+  {
+   "id": "osm:node/11188238256",
+   "name": "Colonia Los Centeno",
+   "kind": "neighbourhood",
+   "lat": 14.101297,
+   "lon": -87.245039
+  },
+  {
+   "id": "osm:node/11188242187",
+   "name": "Colonia Las Vegas del Carrizal",
+   "kind": "neighbourhood",
+   "lat": 14.102012,
+   "lon": -87.246493
+  },
+  {
+   "id": "osm:node/11188272454",
+   "name": "Colonia Lincoln",
+   "kind": "neighbourhood",
+   "lat": 14.100809,
+   "lon": -87.246862
+  },
+  {
+   "id": "osm:node/11188489291",
+   "name": "Colonia Cantarero López",
+   "kind": "neighbourhood",
+   "lat": 14.095547,
+   "lon": -87.245352
+  },
+  {
+   "id": "osm:node/11188508372",
+   "name": "Colonia Jardines de Carrizal",
+   "kind": "neighbourhood",
+   "lat": 14.097736,
+   "lon": -87.24599
+  },
+  {
+   "id": "osm:node/11188703193",
+   "name": "Colonia San Eugenio",
+   "kind": "neighbourhood",
+   "lat": 14.099117,
+   "lon": -87.244044
+  },
+  {
+   "id": "osm:node/11188710886",
+   "name": "Colonia Continental",
+   "kind": "neighbourhood",
+   "lat": 14.09969,
+   "lon": -87.242061
+  },
+  {
+   "id": "osm:node/11188852988",
+   "name": "Colonia Superación",
+   "kind": "neighbourhood",
+   "lat": 14.095232,
+   "lon": -87.241965
+  },
+  {
+   "id": "osm:node/11188852989",
+   "name": "Colonia 14 de Enero",
+   "kind": "neighbourhood",
+   "lat": 14.096876,
+   "lon": -87.242216
+  },
+  {
+   "id": "osm:node/11189009657",
+   "name": "Colonia La Fuente",
+   "kind": "neighbourhood",
+   "lat": 14.086136,
+   "lon": -87.241705
+  },
+  {
+   "id": "osm:node/11189025671",
+   "name": "Colonia El Manzanal",
+   "kind": "neighbourhood",
+   "lat": 14.087843,
+   "lon": -87.245143
+  },
+  {
+   "id": "osm:node/11189025672",
+   "name": "Barrio La Soledad 2",
+   "kind": "neighbourhood",
+   "lat": 14.088392,
+   "lon": -87.240761
+  },
+  {
+   "id": "osm:node/11189025673",
+   "name": "Colonia Nueva Era",
+   "kind": "neighbourhood",
+   "lat": 14.087438,
+   "lon": -87.236999
+  },
+  {
+   "id": "osm:node/11189025674",
+   "name": "Colonia 21 de Febrero",
+   "kind": "neighbourhood",
+   "lat": 14.084816,
+   "lon": -87.232341
+  },
+  {
+   "id": "osm:node/11189079495",
+   "name": "Colonia San Francisco",
+   "kind": "neighbourhood",
+   "lat": 14.080904,
+   "lon": -87.227156
+  },
+  {
+   "id": "osm:node/11189079496",
+   "name": "Colonia San Buenaventura",
+   "kind": "neighbourhood",
+   "lat": 14.081286,
+   "lon": -87.231643
+  },
+  {
+   "id": "osm:node/11189079497",
+   "name": "Colonia Vista Hermosa",
+   "kind": "neighbourhood",
+   "lat": 14.080051,
+   "lon": -87.235047
+  },
+  {
+   "id": "osm:node/11189287609",
+   "name": "Barrio La Soledad 1",
+   "kind": "neighbourhood",
+   "lat": 14.083004,
+   "lon": -87.230845
+  },
+  {
+   "id": "osm:node/11201032100",
+   "name": "Colonia El Retiro",
+   "kind": "neighbourhood",
+   "lat": 14.078151,
+   "lon": -87.227169
+  },
+  {
+   "id": "osm:node/11201038997",
+   "name": "Colonia República de Venezuela",
+   "kind": "neighbourhood",
+   "lat": 14.078913,
+   "lon": -87.224557
+  },
+  {
+   "id": "osm:node/11201047495",
+   "name": "Colonia Pueblo Nuevo",
+   "kind": "neighbourhood",
+   "lat": 14.07514,
+   "lon": -87.22925
+  },
+  {
+   "id": "osm:node/11201047496",
+   "name": "Barrio El Edén",
+   "kind": "neighbourhood",
+   "lat": 14.076446,
+   "lon": -87.226009
+  },
+  {
+   "id": "osm:node/11201323790",
+   "name": "Caserío El Guayabal",
+   "kind": "neighbourhood",
+   "lat": 14.056975,
+   "lon": -87.251727
+  },
+  {
+   "id": "osm:node/11203169323",
+   "name": "Caserío La Poza",
+   "kind": "neighbourhood",
+   "lat": 14.044844,
+   "lon": -87.274677
+  },
+  {
+   "id": "osm:node/11203188259",
+   "name": "Colonia Residencial Santa Cruz",
+   "kind": "neighbourhood",
+   "lat": 14.042971,
+   "lon": -87.254853
+  },
+  {
+   "id": "osm:node/11203188262",
+   "name": "Colonia Los Hidalgos",
+   "kind": "neighbourhood",
+   "lat": 14.047023,
+   "lon": -87.257838
+  },
+  {
+   "id": "osm:node/11203290242",
+   "name": "Las Tapias",
+   "kind": "village",
+   "lat": 14.068218,
+   "lon": -87.283074
+  },
+  {
+   "id": "osm:node/11203290325",
+   "name": "Nueva Aldea",
+   "kind": "village",
+   "lat": 14.068417,
+   "lon": -87.271591
+  },
+  {
+   "id": "osm:node/11203676787",
+   "name": "Colonia Agua Dulce",
+   "kind": "neighbourhood",
+   "lat": 14.046496,
+   "lon": -87.235411
+  },
+  {
+   "id": "osm:node/11203676788",
+   "name": "Colonia Residencial Las Uvas",
+   "kind": "neighbourhood",
+   "lat": 14.038857,
+   "lon": -87.236357
+  },
+  {
+   "id": "osm:node/11203702779",
+   "name": "Residencial Altos de Las Hadas",
+   "kind": "neighbourhood",
+   "lat": 14.043475,
+   "lon": -87.229776
+  },
+  {
+   "id": "osm:node/11203715315",
+   "name": "Colonia Los Periodistas",
+   "kind": "neighbourhood",
+   "lat": 14.049516,
+   "lon": -87.225874
+  },
+  {
+   "id": "osm:node/11203747357",
+   "name": "Colonia Aeropuerto",
+   "kind": "neighbourhood",
+   "lat": 14.060381,
+   "lon": -87.224099
+  },
+  {
+   "id": "osm:node/11203809058",
+   "name": "Colonia Roble Alto",
+   "kind": "neighbourhood",
+   "lat": 14.054672,
+   "lon": -87.237274
+  },
+  {
+   "id": "osm:node/11203836800",
+   "name": "Colonia El Progreso I",
+   "kind": "neighbourhood",
+   "lat": 14.084765,
+   "lon": -87.222205
+  },
+  {
+   "id": "osm:node/11205423976",
+   "name": "Colonia República de Venezuela 2",
+   "kind": "neighbourhood",
+   "lat": 14.083543,
+   "lon": -87.22345
+  },
+  {
+   "id": "osm:node/11205508561",
+   "name": "Colonia Nueva Esperanza",
+   "kind": "neighbourhood",
+   "lat": 14.081887,
+   "lon": -87.220505
+  },
+  {
+   "id": "osm:node/11207977889",
+   "name": "Colonia El Contador",
+   "kind": "neighbourhood",
+   "lat": 14.079113,
+   "lon": -87.218803
+  },
+  {
+   "id": "osm:node/11207993268",
+   "name": "Colonia Tiloarque Norte",
+   "kind": "neighbourhood",
+   "lat": 14.080445,
+   "lon": -87.220283
+  },
+  {
+   "id": "osm:node/11207993269",
+   "name": "Colonia Óscar Castro Tejeda",
+   "kind": "neighbourhood",
+   "lat": 14.080337,
+   "lon": -87.219659
+  },
+  {
+   "id": "osm:node/11208000325",
+   "name": "Colonia Nuevo Amanecer",
+   "kind": "neighbourhood",
+   "lat": 14.081166,
+   "lon": -87.218231
+  },
+  {
+   "id": "osm:node/11208019263",
+   "name": "Colonia Altos de Tiloarque",
+   "kind": "neighbourhood",
+   "lat": 14.076279,
+   "lon": -87.217616
+  },
+  {
+   "id": "osm:node/11208397469",
+   "name": "Colonia Villa Nelita",
+   "kind": "neighbourhood",
+   "lat": 14.074583,
+   "lon": -87.224092
+  },
+  {
+   "id": "osm:node/11208408866",
+   "name": "Colonia Los Olmos",
+   "kind": "neighbourhood",
+   "lat": 14.074039,
+   "lon": -87.223965
+  },
+  {
+   "id": "osm:node/11208749789",
+   "name": "Colonia Las Vegas",
+   "kind": "neighbourhood",
+   "lat": 14.069142,
+   "lon": -87.232406
+  },
+  {
+   "id": "osm:node/11208893187",
+   "name": "Colonia Luis Andrés Zúñiga",
+   "kind": "neighbourhood",
+   "lat": 14.067971,
+   "lon": -87.22367
+  },
+  {
+   "id": "osm:node/11252019721",
+   "name": "Loarque",
+   "kind": "village",
+   "lat": 14.034738,
+   "lon": -87.204937
+  },
+  {
+   "id": "osm:node/11252019722",
+   "name": "Colonia Colinas de Loarque",
+   "kind": "neighbourhood",
+   "lat": 14.034165,
+   "lon": -87.208477
+  },
+  {
+   "id": "osm:node/11252019964",
+   "name": "Colonia San José de Loarque",
+   "kind": "neighbourhood",
+   "lat": 14.043604,
+   "lon": -87.213437
+  },
+  {
+   "id": "osm:node/11252022258",
+   "name": "Colonia Mirador de Loarque",
+   "kind": "neighbourhood",
+   "lat": 14.043731,
+   "lon": -87.203936
+  },
+  {
+   "id": "osm:node/11252022259",
+   "name": "Colonia Nuevo Loarque",
+   "kind": "neighbourhood",
+   "lat": 14.046303,
+   "lon": -87.206734
+  },
+  {
+   "id": "osm:node/11252050642",
+   "name": "Colonia Río Grande Norte",
+   "kind": "neighbourhood",
+   "lat": 14.04115,
+   "lon": -87.206171
+  },
+  {
+   "id": "osm:node/11252051771",
+   "name": "Colonia Río Grande Sur",
+   "kind": "neighbourhood",
+   "lat": 14.039719,
+   "lon": -87.206236
+  },
+  {
+   "id": "osm:node/11252051772",
+   "name": "Colonia Loarque Sur",
+   "kind": "neighbourhood",
+   "lat": 14.037924,
+   "lon": -87.205874
+  },
+  {
+   "id": "osm:node/11253145397",
+   "name": "Colonia Colinas de Santa Rosa",
+   "kind": "neighbourhood",
+   "lat": 14.00803,
+   "lon": -87.18322
+  },
+  {
+   "id": "osm:node/11253145405",
+   "name": "Colonia El Recreo",
+   "kind": "neighbourhood",
+   "lat": 14.021997,
+   "lon": -87.177452
+  },
+  {
+   "id": "osm:node/11253145418",
+   "name": "Colonia Puente de Loarque",
+   "kind": "neighbourhood",
+   "lat": 14.031158,
+   "lon": -87.207309
+  },
+  {
+   "id": "osm:node/11253145419",
+   "name": "Colonia Altos de Germania",
+   "kind": "neighbourhood",
+   "lat": 14.023359,
+   "lon": -87.210933
+  },
+  {
+   "id": "osm:node/11253156959",
+   "name": "Colonia Lomas del Diamante",
+   "kind": "neighbourhood",
+   "lat": 14.032178,
+   "lon": -87.196051
+  },
+  {
+   "id": "osm:node/11253288269",
+   "name": "Colonia Monte Fresco",
+   "kind": "neighbourhood",
+   "lat": 14.047627,
+   "lon": -87.158604
+  },
+  {
+   "id": "osm:node/11253441588",
+   "name": "Colonia Plan de los Pinos",
+   "kind": "neighbourhood",
+   "lat": 14.048867,
+   "lon": -87.170306
+  },
+  {
+   "id": "osm:node/11254055319",
+   "name": "Colonia Honduras",
+   "kind": "neighbourhood",
+   "lat": 14.054462,
+   "lon": -87.175121
+  },
+  {
+   "id": "osm:node/11254220450",
+   "name": "Colonia Altos de los Pinos",
+   "kind": "neighbourhood",
+   "lat": 14.055161,
+   "lon": -87.170378
+  },
+  {
+   "id": "osm:node/12280762565",
+   "name": "Colonia Monseñor Fiallos",
+   "kind": "neighbourhood",
+   "lat": 14.094818,
+   "lon": -87.221236
+  },
+  {
+   "id": "osm:node/12771364077",
+   "name": "El Macuelizo",
+   "kind": "town",
+   "lat": 14.139854,
+   "lon": -87.382487
+  },
+  {
+   "id": "osm:node/1287317002",
+   "name": "Colonia La Godoy",
+   "kind": "neighbourhood",
+   "lat": 14.050697,
+   "lon": -87.219168
+  },
+  {
+   "id": "osm:node/1287317004",
+   "name": "Colonia Altos de Toncontín",
+   "kind": "neighbourhood",
+   "lat": 14.040452,
+   "lon": -87.225807
+  },
+  {
+   "id": "osm:node/1287317006",
+   "name": "Residencial Las Hadas",
+   "kind": "neighbourhood",
+   "lat": 14.044903,
+   "lon": -87.232163
+  },
+  {
+   "id": "osm:node/1287317015",
+   "name": "Colonia Lomas de Toncontín",
+   "kind": "neighbourhood",
+   "lat": 14.040704,
+   "lon": -87.221916
+  },
+  {
+   "id": "osm:node/1288361873",
+   "name": "Cerro Grande Zona 4",
+   "kind": "neighbourhood",
+   "lat": 14.124064,
+   "lon": -87.22073
+  },
+  {
+   "id": "osm:node/1288361874",
+   "name": "Cerro Grande Zona 3",
+   "kind": "neighbourhood",
+   "lat": 14.117821,
+   "lon": -87.22161
+  },
+  {
+   "id": "osm:node/1288361875",
+   "name": "Colonia El Porvenir",
+   "kind": "neighbourhood",
+   "lat": 14.109826,
+   "lon": -87.21288
+  },
+  {
+   "id": "osm:node/1288361881",
+   "name": "Cerro Grande Zona 2",
+   "kind": "neighbourhood",
+   "lat": 14.118299,
+   "lon": -87.22603
+  },
+  {
+   "id": "osm:node/1289235575",
+   "name": "Colonia Llanos del Potrero",
+   "kind": "neighbourhood",
+   "lat": 14.056486,
+   "lon": -87.231594
+  },
+  {
+   "id": "osm:node/1289235576",
+   "name": "Colonia La Modelo",
+   "kind": "neighbourhood",
+   "lat": 14.058133,
+   "lon": -87.228422
+  },
+  {
+   "id": "osm:node/1289424928",
+   "name": "Swimming Pool",
+   "kind": "locality",
+   "lat": 14.090025,
+   "lon": -87.16151
+  },
+  {
+   "id": "osm:node/13153418198",
+   "name": "MONTERA",
+   "kind": "neighbourhood",
+   "lat": 14.305006,
+   "lon": -87.379164
+  },
+  {
+   "id": "osm:node/13153418199",
+   "name": "ZAPOTE",
+   "kind": "neighbourhood",
+   "lat": 14.302193,
+   "lon": -87.362692
+  },
+  {
+   "id": "osm:node/13153418200",
+   "name": "ESPINO",
+   "kind": "neighbourhood",
+   "lat": 14.291357,
+   "lon": -87.380076
+  },
+  {
+   "id": "osm:node/13153423301",
+   "name": "PROVIDENCIA",
+   "kind": "neighbourhood",
+   "lat": 14.294224,
+   "lon": -87.395606
+  },
+  {
+   "id": "osm:node/13153423302",
+   "name": "UNION",
+   "kind": "neighbourhood",
+   "lat": 14.286624,
+   "lon": -87.39579
+  },
+  {
+   "id": "osm:node/13153423303",
+   "name": "EL TABLON",
+   "kind": "neighbourhood",
+   "lat": 14.267793,
+   "lon": -87.372707
+  },
+  {
+   "id": "osm:node/13168317690",
+   "name": "Las Trojas - La Puerta",
+   "kind": "neighbourhood",
+   "lat": 13.962764,
+   "lon": -87.123255
+  },
+  {
+   "id": "osm:node/13168317691",
+   "name": "El Aguacate",
+   "kind": "neighbourhood",
+   "lat": 13.950327,
+   "lon": -87.107589
+  },
+  {
+   "id": "osm:node/13230187123",
+   "name": "Tegucigalpa",
+   "kind": "city",
+   "lat": 14.105814,
+   "lon": -87.204705
+  },
+  {
+   "id": "osm:node/13230236596",
+   "name": "Comayagüela",
+   "kind": "town",
+   "lat": 14.098215,
+   "lon": -87.207171
+  },
+  {
+   "id": "osm:node/1831529749",
+   "name": "Residencial Los Mangos",
+   "kind": "neighbourhood",
+   "lat": 14.116181,
+   "lon": -87.208348
+  },
+  {
+   "id": "osm:node/1831529753",
+   "name": "Colonia Miramesí",
+   "kind": "neighbourhood",
+   "lat": 14.115807,
+   "lon": -87.209118
+  },
+  {
+   "id": "osm:node/2073840181",
+   "name": "Campo Cielo",
+   "kind": "neighbourhood",
+   "lat": 14.106793,
+   "lon": -87.220836
+  },
+  {
+   "id": "osm:node/2073848682",
+   "name": "Estados Unidos",
+   "kind": "neighbourhood",
+   "lat": 14.109504,
+   "lon": -87.156881
+  },
+  {
+   "id": "osm:node/2167554288",
+   "name": "Residencial Granada",
+   "kind": "neighbourhood",
+   "lat": 14.095104,
+   "lon": -87.226386
+  },
+  {
+   "id": "osm:node/2334533757",
+   "name": "Buenos Aires",
+   "kind": "neighbourhood",
+   "lat": 14.096923,
+   "lon": -87.148454
+  },
+  {
+   "id": "osm:node/2334578006",
+   "name": "Altos de la Sosa",
+   "kind": "neighbourhood",
+   "lat": 14.099923,
+   "lon": -87.144031
+  },
+  {
+   "id": "osm:node/2334578014",
+   "name": "Altos de la Travesía",
+   "kind": "neighbourhood",
+   "lat": 14.098637,
+   "lon": -87.146292
+  },
+  {
+   "id": "osm:node/2334578021",
+   "name": "La Sosa",
+   "kind": "neighbourhood",
+   "lat": 14.105445,
+   "lon": -87.152173
+  },
+  {
+   "id": "osm:node/2334578028",
+   "name": "La Trinidad",
+   "kind": "neighbourhood",
+   "lat": 14.105376,
+   "lon": -87.154328
+  },
+  {
+   "id": "osm:node/2335486331",
+   "name": "El Molinón",
+   "kind": "neighbourhood",
+   "lat": 14.10571,
+   "lon": -87.158433
+  },
+  {
+   "id": "osm:node/2335486332",
+   "name": "La Aurora",
+   "kind": "neighbourhood",
+   "lat": 14.101403,
+   "lon": -87.156013
+  },
+  {
+   "id": "osm:node/2335486421",
+   "name": "30 de Noviembre",
+   "kind": "neighbourhood",
+   "lat": 14.102671,
+   "lon": -87.157326
+  },
+  {
+   "id": "osm:node/2335659362",
+   "name": "Cerro Brujo",
+   "kind": "peak",
+   "lat": 14.108615,
+   "lon": -87.159759
+  },
+  {
+   "id": "osm:node/2335659365",
+   "name": "El Edén",
+   "kind": "hamlet",
+   "lat": 14.090494,
+   "lon": -87.106855
+  },
+  {
+   "id": "osm:node/2335659369",
+   "name": "Las Nubes/Agua Blanca",
+   "kind": "hamlet",
+   "lat": 14.079412,
+   "lon": -87.112981
+  },
+  {
+   "id": "osm:node/2335659373",
+   "name": "Las Tablas/Agua Blanca",
+   "kind": "hamlet",
+   "lat": 14.085135,
+   "lon": -87.123607
+  },
+  {
+   "id": "osm:node/2335659374",
+   "name": "Ojo de Agua (Quebrachitos)",
+   "kind": "neighbourhood",
+   "lat": 14.105746,
+   "lon": -87.146893
+  },
+  {
+   "id": "osm:node/2335659375",
+   "name": "Santa María",
+   "kind": "neighbourhood",
+   "lat": 14.111063,
+   "lon": -87.149887
+  },
+  {
+   "id": "osm:node/2335659438",
+   "name": "Agua Blanca",
+   "kind": "neighbourhood",
+   "lat": 14.09775,
+   "lon": -87.138866
+  },
+  {
+   "id": "osm:node/2335659502",
+   "name": "3ª Parte de El Sitio",
+   "kind": "neighbourhood",
+   "lat": 14.111234,
+   "lon": -87.151521
+  },
+  {
+   "id": "osm:node/2335677514",
+   "name": "La Era",
+   "kind": "neighbourhood",
+   "lat": 14.094284,
+   "lon": -87.151154
+  },
+  {
+   "id": "osm:node/2337787012",
+   "name": "Colonia Residencial Roble Oeste",
+   "kind": "neighbourhood",
+   "lat": 14.054693,
+   "lon": -87.241235
+  },
+  {
+   "id": "osm:node/2339342436",
+   "name": "Invasión El Hoyo",
+   "kind": "neighbourhood",
+   "lat": 14.099239,
+   "lon": -87.204934
+  },
+  {
+   "id": "osm:node/2339483182",
+   "name": "Cerro Santa Lucia",
+   "kind": "peak",
+   "lat": 14.1085,
+   "lon": -87.134691
+  },
+  {
+   "id": "osm:node/2339626689",
+   "name": "Mololoa",
+   "kind": "neighbourhood",
+   "lat": 14.103547,
+   "lon": -87.140972
+  },
+  {
+   "id": "osm:node/2339643363",
+   "name": "La Unión (Sempe)",
+   "kind": "neighbourhood",
+   "lat": 14.104057,
+   "lon": -87.156066
+  },
+  {
+   "id": "osm:node/2343576481",
+   "name": "Urbanización Hasbún",
+   "kind": "neighbourhood",
+   "lat": 14.108846,
+   "lon": -87.219253
+  },
+  {
+   "id": "osm:node/2343581143",
+   "name": "Colonia Francisco Morazán",
+   "kind": "neighbourhood",
+   "lat": 14.105476,
+   "lon": -87.215752
+  },
+  {
+   "id": "osm:node/2343581144",
+   "name": "Colonia Soto",
+   "kind": "neighbourhood",
+   "lat": 14.105375,
+   "lon": -87.213036
+  },
+  {
+   "id": "osm:node/2343581146",
+   "name": "14 de Febrero",
+   "kind": "neighbourhood",
+   "lat": 14.104971,
+   "lon": -87.216403
+  },
+  {
+   "id": "osm:node/2458810395",
+   "name": "Villas del Molino",
+   "kind": "neighbourhood",
+   "lat": 14.109268,
+   "lon": -87.162166
+  },
+  {
+   "id": "osm:node/2623029729",
+   "name": "Villa Suyapa Olímpica",
+   "kind": "neighbourhood",
+   "lat": 14.089836,
+   "lon": -87.166904
+  },
+  {
+   "id": "osm:node/2697895124",
+   "name": "Redidencial San José",
+   "kind": "suburb",
+   "lat": 14.153534,
+   "lon": -87.208487
+  },
+  {
+   "id": "osm:node/2757559506",
+   "name": "Villa Vieja",
+   "kind": "neighbourhood",
+   "lat": 14.044384,
+   "lon": -87.147911
+  },
+  {
+   "id": "osm:node/2757580479",
+   "name": "Macuelizo",
+   "kind": "village",
+   "lat": 14.000846,
+   "lon": -87.047879
+  },
+  {
+   "id": "osm:node/2810358820",
+   "name": "Ciudad España",
+   "kind": "village",
+   "lat": 14.188607,
+   "lon": -87.379336
+  },
+  {
+   "id": "osm:node/2810381152",
+   "name": "Divina Providencia",
+   "kind": "village",
+   "lat": 14.222335,
+   "lon": -87.378772
+  },
+  {
+   "id": "osm:node/3158359147",
+   "name": "Colonia Centro América",
+   "kind": "neighbourhood",
+   "lat": 14.093583,
+   "lon": -87.240233
+  },
+  {
+   "id": "osm:node/3158359148",
+   "name": "Colonia Centro América Oeste",
+   "kind": "neighbourhood",
+   "lat": 14.09196,
+   "lon": -87.242154
+  },
+  {
+   "id": "osm:node/322579712",
+   "name": "La Travesia",
+   "kind": "neighbourhood",
+   "lat": 14.100924,
+   "lon": -87.153452
+  },
+  {
+   "id": "osm:node/322585887",
+   "name": "San Juan del Rancho",
+   "kind": "hamlet",
+   "lat": 14.083069,
+   "lon": -87.06389
+  },
+  {
+   "id": "osm:node/322630903",
+   "name": "San Antonio de Oriente",
+   "kind": "town",
+   "lat": 14.044952,
+   "lon": -87.025348
+  },
+  {
+   "id": "osm:node/322651159",
+   "name": "Tatumbla",
+   "kind": "town",
+   "lat": 14.014991,
+   "lon": -87.100922
+  },
+  {
+   "id": "osm:node/360256758",
+   "name": "Las Lomas",
+   "kind": "neighbourhood",
+   "lat": 14.093705,
+   "lon": -87.181267
+  },
+  {
+   "id": "osm:node/364603353",
+   "name": "Palmira",
+   "kind": "neighbourhood",
+   "lat": 14.10138,
+   "lon": -87.195275
+  },
+  {
+   "id": "osm:node/3646688091",
+   "name": "Los Girasoles",
+   "kind": "neighbourhood",
+   "lat": 14.108215,
+   "lon": -87.17907
+  },
+  {
+   "id": "osm:node/3660754341",
+   "name": "Brisas del Río",
+   "kind": "neighbourhood",
+   "lat": 14.108627,
+   "lon": -87.181421
+  },
+  {
+   "id": "osm:node/3691461126",
+   "name": "Colonia Residencial Palma Real",
+   "kind": "neighbourhood",
+   "lat": 14.048249,
+   "lon": -87.215552
+  },
+  {
+   "id": "osm:node/3789811212",
+   "name": "Colonia Residencial Francisco Morazán",
+   "kind": "neighbourhood",
+   "lat": 14.066997,
+   "lon": -87.234177
+  },
+  {
+   "id": "osm:node/3799656191",
+   "name": "Montaña de El Carrizal",
+   "kind": "peak",
+   "lat": 14.160364,
+   "lon": -87.086967
+  },
+  {
+   "id": "osm:node/380200496",
+   "name": "Cantarranas",
+   "kind": "town",
+   "lat": 14.262995,
+   "lon": -87.027505
+  },
+  {
+   "id": "osm:node/388493215",
+   "name": "Residencial Pinares",
+   "kind": "neighbourhood",
+   "lat": 14.128934,
+   "lon": -87.182159
+  },
+  {
+   "id": "osm:node/388496772",
+   "name": "Colonia Kennedy",
+   "kind": "neighbourhood",
+   "lat": 14.064969,
+   "lon": -87.180026
+  },
+  {
+   "id": "osm:node/388499690",
+   "name": "Colonia Miramontes",
+   "kind": "neighbourhood",
+   "lat": 14.085783,
+   "lon": -87.198212
+  },
+  {
+   "id": "osm:node/388499791",
+   "name": "Colonia La Humuya",
+   "kind": "neighbourhood",
+   "lat": 14.084967,
+   "lon": -87.202234
+  },
+  {
+   "id": "osm:node/388501152",
+   "name": "Colonia El Prado",
+   "kind": "neighbourhood",
+   "lat": 14.08669,
+   "lon": -87.205456
+  },
+  {
+   "id": "osm:node/388513745",
+   "name": "Barrio La Leona",
+   "kind": "neighbourhood",
+   "lat": 14.109438,
+   "lon": -87.202217
+  },
+  {
+   "id": "osm:node/388527815",
+   "name": "Colonia Lara",
+   "kind": "neighbourhood",
+   "lat": 14.103514,
+   "lon": -87.179405
+  },
+  {
+   "id": "osm:node/388540945",
+   "name": "Santa Lucía",
+   "kind": "town",
+   "lat": 14.115876,
+   "lon": -87.113129
+  },
+  {
+   "id": "osm:node/388724938",
+   "name": "Colonia 21 de Octubre",
+   "kind": "neighbourhood",
+   "lat": 14.107264,
+   "lon": -87.173783
+  },
+  {
+   "id": "osm:node/388747131",
+   "name": "Barrio Guadalupe",
+   "kind": "quarter",
+   "lat": 14.099499,
+   "lon": -87.198639
+  },
+  {
+   "id": "osm:node/388998344",
+   "name": "Barrio Pueblo Nuevo",
+   "kind": "neighbourhood",
+   "lat": 14.099341,
+   "lon": -87.184952
+  },
+  {
+   "id": "osm:node/393118539",
+   "name": "Lomas del Mayab",
+   "kind": "neighbourhood",
+   "lat": 14.091827,
+   "lon": -87.188097
+  },
+  {
+   "id": "osm:node/393118783",
+   "name": "Los Profesionales",
+   "kind": "neighbourhood",
+   "lat": 14.090731,
+   "lon": -87.186191
+  },
+  {
+   "id": "osm:node/393119011",
+   "name": "Colonia Payaqui",
+   "kind": "neighbourhood",
+   "lat": 14.089524,
+   "lon": -87.183916
+  },
+  {
+   "id": "osm:node/393128829",
+   "name": "Las Minitas",
+   "kind": "neighbourhood",
+   "lat": 14.096672,
+   "lon": -87.191032
+  },
+  {
+   "id": "osm:node/393192705",
+   "name": "Colonia Miraflores",
+   "kind": "neighbourhood",
+   "lat": 14.073709,
+   "lon": -87.186454
+  },
+  {
+   "id": "osm:node/393352618",
+   "name": "La Campaña",
+   "kind": "neighbourhood",
+   "lat": 14.106745,
+   "lon": -87.184062
+  },
+  {
+   "id": "osm:node/393560857",
+   "name": "Colonia Ciudad Nueva",
+   "kind": "neighbourhood",
+   "lat": 14.06238,
+   "lon": -87.240506
+  },
+  {
+   "id": "osm:node/393560871",
+   "name": "Colonia Los Robles",
+   "kind": "neighbourhood",
+   "lat": 14.05805,
+   "lon": -87.236064
+  },
+  {
+   "id": "osm:node/393573660",
+   "name": "Colonia 15 de Septiembre",
+   "kind": "neighbourhood",
+   "lat": 14.058985,
+   "lon": -87.224715
+  },
+  {
+   "id": "osm:node/393573682",
+   "name": "Colonia América",
+   "kind": "neighbourhood",
+   "lat": 14.05365,
+   "lon": -87.22671
+  },
+  {
+   "id": "osm:node/393574348",
+   "name": "Colonia Jardines de Loarque",
+   "kind": "neighbourhood",
+   "lat": 14.044614,
+   "lon": -87.208381
+  },
+  {
+   "id": "osm:node/394545455",
+   "name": "El Zarzal",
+   "kind": "hamlet",
+   "lat": 14.020717,
+   "lon": -87.014333
+  },
+  {
+   "id": "osm:node/398278068",
+   "name": "Colonia Satélite",
+   "kind": "neighbourhood",
+   "lat": 14.049002,
+   "lon": -87.209787
+  },
+  {
+   "id": "osm:node/398322734",
+   "name": "Colonia Los Ángeles",
+   "kind": "neighbourhood",
+   "lat": 14.047273,
+   "lon": -87.229418
+  },
+  {
+   "id": "osm:node/403350595",
+   "name": "El Hato",
+   "kind": "neighbourhood",
+   "lat": 14.074016,
+   "lon": -87.170256
+  },
+  {
+   "id": "osm:node/403631225",
+   "name": "Loma Linda Norte",
+   "kind": "neighbourhood",
+   "lat": 14.083651,
+   "lon": -87.19131
+  },
+  {
+   "id": "osm:node/403631227",
+   "name": "Loma Linda Sur",
+   "kind": "neighbourhood",
+   "lat": 14.080538,
+   "lon": -87.194718
+  },
+  {
+   "id": "osm:node/403633547",
+   "name": "La Primavera",
+   "kind": "neighbourhood",
+   "lat": 14.085033,
+   "lon": -87.215725
+  },
+  {
+   "id": "osm:node/403647316",
+   "name": "La Matamoros",
+   "kind": "neighbourhood",
+   "lat": 14.104912,
+   "lon": -87.1867
+  },
+  {
+   "id": "osm:node/403647345",
+   "name": "La Marichal",
+   "kind": "neighbourhood",
+   "lat": 14.110306,
+   "lon": -87.193274
+  },
+  {
+   "id": "osm:node/403647350",
+   "name": "Colonia Viera",
+   "kind": "neighbourhood",
+   "lat": 14.112243,
+   "lon": -87.195407
+  },
+  {
+   "id": "osm:node/403647435",
+   "name": "Barrio Morazán",
+   "kind": "neighbourhood",
+   "lat": 14.09921,
+   "lon": -87.20239
+  },
+  {
+   "id": "osm:node/403648246",
+   "name": "Barrio Villa Adela",
+   "kind": "quarter",
+   "lat": 14.086709,
+   "lon": -87.210896
+  },
+  {
+   "id": "osm:node/403648683",
+   "name": "Barrio La Bolsa",
+   "kind": "quarter",
+   "lat": 14.090478,
+   "lon": -87.205647
+  },
+  {
+   "id": "osm:node/403693245",
+   "name": "La Alameda",
+   "kind": "neighbourhood",
+   "lat": 14.095034,
+   "lon": -87.196214
+  },
+  {
+   "id": "osm:node/403748212",
+   "name": "La Florencia",
+   "kind": "neighbourhood",
+   "lat": 14.08294,
+   "lon": -87.177582
+  },
+  {
+   "id": "osm:node/403748216",
+   "name": "Florencia Norte",
+   "kind": "neighbourhood",
+   "lat": 14.085072,
+   "lon": -87.177969
+  },
+  {
+   "id": "osm:node/412332548",
+   "name": "Reparto",
+   "kind": "neighbourhood",
+   "lat": 14.114269,
+   "lon": -87.189065
+  },
+  {
+   "id": "osm:node/412336167",
+   "name": "La Maradiaga",
+   "kind": "neighbourhood",
+   "lat": 14.081709,
+   "lon": -87.20531
+  },
+  {
+   "id": "osm:node/412696763",
+   "name": "El Pedregal",
+   "kind": "neighbourhood",
+   "lat": 14.066793,
+   "lon": -87.207677
+  },
+  {
+   "id": "osm:node/4149583508",
+   "name": "Barrio Bella Vista",
+   "kind": "quarter",
+   "lat": 14.097316,
+   "lon": -87.213715
+  },
+  {
+   "id": "osm:node/4154569722",
+   "name": "Faldas Del Pedregal",
+   "kind": "neighbourhood",
+   "lat": 14.068548,
+   "lon": -87.208031
+  },
+  {
+   "id": "osm:node/416313849",
+   "name": "Residencial Plaza",
+   "kind": "neighbourhood",
+   "lat": 14.065547,
+   "lon": -87.187736
+  },
+  {
+   "id": "osm:node/416313850",
+   "name": "San Jose de la Vega",
+   "kind": "neighbourhood",
+   "lat": 14.064819,
+   "lon": -87.199581
+  },
+  {
+   "id": "osm:node/416315272",
+   "name": "Col. El Hogar",
+   "kind": "neighbourhood",
+   "lat": 14.080804,
+   "lon": -87.188487
+  },
+  {
+   "id": "osm:node/4166488198",
+   "name": "Altos de Zambrano",
+   "kind": "neighbourhood",
+   "lat": 14.25443,
+   "lon": -87.394595
+  },
+  {
+   "id": "osm:node/4166488200",
+   "name": "El Tablon",
+   "kind": "neighbourhood",
+   "lat": 14.264169,
+   "lon": -87.395287
+  },
+  {
+   "id": "osm:node/416653761",
+   "name": "Los Zorzales",
+   "kind": "neighbourhood",
+   "lat": 14.06305,
+   "lon": -87.209279
+  },
+  {
+   "id": "osm:node/416653767",
+   "name": "San Jose de la Peña",
+   "kind": "neighbourhood",
+   "lat": 14.057596,
+   "lon": -87.201855
+  },
+  {
+   "id": "osm:node/416653892",
+   "name": "La Popular",
+   "kind": "neighbourhood",
+   "lat": 14.0559,
+   "lon": -87.202681
+  },
+  {
+   "id": "osm:node/416661054",
+   "name": "La Veguita",
+   "kind": "neighbourhood",
+   "lat": 14.063736,
+   "lon": -87.197735
+  },
+  {
+   "id": "osm:node/416661055",
+   "name": "Colonia La Alemán",
+   "kind": "neighbourhood",
+   "lat": 14.060536,
+   "lon": -87.1974
+  },
+  {
+   "id": "osm:node/416661056",
+   "name": "Montes de Sinai",
+   "kind": "neighbourhood",
+   "lat": 14.05922,
+   "lon": -87.199345
+  },
+  {
+   "id": "osm:node/416661138",
+   "name": "La Joya",
+   "kind": "neighbourhood",
+   "lat": 14.063175,
+   "lon": -87.193465
+  },
+  {
+   "id": "osm:node/416669229",
+   "name": "La Pena Por Bajo",
+   "kind": "neighbourhood",
+   "lat": 14.056951,
+   "lon": -87.19516
+  },
+  {
+   "id": "osm:node/416744690",
+   "name": "Calpules",
+   "kind": "neighbourhood",
+   "lat": 14.051123,
+   "lon": -87.198744
+  },
+  {
+   "id": "osm:node/416745066",
+   "name": "La Cañada",
+   "kind": "neighbourhood",
+   "lat": 14.052018,
+   "lon": -87.189667
+  },
+  {
+   "id": "osm:node/416763911",
+   "name": "14 de Marzo",
+   "kind": "neighbourhood",
+   "lat": 14.053735,
+   "lon": -87.201619
+  },
+  {
+   "id": "osm:node/416763924",
+   "name": "San Isidro",
+   "kind": "neighbourhood",
+   "lat": 14.055442,
+   "lon": -87.199388
+  },
+  {
+   "id": "osm:node/4172489037",
+   "name": "Colonia La Cascada",
+   "kind": "neighbourhood",
+   "lat": 14.051603,
+   "lon": -87.235394
+  },
+  {
+   "id": "osm:node/4207525813",
+   "name": "La Argentina",
+   "kind": "neighbourhood",
+   "lat": 14.097916,
+   "lon": -87.183386
+  },
+  {
+   "id": "osm:node/471260529",
+   "name": "Colonia San Juan Bosco",
+   "kind": "neighbourhood",
+   "lat": 14.098693,
+   "lon": -87.247848
+  },
+  {
+   "id": "osm:node/471292921",
+   "name": "Universidad Nacional Autónoma de Honduras",
+   "kind": "locality",
+   "lat": 14.087323,
+   "lon": -87.164772
+  },
+  {
+   "id": "osm:node/472338635",
+   "name": "Castanos Sur",
+   "kind": "neighbourhood",
+   "lat": 14.097801,
+   "lon": -87.187896
+  },
+  {
+   "id": "osm:node/472344013",
+   "name": "Barrio Guanacaste",
+   "kind": "quarter",
+   "lat": 14.105778,
+   "lon": -87.196511
+  },
+  {
+   "id": "osm:node/472344295",
+   "name": "Barrio La Ronda",
+   "kind": "neighbourhood",
+   "lat": 14.106979,
+   "lon": -87.20156
+  },
+  {
+   "id": "osm:node/472344794",
+   "name": "Barrio San Rafael",
+   "kind": "quarter",
+   "lat": 14.103069,
+   "lon": -87.198949
+  },
+  {
+   "id": "osm:node/472345709",
+   "name": "El Manchen",
+   "kind": "neighbourhood",
+   "lat": 14.107813,
+   "lon": -87.191615
+  },
+  {
+   "id": "osm:node/472350237",
+   "name": "Colonia 19 de Septiembre",
+   "kind": "neighbourhood",
+   "lat": 14.071193,
+   "lon": -87.233444
+  },
+  {
+   "id": "osm:node/472352204",
+   "name": "Colonia Altos de Los Laureles",
+   "kind": "neighbourhood",
+   "lat": 14.075249,
+   "lon": -87.233377
+  },
+  {
+   "id": "osm:node/472358840",
+   "name": "Barrio Los Laureles",
+   "kind": "neighbourhood",
+   "lat": 14.072814,
+   "lon": -87.237246
+  },
+  {
+   "id": "osm:node/472358950",
+   "name": "Colonia Villa Los Laureles",
+   "kind": "neighbourhood",
+   "lat": 14.07253,
+   "lon": -87.231173
+  },
+  {
+   "id": "osm:node/472359166",
+   "name": "Colonia Nueva Orocuina",
+   "kind": "neighbourhood",
+   "lat": 14.074658,
+   "lon": -87.232156
+  },
+  {
+   "id": "osm:node/472370586",
+   "name": "Barrio Santa Eduviges",
+   "kind": "neighbourhood",
+   "lat": 14.07603,
+   "lon": -87.229444
+  },
+  {
+   "id": "osm:node/472370713",
+   "name": "Colonia Altos de San Francisco",
+   "kind": "neighbourhood",
+   "lat": 14.077628,
+   "lon": -87.229976
+  },
+  {
+   "id": "osm:node/472397339",
+   "name": "Colonia Venecia",
+   "kind": "neighbourhood",
+   "lat": 14.064667,
+   "lon": -87.228656
+  },
+  {
+   "id": "osm:node/472397366",
+   "name": "Colonia La Rosa",
+   "kind": "neighbourhood",
+   "lat": 14.065456,
+   "lon": -87.224406
+  },
+  {
+   "id": "osm:node/472397382",
+   "name": "Colonia Las Torres",
+   "kind": "neighbourhood",
+   "lat": 14.063183,
+   "lon": -87.230422
+  },
+  {
+   "id": "osm:node/472397581",
+   "name": "Colonia Predios del Recreo",
+   "kind": "neighbourhood",
+   "lat": 14.065384,
+   "lon": -87.226647
+  },
+  {
+   "id": "osm:node/472397951",
+   "name": "Colonia Santa Bárbara",
+   "kind": "neighbourhood",
+   "lat": 14.06119,
+   "lon": -87.225223
+  },
+  {
+   "id": "osm:node/472398030",
+   "name": "Colonia Inestroza",
+   "kind": "neighbourhood",
+   "lat": 14.060976,
+   "lon": -87.229367
+  },
+  {
+   "id": "osm:node/472492674",
+   "name": "Colonia Nuevas Delicias",
+   "kind": "neighbourhood",
+   "lat": 14.073336,
+   "lon": -87.2238
+  },
+  {
+   "id": "osm:node/472492675",
+   "name": "Colonia Modesto Rodas Alvarado",
+   "kind": "neighbourhood",
+   "lat": 14.07531,
+   "lon": -87.224575
+  },
+  {
+   "id": "osm:node/472492676",
+   "name": "Colonia Lomas de Tiloarque",
+   "kind": "neighbourhood",
+   "lat": 14.077525,
+   "lon": -87.221671
+  },
+  {
+   "id": "osm:node/472492688",
+   "name": "La Pradera",
+   "kind": "neighbourhood",
+   "lat": 14.070533,
+   "lon": -87.215842
+  },
+  {
+   "id": "osm:node/472492689",
+   "name": "La Bolívar",
+   "kind": "neighbourhood",
+   "lat": 14.069581,
+   "lon": -87.217651
+  },
+  {
+   "id": "osm:node/472492690",
+   "name": "Colonia Henrry Merriam",
+   "kind": "neighbourhood",
+   "lat": 14.073763,
+   "lon": -87.222869
+  },
+  {
+   "id": "osm:node/472492696",
+   "name": "Colonia Flor del Campo",
+   "kind": "neighbourhood",
+   "lat": 14.071558,
+   "lon": -87.225466
+  },
+  {
+   "id": "osm:node/472550659",
+   "name": "Colonia Arturo Quezada",
+   "kind": "neighbourhood",
+   "lat": 14.079855,
+   "lon": -87.241918
+  },
+  {
+   "id": "osm:node/472550660",
+   "name": "Colonia Ciudad Lempira",
+   "kind": "neighbourhood",
+   "lat": 14.082087,
+   "lon": -87.245406
+  },
+  {
+   "id": "osm:node/472551997",
+   "name": "Colonia Ramón Amaya Amador",
+   "kind": "neighbourhood",
+   "lat": 14.075318,
+   "lon": -87.241023
+  },
+  {
+   "id": "osm:node/472551998",
+   "name": "Colonia Montes de Bendición",
+   "kind": "neighbourhood",
+   "lat": 14.072804,
+   "lon": -87.244145
+  },
+  {
+   "id": "osm:node/472556274",
+   "name": "Israel Norte",
+   "kind": "neighbourhood",
+   "lat": 14.081762,
+   "lon": -87.236316
+  },
+  {
+   "id": "osm:node/472564518",
+   "name": "Valle de Ángeles",
+   "kind": "town",
+   "lat": 14.157104,
+   "lon": -87.042179
+  },
+  {
+   "id": "osm:node/474836419",
+   "name": "Colonia Altos del Loarque",
+   "kind": "neighbourhood",
+   "lat": 14.039407,
+   "lon": -87.218184
+  },
+  {
+   "id": "osm:node/474994606",
+   "name": "Villanueva Norte",
+   "kind": "neighbourhood",
+   "lat": 14.063194,
+   "lon": -87.162987
+  },
+  {
+   "id": "osm:node/478227754",
+   "name": "San Juancito",
+   "kind": "village",
+   "lat": 14.220722,
+   "lon": -87.066804
+  },
+  {
+   "id": "osm:node/479699663",
+   "name": "Barrio La Chivera",
+   "kind": "quarter",
+   "lat": 14.103271,
+   "lon": -87.211261
+  },
+  {
+   "id": "osm:node/479699703",
+   "name": "Barrio Sipile",
+   "kind": "quarter",
+   "lat": 14.101873,
+   "lon": -87.212296
+  },
+  {
+   "id": "osm:node/479699823",
+   "name": "Guamilito",
+   "kind": "neighbourhood",
+   "lat": 14.100953,
+   "lon": -87.215874
+  },
+  {
+   "id": "osm:node/479699966",
+   "name": "El Pastel",
+   "kind": "neighbourhood",
+   "lat": 14.103454,
+   "lon": -87.216636
+  },
+  {
+   "id": "osm:node/479701256",
+   "name": "Brisas de Olancho",
+   "kind": "neighbourhood",
+   "lat": 14.104428,
+   "lon": -87.229879
+  },
+  {
+   "id": "osm:node/479704162",
+   "name": "Colonia Lomas del Norte",
+   "kind": "neighbourhood",
+   "lat": 14.105145,
+   "lon": -87.247121
+  },
+  {
+   "id": "osm:node/4937355503",
+   "name": "Residencial Villas del Campo",
+   "kind": "neighbourhood",
+   "lat": 14.033418,
+   "lon": -87.124522
+  },
+  {
+   "id": "osm:node/502874917",
+   "name": "Támara",
+   "kind": "village",
+   "lat": 14.164695,
+   "lon": -87.342772
+  },
+  {
+   "id": "osm:node/502874950",
+   "name": "Amarateca",
+   "kind": "town",
+   "lat": 14.219257,
+   "lon": -87.371092
+  },
+  {
+   "id": "osm:node/502874996",
+   "name": "Soroguara",
+   "kind": "village",
+   "lat": 14.3239,
+   "lon": -87.392549
+  },
+  {
+   "id": "osm:node/503129418",
+   "name": "Guasculile",
+   "kind": "town",
+   "lat": 14.154142,
+   "lon": -87.244055
+  },
+  {
+   "id": "osm:node/503129877",
+   "name": "La Ciénega",
+   "kind": "town",
+   "lat": 14.180143,
+   "lon": -87.221143
+  },
+  {
+   "id": "osm:node/503130570",
+   "name": "Las Flores",
+   "kind": "town",
+   "lat": 14.215091,
+   "lon": -87.234018
+  },
+  {
+   "id": "osm:node/503131019",
+   "name": "Río Hondo",
+   "kind": "village",
+   "lat": 14.259462,
+   "lon": -87.245865
+  },
+  {
+   "id": "osm:node/503132605",
+   "name": "La Venta",
+   "kind": "village",
+   "lat": 14.334286,
+   "lon": -87.170362
+  },
+  {
+   "id": "osm:node/503216983",
+   "name": "Joya Grande",
+   "kind": "village",
+   "lat": 14.041903,
+   "lon": -87.057795
+  },
+  {
+   "id": "osm:node/503218597",
+   "name": "Villa Nueva",
+   "kind": "village",
+   "lat": 14.030924,
+   "lon": -87.1424
+  },
+  {
+   "id": "osm:node/504830503",
+   "name": "Yaguacire",
+   "kind": "village",
+   "lat": 14.014309,
+   "lon": -87.214521
+  },
+  {
+   "id": "osm:node/504830507",
+   "name": "El Tizatillo",
+   "kind": "village",
+   "lat": 14.00168,
+   "lon": -87.197429
+  },
+  {
+   "id": "osm:node/504830568",
+   "name": "El Limón",
+   "kind": "village",
+   "lat": 13.957841,
+   "lon": -87.248845
+  },
+  {
+   "id": "osm:node/5110051087",
+   "name": "Cantoral",
+   "kind": "hamlet",
+   "lat": 14.339007,
+   "lon": -87.297817
+  },
+  {
+   "id": "osm:node/5116482073",
+   "name": "Monte Redondo",
+   "kind": "hamlet",
+   "lat": 14.284867,
+   "lon": -87.255571
+  },
+  {
+   "id": "osm:node/529138050",
+   "name": "Lomas del Guijarro Sur",
+   "kind": "neighbourhood",
+   "lat": 14.091441,
+   "lon": -87.177048
+  },
+  {
+   "id": "osm:node/529138122",
+   "name": "Brisas del Valle",
+   "kind": "neighbourhood",
+   "lat": 14.097842,
+   "lon": -87.171678
+  },
+  {
+   "id": "osm:node/529138238",
+   "name": "Lara Norte",
+   "kind": "neighbourhood",
+   "lat": 14.106159,
+   "lon": -87.17818
+  },
+  {
+   "id": "osm:node/529455196",
+   "name": "Tepeyac",
+   "kind": "neighbourhood",
+   "lat": 14.093393,
+   "lon": -87.191829
+  },
+  {
+   "id": "osm:node/529457273",
+   "name": "Rubén Darío",
+   "kind": "neighbourhood",
+   "lat": 14.097664,
+   "lon": -87.194241
+  },
+  {
+   "id": "osm:node/529464920",
+   "name": "Casamata",
+   "kind": "neighbourhood",
+   "lat": 14.108799,
+   "lon": -87.193198
+  },
+  {
+   "id": "osm:node/529465057",
+   "name": "Barrio Cabañas",
+   "kind": "neighbourhood",
+   "lat": 14.109088,
+   "lon": -87.200179
+  },
+  {
+   "id": "osm:node/529467851",
+   "name": "Residencial Las Joyas",
+   "kind": "neighbourhood",
+   "lat": 14.110879,
+   "lon": -87.179116
+  },
+  {
+   "id": "osm:node/529468309",
+   "name": "Villa Delmi",
+   "kind": "neighbourhood",
+   "lat": 14.113735,
+   "lon": -87.182529
+  },
+  {
+   "id": "osm:node/529483537",
+   "name": "La Sagastume",
+   "kind": "neighbourhood",
+   "lat": 14.123134,
+   "lon": -87.204399
+  },
+  {
+   "id": "osm:node/529486083",
+   "name": "El Picachito",
+   "kind": "neighbourhood",
+   "lat": 14.118645,
+   "lon": -87.202493
+  },
+  {
+   "id": "osm:node/529486376",
+   "name": "El Bosque",
+   "kind": "neighbourhood",
+   "lat": 14.115189,
+   "lon": -87.199465
+  },
+  {
+   "id": "osm:node/529486390",
+   "name": "Buenos Aires",
+   "kind": "neighbourhood",
+   "lat": 14.11508,
+   "lon": -87.204161
+  },
+  {
+   "id": "osm:node/529492010",
+   "name": "Juitiapa",
+   "kind": "village",
+   "lat": 14.192519,
+   "lon": -87.12791
+  },
+  {
+   "id": "osm:node/529492044",
+   "name": "El Piliguin",
+   "kind": "village",
+   "lat": 14.160792,
+   "lon": -87.125678
+  },
+  {
+   "id": "osm:node/529492069",
+   "name": "Carpintero",
+   "kind": "village",
+   "lat": 14.159065,
+   "lon": -87.174087
+  },
+  {
+   "id": "osm:node/529729728",
+   "name": "Las Palomas",
+   "kind": "neighbourhood",
+   "lat": 14.0993,
+   "lon": -87.19237
+  },
+  {
+   "id": "osm:node/529730139",
+   "name": "Barrio El Jazmín",
+   "kind": "neighbourhood",
+   "lat": 14.10448,
+   "lon": -87.20661
+  },
+  {
+   "id": "osm:node/529730152",
+   "name": "Barrio Abajo",
+   "kind": "quarter",
+   "lat": 14.108124,
+   "lon": -87.20903
+  },
+  {
+   "id": "osm:node/529731317",
+   "name": "Barrio La Fuente",
+   "kind": "quarter",
+   "lat": 14.109635,
+   "lon": -87.205231
+  },
+  {
+   "id": "osm:node/529741523",
+   "name": "Colonia Tres Caminos",
+   "kind": "neighbourhood",
+   "lat": 14.081908,
+   "lon": -87.181098
+  },
+  {
+   "id": "osm:node/529741691",
+   "name": "San Ignacio",
+   "kind": "neighbourhood",
+   "lat": 14.077584,
+   "lon": -87.180277
+  },
+  {
+   "id": "osm:node/534278132",
+   "name": "El Aguacatal",
+   "kind": "hamlet",
+   "lat": 13.957849,
+   "lon": -87.363754
+  },
+  {
+   "id": "osm:node/534659383",
+   "name": "Residencial Maya",
+   "kind": "neighbourhood",
+   "lat": 14.093382,
+   "lon": -87.161311
+  },
+  {
+   "id": "osm:node/535050744",
+   "name": "Barrio La Hoya",
+   "kind": "neighbourhood",
+   "lat": 14.103919,
+   "lon": -87.202113
+  },
+  {
+   "id": "osm:node/539637311",
+   "name": "Villa Nueva Suyapa",
+   "kind": "quarter",
+   "lat": 14.074097,
+   "lon": -87.155881
+  },
+  {
+   "id": "osm:node/539637837",
+   "name": "Colonia Brisas de Suyapa",
+   "kind": "neighbourhood",
+   "lat": 14.072068,
+   "lon": -87.147582
+  },
+  {
+   "id": "osm:node/539638416",
+   "name": "Colonia Flores de Oriente",
+   "kind": "quarter",
+   "lat": 14.076264,
+   "lon": -87.146558
+  },
+  {
+   "id": "osm:node/539639386",
+   "name": "Prados Universitarios",
+   "kind": "neighbourhood",
+   "lat": 14.085965,
+   "lon": -87.156459
+  },
+  {
+   "id": "osm:node/539639827",
+   "name": "Aldea Suyapa",
+   "kind": "hamlet",
+   "lat": 14.081561,
+   "lon": -87.155067
+  },
+  {
+   "id": "osm:node/541044652",
+   "name": "Colonia Villanueva Sur",
+   "kind": "neighbourhood",
+   "lat": 14.058615,
+   "lon": -87.166959
+  },
+  {
+   "id": "osm:node/541045686",
+   "name": "Colonia Los Pinos",
+   "kind": "neighbourhood",
+   "lat": 14.052369,
+   "lon": -87.164374
+  },
+  {
+   "id": "osm:node/541046135",
+   "name": "Colonia Víctor F. Ardón",
+   "kind": "neighbourhood",
+   "lat": 14.057017,
+   "lon": -87.17777
+  },
+  {
+   "id": "osm:node/541046910",
+   "name": "Lomas de Jacaleapa",
+   "kind": "neighbourhood",
+   "lat": 14.054686,
+   "lon": -87.182705
+  },
+  {
+   "id": "osm:node/541049576",
+   "name": "El Sitio",
+   "kind": "neighbourhood",
+   "lat": 14.109667,
+   "lon": -87.154115
+  },
+  {
+   "id": "osm:node/541051393",
+   "name": "La San Miguel",
+   "kind": "neighbourhood",
+   "lat": 14.099172,
+   "lon": -87.164342
+  },
+  {
+   "id": "osm:node/5497733973",
+   "name": "Residencial Zarabanda",
+   "kind": "hamlet",
+   "lat": 14.111372,
+   "lon": -87.078208
+  },
+  {
+   "id": "osm:node/573243780",
+   "name": "Mata de Plátano",
+   "kind": "village",
+   "lat": 14.382233,
+   "lon": -87.253798
+  },
+  {
+   "id": "osm:node/5828238125",
+   "name": "Limone",
+   "kind": "village",
+   "lat": 14.173973,
+   "lon": -87.139502
+  },
+  {
+   "id": "osm:node/6214328689",
+   "name": "Residencial Villa Universitaria",
+   "kind": "neighbourhood",
+   "lat": 14.094035,
+   "lon": -87.167228
+  },
+  {
+   "id": "osm:node/6333765172",
+   "name": "Colonia Universidad Norte",
+   "kind": "neighbourhood",
+   "lat": 14.089935,
+   "lon": -87.16933
+  },
+  {
+   "id": "osm:node/649229620",
+   "name": "La Hacienda",
+   "kind": "neighbourhood",
+   "lat": 14.08725,
+   "lon": -87.172251
+  },
+  {
+   "id": "osm:node/6493345328",
+   "name": "El Hatillo",
+   "kind": "neighbourhood",
+   "lat": 14.132466,
+   "lon": -87.171748
+  },
+  {
+   "id": "osm:node/6505255577",
+   "name": "El Rosario",
+   "kind": "hamlet",
+   "lat": 14.219895,
+   "lon": -87.082018
+  },
+  {
+   "id": "osm:node/7301285789",
+   "name": "Cerro La Mesa",
+   "kind": "peak",
+   "lat": 14.022042,
+   "lon": -87.243689
+  },
+  {
+   "id": "osm:node/7301285791",
+   "name": "Cerro Grande",
+   "kind": "peak",
+   "lat": 14.010207,
+   "lon": -87.224243
+  },
+  {
+   "id": "osm:node/7301285792",
+   "name": "Cerro El Molino",
+   "kind": "peak",
+   "lat": 14.029324,
+   "lon": -87.216723
+  },
+  {
+   "id": "osm:node/7301285794",
+   "name": "Cerro Gavilantepe",
+   "kind": "peak",
+   "lat": 14.007164,
+   "lon": -87.187219
+  },
+  {
+   "id": "osm:node/7301285795",
+   "name": "Cerro Las Mesas",
+   "kind": "peak",
+   "lat": 14.034425,
+   "lon": -87.196491
+  },
+  {
+   "id": "osm:node/7301285796",
+   "name": "Cerro Buena Vista",
+   "kind": "peak",
+   "lat": 14.055349,
+   "lon": -87.166776
+  },
+  {
+   "id": "osm:node/7301285797",
+   "name": "Cerro de La Culebra",
+   "kind": "peak",
+   "lat": 14.043588,
+   "lon": -87.156577
+  },
+  {
+   "id": "osm:node/7301285798",
+   "name": "El Picacho",
+   "kind": "peak",
+   "lat": 14.013789,
+   "lon": -87.152824
+  },
+  {
+   "id": "osm:node/7301285799",
+   "name": "Cerro La Cacalatera",
+   "kind": "peak",
+   "lat": 14.0516,
+   "lon": -87.145311
+  },
+  {
+   "id": "osm:node/7301285800",
+   "name": "Cerro Las Moras",
+   "kind": "peak",
+   "lat": 14.047096,
+   "lon": -87.137865
+  },
+  {
+   "id": "osm:node/7301285801",
+   "name": "Cerro La Torre",
+   "kind": "peak",
+   "lat": 14.042459,
+   "lon": -87.131052
+  },
+  {
+   "id": "osm:node/7301285802",
+   "name": "Cerro La Majada",
+   "kind": "peak",
+   "lat": 14.007388,
+   "lon": -87.117163
+  },
+  {
+   "id": "osm:node/7301285804",
+   "name": "Cerro El Macho",
+   "kind": "peak",
+   "lat": 14.015361,
+   "lon": -87.110738
+  },
+  {
+   "id": "osm:node/7301285805",
+   "name": "Cerro de La Ardilla",
+   "kind": "peak",
+   "lat": 14.022881,
+   "lon": -87.108901
+  },
+  {
+   "id": "osm:node/7301285807",
+   "name": "Cerro Calabacera",
+   "kind": "peak",
+   "lat": 14.027897,
+   "lon": -87.100528
+  },
+  {
+   "id": "osm:node/7301285808",
+   "name": "Cerro de Los Muertos",
+   "kind": "peak",
+   "lat": 14.051751,
+   "lon": -87.096224
+  },
+  {
+   "id": "osm:node/7301285810",
+   "name": "Cerro de Uyuca",
+   "kind": "peak",
+   "lat": 14.026242,
+   "lon": -87.075942
+  },
+  {
+   "id": "osm:node/7301285813",
+   "name": "Cerro Caculetepe",
+   "kind": "peak",
+   "lat": 14.00813,
+   "lon": -87.059177
+  },
+  {
+   "id": "osm:node/7301285814",
+   "name": "Cerro Las Tablas",
+   "kind": "peak",
+   "lat": 14.016023,
+   "lon": -87.038618
+  },
+  {
+   "id": "osm:node/7301285815",
+   "name": "Cerro Grande",
+   "kind": "peak",
+   "lat": 14.038573,
+   "lon": -87.026782
+  },
+  {
+   "id": "osm:node/7301285817",
+   "name": "Cerro Las Mesas",
+   "kind": "peak",
+   "lat": 14.058547,
+   "lon": -87.027852
+  },
+  {
+   "id": "osm:node/7304550437",
+   "name": "Cerro Grande",
+   "kind": "peak",
+   "lat": 14.124494,
+   "lon": -87.004543
+  },
+  {
+   "id": "osm:node/7304550438",
+   "name": "Cerro Los Caracoles",
+   "kind": "peak",
+   "lat": 14.111036,
+   "lon": -87.027191
+  },
+  {
+   "id": "osm:node/7304550439",
+   "name": "Cerro de La Iguana",
+   "kind": "peak",
+   "lat": 14.097354,
+   "lon": -87.045021
+  },
+  {
+   "id": "osm:node/7304550440",
+   "name": "Cerro La Coyotera",
+   "kind": "peak",
+   "lat": 14.08547,
+   "lon": -87.04709
+  },
+  {
+   "id": "osm:node/7304550441",
+   "name": "Cerro de Oro",
+   "kind": "peak",
+   "lat": 14.097131,
+   "lon": -87.069957
+  },
+  {
+   "id": "osm:node/7304550442",
+   "name": "Cerro Grande",
+   "kind": "peak",
+   "lat": 14.116674,
+   "lon": -87.06841
+  },
+  {
+   "id": "osm:node/7304550449",
+   "name": "Cerro Canta Gallo",
+   "kind": "peak",
+   "lat": 14.091293,
+   "lon": -87.113031
+  },
+  {
+   "id": "osm:node/7304550452",
+   "name": "Cerro Triquilapa",
+   "kind": "peak",
+   "lat": 14.062947,
+   "lon": -87.124241
+  },
+  {
+   "id": "osm:node/7304550454",
+   "name": "Cerro El Chachao",
+   "kind": "peak",
+   "lat": 14.067146,
+   "lon": -87.079919
+  },
+  {
+   "id": "osm:node/7304550455",
+   "name": "Cerro Grande",
+   "kind": "peak",
+   "lat": 14.130098,
+   "lon": -87.13679
+  },
+  {
+   "id": "osm:node/7304550456",
+   "name": "Cerro Mina Grande",
+   "kind": "peak",
+   "lat": 14.108182,
+   "lon": -87.130461
+  },
+  {
+   "id": "osm:node/7304550459",
+   "name": "Cerro El Picacho",
+   "kind": "peak",
+   "lat": 14.117092,
+   "lon": -87.19449
+  },
+  {
+   "id": "osm:node/7304550460",
+   "name": "Cerro El Berrinche",
+   "kind": "peak",
+   "lat": 14.112156,
+   "lon": -87.220657
+  },
+  {
+   "id": "osm:node/7304550461",
+   "name": "Cerro Grande",
+   "kind": "peak",
+   "lat": 14.124559,
+   "lon": -87.217904
+  },
+  {
+   "id": "osm:node/7304550462",
+   "name": "Cerro Grande",
+   "kind": "peak",
+   "lat": 14.119101,
+   "lon": -87.215203
+  },
+  {
+   "id": "osm:node/7304550463",
+   "name": "Cerro El Estacado",
+   "kind": "peak",
+   "lat": 14.12301,
+   "lon": -87.238785
+  },
+  {
+   "id": "osm:node/7304550470",
+   "name": "1525",
+   "kind": "peak",
+   "lat": 14.160581,
+   "lon": -87.131948
+  },
+  {
+   "id": "osm:node/7304550471",
+   "name": "Cerro El Trigo",
+   "kind": "peak",
+   "lat": 14.146173,
+   "lon": -87.130358
+  },
+  {
+   "id": "osm:node/7304550472",
+   "name": "Cerro El Granadillo",
+   "kind": "peak",
+   "lat": 14.151075,
+   "lon": -87.08241
+  },
+  {
+   "id": "osm:node/7304550473",
+   "name": "Cerro Chinacla",
+   "kind": "peak",
+   "lat": 14.166525,
+   "lon": -87.021581
+  },
+  {
+   "id": "osm:node/7304550474",
+   "name": "Cerro La Lucía",
+   "kind": "peak",
+   "lat": 14.155522,
+   "lon": -87.018903
+  },
+  {
+   "id": "osm:node/7304550475",
+   "name": "Cerro El Hospital",
+   "kind": "peak",
+   "lat": 14.163106,
+   "lon": -87.009941
+  },
+  {
+   "id": "osm:node/7304550477",
+   "name": "Cerro El Establo",
+   "kind": "peak",
+   "lat": 14.150886,
+   "lon": -87.003959
+  },
+  {
+   "id": "osm:node/7393812717",
+   "name": "Centro de Tegucigalpa",
+   "kind": "neighbourhood",
+   "lat": 14.106203,
+   "lon": -87.205582
+  },
+  {
+   "id": "osm:node/7393812718",
+   "name": "Centro de Comayagüela",
+   "kind": "quarter",
+   "lat": 14.101174,
+   "lon": -87.208283
+  },
+  {
+   "id": "osm:node/7393812719",
+   "name": "Barrio Concepción",
+   "kind": "quarter",
+   "lat": 14.096752,
+   "lon": -87.208965
+  },
+  {
+   "id": "osm:node/7393812720",
+   "name": "Barrio La Isla",
+   "kind": "quarter",
+   "lat": 14.100814,
+   "lon": -87.204928
+  },
+  {
+   "id": "osm:node/7393812721",
+   "name": "Barrio La Merced",
+   "kind": "quarter",
+   "lat": 14.103668,
+   "lon": -87.204915
+  },
+  {
+   "id": "osm:node/7393812722",
+   "name": "Barrio Moncada",
+   "kind": "neighbourhood",
+   "lat": 14.105279,
+   "lon": -87.209261
+  },
+  {
+   "id": "osm:node/7393812723",
+   "name": "Barrio Los Dolores",
+   "kind": "quarter",
+   "lat": 14.107774,
+   "lon": -87.2066
+  },
+  {
+   "id": "osm:node/7393812724",
+   "name": "Barrio La Concordia",
+   "kind": "neighbourhood",
+   "lat": 14.111161,
+   "lon": -87.207938
+  },
+  {
+   "id": "osm:node/7393812725",
+   "name": "Barrio Las Delicias",
+   "kind": "quarter",
+   "lat": 14.110716,
+   "lon": -87.207125
+  },
+  {
+   "id": "osm:node/7393812726",
+   "name": "Barrio La Plazuela",
+   "kind": "neighbourhood",
+   "lat": 14.105411,
+   "lon": -87.20031
+  },
+  {
+   "id": "osm:node/7393812727",
+   "name": "Barrio El Olvido",
+   "kind": "quarter",
+   "lat": 14.102993,
+   "lon": -87.203656
+  },
+  {
+   "id": "osm:node/7393812728",
+   "name": "Barrio El Obelisco",
+   "kind": "quarter",
+   "lat": 14.092638,
+   "lon": -87.20757
+  },
+  {
+   "id": "osm:node/7393812729",
+   "name": "Barrio El Calvario",
+   "kind": "quarter",
+   "lat": 14.092856,
+   "lon": -87.209841
+  },
+  {
+   "id": "osm:node/7393812730",
+   "name": "Barrio Las Crucitas",
+   "kind": "quarter",
+   "lat": 14.098471,
+   "lon": -87.215987
+  },
+  {
+   "id": "osm:node/7393812731",
+   "name": "Barrio Belén",
+   "kind": "quarter",
+   "lat": 14.094704,
+   "lon": -87.218748
+  },
+  {
+   "id": "osm:node/7393812732",
+   "name": "Barrio Perpetuo Socorro",
+   "kind": "quarter",
+   "lat": 14.094688,
+   "lon": -87.214742
+  },
+  {
+   "id": "osm:node/7393812734",
+   "name": "Barrio San Juan de Dios",
+   "kind": "quarter",
+   "lat": 14.091603,
+   "lon": -87.215343
+  },
+  {
+   "id": "osm:node/7393812735",
+   "name": "Barrio Los Profesores",
+   "kind": "quarter",
+   "lat": 14.09945,
+   "lon": -87.218373
+  },
+  {
+   "id": "osm:node/7393812736",
+   "name": "Barrio Lempira",
+   "kind": "quarter",
+   "lat": 14.09256,
+   "lon": -87.212522
+  },
+  {
+   "id": "osm:node/7393812737",
+   "name": "Barrio El Socorro",
+   "kind": "quarter",
+   "lat": 14.090076,
+   "lon": -87.210037
+  },
+  {
+   "id": "osm:node/7393812738",
+   "name": "Barrio Guacerique",
+   "kind": "neighbourhood",
+   "lat": 14.086732,
+   "lon": -87.208408
+  },
+  {
+   "id": "osm:node/7393812739",
+   "name": "Barrio San Jorge",
+   "kind": "quarter",
+   "lat": 14.082655,
+   "lon": -87.211135
+  },
+  {
+   "id": "osm:node/7393812740",
+   "name": "Barrio La Granja",
+   "kind": "quarter",
+   "lat": 14.076629,
+   "lon": -87.206973
+  },
+  {
+   "id": "osm:node/7393812741",
+   "name": "Barrio Miraflor",
+   "kind": "quarter",
+   "lat": 14.078312,
+   "lon": -87.211373
+  },
+  {
+   "id": "osm:node/7393812742",
+   "name": "Barrio Cerro Juana A. Laínez",
+   "kind": "quarter",
+   "lat": 14.094439,
+   "lon": -87.204154
+  },
+  {
+   "id": "osm:node/7393812743",
+   "name": "Barrio La Pagoda",
+   "kind": "quarter",
+   "lat": 14.094866,
+   "lon": -87.198819
+  },
+  {
+   "id": "osm:node/7444229417",
+   "name": "Colonia Nueva Suyapa",
+   "kind": "quarter",
+   "lat": 14.076215,
+   "lon": -87.151695
+  },
+  {
+   "id": "osm:node/7990231715",
+   "name": "Colonia José Ángel Ulloa",
+   "kind": "neighbourhood",
+   "lat": 14.102815,
+   "lon": -87.252643
+  },
+  {
+   "id": "osm:node/7990231717",
+   "name": "Colonia Ciudad Guzmán",
+   "kind": "neighbourhood",
+   "lat": 14.106554,
+   "lon": -87.260153
+  },
+  {
+   "id": "osm:node/7990231718",
+   "name": "Colonia Altos de la Laguna",
+   "kind": "neighbourhood",
+   "lat": 14.103071,
+   "lon": -87.265777
+  },
+  {
+   "id": "osm:node/7990231719",
+   "name": "Colonia Nueva Capital 3",
+   "kind": "neighbourhood",
+   "lat": 14.092462,
+   "lon": -87.258006
+  },
+  {
+   "id": "osm:node/7990231721",
+   "name": "Colonia Santa Clara",
+   "kind": "neighbourhood",
+   "lat": 14.093444,
+   "lon": -87.266829
+  },
+  {
+   "id": "osm:node/7990231722",
+   "name": "Colonia Altos de las Cascadas",
+   "kind": "neighbourhood",
+   "lat": 14.084646,
+   "lon": -87.264685
+  },
+  {
+   "id": "osm:node/7990231723",
+   "name": "Colonia José Trinidad Cabañas",
+   "kind": "neighbourhood",
+   "lat": 14.085831,
+   "lon": -87.261818
+  },
+  {
+   "id": "osm:node/7990231725",
+   "name": "Colonia Fuente de Vida",
+   "kind": "neighbourhood",
+   "lat": 14.076253,
+   "lon": -87.260638
+  },
+  {
+   "id": "osm:node/7990231726",
+   "name": "Colonia Nueva Jerusalén 1",
+   "kind": "neighbourhood",
+   "lat": 14.07802,
+   "lon": -87.256682
+  },
+  {
+   "id": "osm:node/7990231727",
+   "name": "Colonia Linda Vista",
+   "kind": "neighbourhood",
+   "lat": 14.085355,
+   "lon": -87.256253
+  },
+  {
+   "id": "osm:node/7990231728",
+   "name": "Colonia Mary Flakes de Flores",
+   "kind": "neighbourhood",
+   "lat": 14.088266,
+   "lon": -87.252517
+  },
+  {
+   "id": "osm:node/7990231729",
+   "name": "Colonia Altos de Centroamérica",
+   "kind": "neighbourhood",
+   "lat": 14.090078,
+   "lon": -87.248127
+  },
+  {
+   "id": "osm:node/7990231731",
+   "name": "Colonia Altos del Paraíso",
+   "kind": "neighbourhood",
+   "lat": 14.096351,
+   "lon": -87.250065
+  },
+  {
+   "id": "osm:node/7992772432",
+   "name": "El Naranjal",
+   "kind": "hamlet",
+   "lat": 14.22796,
+   "lon": -87.012861
+  },
+  {
+   "id": "osm:node/7992799489",
+   "name": "El Jicarito",
+   "kind": "hamlet",
+   "lat": 14.019178,
+   "lon": -87.027586
+  },
+  {
+   "id": "osm:node/7992799490",
+   "name": "El Pedregal",
+   "kind": "hamlet",
+   "lat": 13.996361,
+   "lon": -87.028245
+  },
+  {
+   "id": "osm:node/819343059",
+   "name": "Nueva Juncales",
+   "kind": "village",
+   "lat": 14.159003,
+   "lon": -87.114907
+  },
+  {
+   "id": "osm:node/819343174",
+   "name": "Juan Lindo",
+   "kind": "village",
+   "lat": 14.124286,
+   "lon": -87.087811
+  },
+  {
+   "id": "osm:node/9862970868",
+   "name": "Barrio El Sauce",
+   "kind": "neighbourhood",
+   "lat": 14.037768,
+   "lon": -87.229945
+  },
+  {
+   "id": "osm:node/9867082805",
+   "name": "La Guacamaya",
+   "kind": "village",
+   "lat": 14.232903,
+   "lon": -87.076911
+  },
+  {
+   "id": "osm:node/9867169555",
+   "name": "El Manantial",
+   "kind": "village",
+   "lat": 13.975997,
+   "lon": -87.201544
+  },
+  {
+   "id": "osm:node/9867208419",
+   "name": "Villa Foresta",
+   "kind": "village",
+   "lat": 13.998886,
+   "lon": -87.202214
+  },
+  {
+   "id": "osm:node/9869015784",
+   "name": "Aldea Cerro Grande",
+   "kind": "village",
+   "lat": 14.115146,
+   "lon": -87.025269
+  },
+  {
+   "id": "osm:node/9869420448",
+   "name": "San José de Ramos",
+   "kind": "hamlet",
+   "lat": 14.262203,
+   "lon": -87.092133
+  },
+  {
+   "id": "osm:node/9876348989",
+   "name": "Colonia La Felicidad",
+   "kind": "neighbourhood",
+   "lat": 14.052118,
+   "lon": -87.249049
+  },
+  {
+   "id": "osm:node/9877618469",
+   "name": "Colonia Nora de Melgar",
+   "kind": "neighbourhood",
+   "lat": 14.068551,
+   "lon": -87.204538
+  },
+  {
+   "id": "osm:node/9884134232",
+   "name": "Colonia Altos de Santa Rosa",
+   "kind": "neighbourhood",
+   "lat": 14.010855,
+   "lon": -87.187458
+  },
+  {
+   "id": "osm:node/9884151527",
+   "name": "Colonia Cruz Roja",
+   "kind": "neighbourhood",
+   "lat": 14.012703,
+   "lon": -87.185554
+  },
+  {
+   "id": "osm:node/9884153588",
+   "name": "Barrio El Rincón",
+   "kind": "neighbourhood",
+   "lat": 14.116746,
+   "lon": -87.176511
+  },
+  {
+   "id": "osm:node/9891067266",
+   "name": "La Montañita",
+   "kind": "hamlet",
+   "lat": 14.07114,
+   "lon": -87.127737
+  },
+  {
+   "id": "osm:node/9891067267",
+   "name": "Monte Obscuro",
+   "kind": "hamlet",
+   "lat": 14.054638,
+   "lon": -87.107766
+  },
+  {
+   "id": "osm:node/9891067268",
+   "name": "Piedra Herrada",
+   "kind": "locality",
+   "lat": 14.048103,
+   "lon": -87.081185
+  },
+  {
+   "id": "osm:node/9891067269",
+   "name": "El Empalme",
+   "kind": "hamlet",
+   "lat": 14.037498,
+   "lon": -87.082765
+  },
+  {
+   "id": "osm:node/9891067270",
+   "name": "El Quebracho",
+   "kind": "hamlet",
+   "lat": 14.041245,
+   "lon": -87.06857
+  },
+  {
+   "id": "osm:node/9891067271",
+   "name": "Agua Blanca",
+   "kind": "hamlet",
+   "lat": 14.031302,
+   "lon": -87.050964
+  },
+  {
+   "id": "osm:node/9891067272",
+   "name": "Los Tablones",
+   "kind": "hamlet",
+   "lat": 14.03728,
+   "lon": -87.04677
+  },
+  {
+   "id": "osm:node/9891067273",
+   "name": "San Antonio de Occidente",
+   "kind": "hamlet",
+   "lat": 14.044622,
+   "lon": -87.030149
+  },
+  {
+   "id": "osm:node/9891067274",
+   "name": "El Quebrachito",
+   "kind": "hamlet",
+   "lat": 14.022406,
+   "lon": -87.034708
+  },
+  {
+   "id": "osm:node/9891067275",
+   "name": "Agua Amarilla",
+   "kind": "locality",
+   "lat": 14.022341,
+   "lon": -87.046881
+  },
+  {
+   "id": "osm:node/9891067276",
+   "name": "El Chagüite",
+   "kind": "hamlet",
+   "lat": 14.00642,
+   "lon": -87.045619
+  },
+  {
+   "id": "osm:node/9891067277",
+   "name": "Agua Zarca",
+   "kind": "locality",
+   "lat": 14.006586,
+   "lon": -87.031672
+  },
+  {
+   "id": "osm:node/9891067278",
+   "name": "Las Mesas",
+   "kind": "hamlet",
+   "lat": 14.057324,
+   "lon": -87.027096
+  },
+  {
+   "id": "osm:node/9891067279",
+   "name": "El Agua Blanca",
+   "kind": "hamlet",
+   "lat": 14.060771,
+   "lon": -87.013437
+  },
+  {
+   "id": "osm:node/9891067280",
+   "name": "La Laguna",
+   "kind": "locality",
+   "lat": 14.067184,
+   "lon": -87.017003
+  },
+  {
+   "id": "osm:node/9891067281",
+   "name": "El Tablón",
+   "kind": "hamlet",
+   "lat": 14.071195,
+   "lon": -87.030787
+  },
+  {
+   "id": "osm:node/9891067282",
+   "name": "La Ciénaga",
+   "kind": "hamlet",
+   "lat": 14.077052,
+   "lon": -87.029034
+  },
+  {
+   "id": "osm:node/9891067283",
+   "name": "Los Potreros",
+   "kind": "hamlet",
+   "lat": 14.081667,
+   "lon": -87.010507
+  },
+  {
+   "id": "osm:node/9891067284",
+   "name": "Las Playas",
+   "kind": "hamlet",
+   "lat": 14.093058,
+   "lon": -87.029911
+  },
+  {
+   "id": "osm:node/9891067285",
+   "name": "Cañas Bravas",
+   "kind": "locality",
+   "lat": 14.093789,
+   "lon": -87.018827
+  },
+  {
+   "id": "osm:node/9891067286",
+   "name": "Río Abajo",
+   "kind": "locality",
+   "lat": 14.101783,
+   "lon": -87.024872
+  },
+  {
+   "id": "osm:node/9891067287",
+   "name": "Los Corrales",
+   "kind": "hamlet",
+   "lat": 14.110034,
+   "lon": -87.012856
+  },
+  {
+   "id": "osm:node/9891067288",
+   "name": "Buena Vista",
+   "kind": "locality",
+   "lat": 14.163341,
+   "lon": -87.014635
+  },
+  {
+   "id": "osm:node/9891067289",
+   "name": "Villa Rosa",
+   "kind": "hamlet",
+   "lat": 14.137178,
+   "lon": -87.050192
+  },
+  {
+   "id": "osm:node/9891067290",
+   "name": "La Cañada",
+   "kind": "hamlet",
+   "lat": 14.127056,
+   "lon": -87.045335
+  },
+  {
+   "id": "osm:node/9891067291",
+   "name": "El Sauce",
+   "kind": "hamlet",
+   "lat": 14.117637,
+   "lon": -87.044159
+  },
+  {
+   "id": "osm:node/9891067292",
+   "name": "Los Tablones",
+   "kind": "locality",
+   "lat": 14.106375,
+   "lon": -87.049821
+  },
+  {
+   "id": "osm:node/9891067293",
+   "name": "Las Casitas",
+   "kind": "hamlet",
+   "lat": 14.092326,
+   "lon": -87.052116
+  },
+  {
+   "id": "osm:node/9891067294",
+   "name": "Pozo Azul",
+   "kind": "locality",
+   "lat": 14.089427,
+   "lon": -87.057669
+  },
+  {
+   "id": "osm:node/9891067295",
+   "name": "La Estancia",
+   "kind": "hamlet",
+   "lat": 14.076928,
+   "lon": -87.03841
+  },
+  {
+   "id": "osm:node/9891067296",
+   "name": "El Rodeo",
+   "kind": "hamlet",
+   "lat": 14.076078,
+   "lon": -87.061871
+  },
+  {
+   "id": "osm:node/9891067297",
+   "name": "El Carrizal",
+   "kind": "locality",
+   "lat": 14.072914,
+   "lon": -87.05277
+  },
+  {
+   "id": "osm:node/9891067298",
+   "name": "El Terrero",
+   "kind": "hamlet",
+   "lat": 14.063202,
+   "lon": -87.064758
+  },
+  {
+   "id": "osm:node/9891067299",
+   "name": "La Guaracha",
+   "kind": "locality",
+   "lat": 14.051211,
+   "lon": -87.06142
+  },
+  {
+   "id": "osm:node/9891067300",
+   "name": "Surinca",
+   "kind": "hamlet",
+   "lat": 14.049145,
+   "lon": -87.046147
+  },
+  {
+   "id": "osm:node/9894387663",
+   "name": "Las Horquetas",
+   "kind": "locality",
+   "lat": 14.144975,
+   "lon": -87.233634
+  },
+  {
+   "id": "osm:node/9894387664",
+   "name": "Tusterique",
+   "kind": "hamlet",
+   "lat": 14.14948,
+   "lon": -87.214528
+  },
+  {
+   "id": "osm:node/9894459384",
+   "name": "La Cuesta",
+   "kind": "suburb",
+   "lat": 14.118658,
+   "lon": -87.244389
+  },
+  {
+   "id": "osm:node/9894459385",
+   "name": "Barrio Agua Dulce",
+   "kind": "neighbourhood",
+   "lat": 14.046528,
+   "lon": -87.239238
+  },
+  {
+   "id": "osm:node/9894459386",
+   "name": "El Espinal",
+   "kind": "locality",
+   "lat": 14.011504,
+   "lon": -87.229084
+  },
+  {
+   "id": "osm:node/9894459388",
+   "name": "La Lima",
+   "kind": "hamlet",
+   "lat": 14.004562,
+   "lon": -87.219394
+  },
+  {
+   "id": "osm:node/9894459389",
+   "name": "El Portillo",
+   "kind": "hamlet",
+   "lat": 14.026088,
+   "lon": -87.221444
+  },
+  {
+   "id": "osm:node/9894459390",
+   "name": "Las Joyas",
+   "kind": "hamlet",
+   "lat": 14.022928,
+   "lon": -87.226354
+  },
+  {
+   "id": "osm:node/9894459391",
+   "name": "El Molino",
+   "kind": "hamlet",
+   "lat": 14.003777,
+   "lon": -87.21311
+  },
+  {
+   "id": "osm:node/9894459392",
+   "name": "Los Trozos",
+   "kind": "hamlet",
+   "lat": 14.009067,
+   "lon": -87.198328
+  },
+  {
+   "id": "osm:node/9894459393",
+   "name": "Germania",
+   "kind": "village",
+   "lat": 14.023551,
+   "lon": -87.206138
+  },
+  {
+   "id": "osm:node/9894459394",
+   "name": "Los Jutes",
+   "kind": "neighbourhood",
+   "lat": 14.022917,
+   "lon": -87.19376
+  },
+  {
+   "id": "osm:node/9894459395",
+   "name": "Santa Rosa",
+   "kind": "village",
+   "lat": 14.024043,
+   "lon": -87.187513
+  },
+  {
+   "id": "osm:node/9894459396",
+   "name": "La Coja",
+   "kind": "hamlet",
+   "lat": 14.035501,
+   "lon": -87.186501
+  },
+  {
+   "id": "osm:node/9894459397",
+   "name": "La Cañada",
+   "kind": "village",
+   "lat": 14.042683,
+   "lon": -87.185491
+  },
+  {
+   "id": "osm:node/9894459398",
+   "name": "Barrio Jacaleapa",
+   "kind": "neighbourhood",
+   "lat": 14.052756,
+   "lon": -87.179166
+  },
+  {
+   "id": "osm:node/9894459399",
+   "name": "El Tablón",
+   "kind": "village",
+   "lat": 14.038379,
+   "lon": -87.16888
+  },
+  {
+   "id": "osm:node/9894459400",
+   "name": "El Jícaro",
+   "kind": "hamlet",
+   "lat": 14.02233,
+   "lon": -87.161283
+  },
+  {
+   "id": "osm:node/9894459401",
+   "name": "Zuntule",
+   "kind": "village",
+   "lat": 14.00352,
+   "lon": -87.153005
+  },
+  {
+   "id": "osm:node/9894459402",
+   "name": "El Aguacate",
+   "kind": "hamlet",
+   "lat": 14.0119,
+   "lon": -87.171452
+  },
+  {
+   "id": "osm:node/9894459403",
+   "name": "Las Cuevitas",
+   "kind": "hamlet",
+   "lat": 14.027612,
+   "lon": -87.139827
+  },
+  {
+   "id": "osm:node/9894459404",
+   "name": "La Calera",
+   "kind": "hamlet",
+   "lat": 14.034209,
+   "lon": -87.126751
+  },
+  {
+   "id": "osm:node/9894459405",
+   "name": "El Rodeo",
+   "kind": "locality",
+   "lat": 14.072583,
+   "lon": -87.121727
+  },
+  {
+   "id": "osm:node/9894459406",
+   "name": "Ocanto",
+   "kind": "hamlet",
+   "lat": 14.099719,
+   "lon": -87.118521
+  },
+  {
+   "id": "osm:node/9894459407",
+   "name": "Las Tapias",
+   "kind": "hamlet",
+   "lat": 14.103554,
+   "lon": -87.117255
+  },
+  {
+   "id": "osm:node/9894459408",
+   "name": "El Chimbo",
+   "kind": "village",
+   "lat": 14.137769,
+   "lon": -87.119298
+  },
+  {
+   "id": "osm:node/9894459409",
+   "name": "Loma Alta",
+   "kind": "hamlet",
+   "lat": 14.148939,
+   "lon": -87.115414
+  },
+  {
+   "id": "osm:node/9894459410",
+   "name": "El Tablón",
+   "kind": "hamlet",
+   "lat": 14.154836,
+   "lon": -87.134836
+  },
+  {
+   "id": "osm:node/9894459411",
+   "name": "Los Jutes",
+   "kind": "hamlet",
+   "lat": 14.165273,
+   "lon": -87.137319
+  },
+  {
+   "id": "osm:node/9894459412",
+   "name": "Las Pilitas",
+   "kind": "hamlet",
+   "lat": 14.158967,
+   "lon": -87.144717
+  },
+  {
+   "id": "osm:node/9894459413",
+   "name": "Lo de Ponce",
+   "kind": "hamlet",
+   "lat": 14.154108,
+   "lon": -87.148837
+  },
+  {
+   "id": "osm:node/9894459414",
+   "name": "La Providencia",
+   "kind": "hamlet",
+   "lat": 14.158838,
+   "lon": -87.1527
+  },
+  {
+   "id": "osm:node/9894459415",
+   "name": "La Paisana",
+   "kind": "hamlet",
+   "lat": 14.151176,
+   "lon": -87.151841
+  },
+  {
+   "id": "osm:node/9894459416",
+   "name": "Santa Fé",
+   "kind": "hamlet",
+   "lat": 14.147096,
+   "lon": -87.152884
+  },
+  {
+   "id": "osm:node/9894481417",
+   "name": "El Zarzal",
+   "kind": "hamlet",
+   "lat": 14.141382,
+   "lon": -87.141196
+  },
+  {
+   "id": "osm:node/9894481418",
+   "name": "La Pandilla",
+   "kind": "hamlet",
+   "lat": 14.1212,
+   "lon": -87.106434
+  },
+  {
+   "id": "osm:node/9894481419",
+   "name": "Sabaneta",
+   "kind": "locality",
+   "lat": 14.110523,
+   "lon": -87.11062
+  },
+  {
+   "id": "osm:node/9894481420",
+   "name": "Sarabanda",
+   "kind": "hamlet",
+   "lat": 14.121543,
+   "lon": -87.089216
+  },
+  {
+   "id": "osm:node/9894481421",
+   "name": "Las Lagunetas",
+   "kind": "hamlet",
+   "lat": 14.11714,
+   "lon": -87.084004
+  },
+  {
+   "id": "osm:node/9894481422",
+   "name": "La Rancha",
+   "kind": "hamlet",
+   "lat": 14.087836,
+   "lon": -87.078292
+  },
+  {
+   "id": "osm:node/9894481423",
+   "name": "El Granadillo",
+   "kind": "locality",
+   "lat": 14.043425,
+   "lon": -87.112621
+  },
+  {
+   "id": "osm:node/9894481424",
+   "name": "El Ciprés",
+   "kind": "hamlet",
+   "lat": 14.006352,
+   "lon": -87.099122
+  },
+  {
+   "id": "osm:node/9894481425",
+   "name": "Cofradía",
+   "kind": "hamlet",
+   "lat": 14.00379,
+   "lon": -87.104576
+  },
+  {
+   "id": "osm:node/9894481426",
+   "name": "El Rodeo",
+   "kind": "hamlet",
+   "lat": 14.002062,
+   "lon": -87.083924
+  },
+  {
+   "id": "osm:node/9930998417",
+   "name": "Cofradia",
+   "kind": "hamlet",
+   "lat": 14.226341,
+   "lon": -87.172844
+  },
+  {
+   "id": "osm:node/9946319361",
+   "name": "Jucuapita",
+   "kind": "neighbourhood",
+   "lat": 14.194689,
+   "lon": -87.136607
+  },
+  {
+   "id": "osm:node/9946342753",
+   "name": "Los Corralitos",
+   "kind": "neighbourhood",
+   "lat": 14.17376,
+   "lon": -87.153233
+  },
+  {
+   "id": "osm:node/9946347568",
+   "name": "Jutiapa Abajo",
+   "kind": "neighbourhood",
+   "lat": 14.18219,
+   "lon": -87.151912
+  },
+  {
+   "id": "osm:node/9981821776",
+   "name": "El Tunel",
+   "kind": "neighbourhood",
+   "lat": 14.143306,
+   "lon": -87.105595
+  }
+ ],
+ "areas_path": "places/areas.geojson",
+ "nearest_place_rule": "nearest major place (city/town/village/suburb/hamlet) unless a minor one (neighbourhood/quarter/locality/peak) is more than 1.5x closer; haversine"
+}

@@ -1,0 +1,164 @@
+[
+ {
+  "file": "01-inicio.png",
+  "title_es": "Portada",
+  "description_es": "Parte superior de la portada de FOREST_SAR_HN con barra de navegación y mensaje principal.",
+  "route": "/"
+ },
+ {
+  "file": "02-observatorio.png",
+  "title_es": "Observatorio completo",
+  "description_es": "Página completa del Observatorio: pasos 1 a 3 (periodo, mapa, indicadores), avisos y limitaciones.",
+  "route": "/observatory"
+ },
+ {
+  "file": "03-periodos.png",
+  "title_es": "Paso 1: periodo",
+  "description_es": "Botones 12 días, 1 mes, 2 meses y 3 meses con las fechas del periodo seleccionado.",
+  "route": "/observatory"
+ },
+ {
+  "file": "04-comparacion-84d.png",
+  "title_es": "Comparación de 3 meses",
+  "description_es": "Periodo 27 jul 2026 a 19 oct 2026 (84 días): mapa con burbujas junto al panel de indicadores (área válida 117.537 ha, candidata 165 ha, 0,14 %, cobertura 93,8 %).",
+  "route": "/observatory"
+ },
+ {
+  "file": "05-agrupaciones.png",
+  "title_es": "Agrupaciones en el mapa",
+  "description_es": "Mapa al zoom inicial con burbujas numeradas que agrupan zonas candidatas (por ejemplo 13, 12, 9) y el contorno blanco del área con datos válidos.",
+  "route": "/observatory"
+ },
+ {
+  "file": "06-zona-seleccionada.png",
+  "title_es": "Zona seleccionada",
+  "description_es": "Zona 1 resaltada en el mapa con ventana emergente y tarjeta: área exacta 17 ha, 17 celdas de 100 m, cambio medio -3,87 dB, mayor disminución -6,26 dB, a unos 2,8 km de Las Flores.",
+  "route": "/observatory"
+ },
+ {
+  "file": "07-busqueda-localidad.png",
+  "title_es": "Búsqueda de localidad",
+  "description_es": "Cuadro de búsqueda del mapa con \"Tegu\" escrito y la lista de resultados: Tegucigalpa (Ciudad) y Centro de Tegucigalpa (Barrio).",
+  "route": "/observatory"
+ },
+ {
+  "file": "07b-busqueda-resultado.png",
+  "title_es": "Resultado de la búsqueda",
+  "description_es": "Mapa centrado en el lugar elegido de la lista tras seleccionarlo.",
+  "route": "/observatory"
+ },
+ {
+  "file": "08-mapa-relieve.png",
+  "title_es": "Mapa base Relieve",
+  "description_es": "Mapa con la base Relieve (OpenTopoMap) seleccionada y las zonas candidatas encima.",
+  "route": "/observatory"
+ },
+ {
+  "file": "08b-mapa-osm.png",
+  "title_es": "Mapa base OpenStreetMap",
+  "description_es": "Mapa con la base OpenStreetMap seleccionada y atribución visible.",
+  "route": "/observatory"
+ },
+ {
+  "file": "08c-capa-nasa.png",
+  "title_es": "Capa oficial NASA",
+  "description_es": "Radar NISAR (mosaico oficial NASA) con la etiqueta NASA e \"Imagen oficial NASA (GIBS)\", periodo 7 oct a 19 oct 2026; indicadores a la derecha (117.537 ha válidas, 23 ha candidatas).",
+  "route": "/observatory"
+ },
+ {
+  "file": "09-indicadores.png",
+  "title_es": "Panel de indicadores",
+  "description_es": "Área válida 117.537 ha, área candidata 165 ha, proporción 0,14 %, cobertura 93,8 % y semáforo de pérdida de cobertura \"No evaluado\".",
+  "route": "/observatory"
+ },
+ {
+  "file": "10-semaforo-radar.png",
+  "title_es": "Semáforo de intensidad",
+  "description_es": "Zoom 15 sobre la Zona 1 con polígonos coloreados por intensidad y la leyenda de intensidad (moderada, fuerte, muy fuerte).",
+  "route": "/observatory"
+ },
+ {
+  "file": "11-analytics.png",
+  "title_es": "Evolución: resumen",
+  "description_es": "Parte superior de Evolución con el aviso y el resumen del periodo.",
+  "route": "/analytics"
+ },
+ {
+  "file": "11b-analytics-graficos.png",
+  "title_es": "Evolución: gráficos",
+  "description_es": "Sección de gráficos de la página de Evolución.",
+  "route": "/analytics"
+ },
+ {
+  "file": "12-linea-tiempo.png",
+  "title_es": "Línea de tiempo y horizontes",
+  "description_es": "11 fechas en 132 días (5 usadas); marca 27 jul 2026 seleccionada (periodo de 84 días) y horizontes: 1 mes y 3 meses procesados, el resto pendiente.",
+  "route": "/analytics"
+ },
+ {
+  "file": "13-observaciones.png",
+  "title_es": "Observaciones por localidad",
+  "description_es": "98 observaciones en 43 localidades (165 ha); Monte Redondo con 12 observaciones (22 ha) y la Observación 1 (8 ha, disminución moderada) abierta; botones CSV visibles.",
+  "route": "/observations"
+ },
+ {
+  "file": "14-descarga-csv.png",
+  "title_es": "Descarga de CSV",
+  "description_es": "Botones Zonas candidatas (CSV) y Sectores de 1 km (CSV) del periodo de 3 meses.",
+  "route": "/observations"
+ },
+ {
+  "file": "15-comunidad.png",
+  "title_es": "Comunidad",
+  "description_es": "Página de Comunidad.",
+  "route": "/community"
+ },
+ {
+  "file": "16-biblioteca.png",
+  "title_es": "Biblioteca",
+  "description_es": "Página de Biblioteca.",
+  "route": "/library"
+ },
+ {
+  "file": "17-metodologia.png",
+  "title_es": "Metodología",
+  "description_es": "Parte superior de Metodología.",
+  "route": "/methodology"
+ },
+ {
+  "file": "17b-metodologia-leyenda.png",
+  "title_es": "Leyenda de 5 clases",
+  "description_es": "Sección de leyenda de clases de la metodología.",
+  "route": "/methodology"
+ },
+ {
+  "file": "17c-metodologia-transparencia.png",
+  "title_es": "Transparencia",
+  "description_es": "Sección de transparencia con un desplegable abierto.",
+  "route": "/methodology"
+ },
+ {
+  "file": "18-movil-observatorio.png",
+  "title_es": "Observatorio en móvil",
+  "description_es": "Vista de 390x844 del Observatorio desplazada hasta el mapa.",
+  "route": "/observatory"
+ },
+ {
+  "file": "18b-movil-analytics.png",
+  "title_es": "Evolución en móvil",
+  "description_es": "Vista de 390x844 de la parte superior de Evolución.",
+  "route": "/analytics"
+ },
+ {
+  "file": "19-datos-tecnicos.png",
+  "title_es": "Datos técnicos",
+  "description_es": "Página de datos técnicos.",
+  "route": "/data"
+ },
+ {
+  "file": "20-idioma-en.png",
+  "title_es": "Interfaz en inglés",
+  "description_es": "Observatorio con ?lang=en, parte superior.",
+  "route": "/observatory"
+ }
+]

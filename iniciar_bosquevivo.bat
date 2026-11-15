@@ -26,7 +26,7 @@ echo Starting bounded Claude Code run on %BRANCH%.
 echo Review docs\OPERACION_NOCTURNA.md and permissions before running unattended.
 echo Output: .bosquevivo-work\claude-run.log
 echo Press Ctrl+C to stop. No automatic push or deploy.
-call claude -p --permission-mode dontAsk --settings ".claude/bosquevivo-session.json" --max-turns 100 < "docs\PROMPT_INICIO.md" > ".bosquevivo-work\claude-run.log" 2>&1
+call claude -p --model claude-opus-5-5 --effort medium --permission-mode dontAsk --settings ".claude/bosquevivo-session.json" --max-turns 70 < "docs\PROMPT_INICIO.md" > ".bosquevivo-work\claude-run.log" 2>&1
 set "RESULT=%ERRORLEVEL%"
 echo Claude Code exit code: %RESULT%
 echo Review log, docs\PROGRESS.md and docs\HANDOFF.md. A zero exit code is not proof of completed work.

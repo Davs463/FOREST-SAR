@@ -1,173 +1,614 @@
-import { useMemo, useState } from 'react';
-import { studyRegions, timelineMonths, visualizationLayers, type LayerKey, type StudyRegion } from './observatoryData';
+import { useCallback, useEffect, useMemo, useRef, useState, type KeyboardEvent as ReactKeyboardEvent, type ReactNode } from 'react';
+import { ListTree, Maximize2, X } from 'lucide-react';
+import { useHashParam } from '../../app/router';
+import { Button, EmptyState, Modal, StatusBadge, Tabs, panelDomId, tabDomId, type TabItem } from '../../components';
+import { routeHref } from '../../config/app.config';
+import { DEFAULT_BASE_ID, MAP_LAYERS, OSM_LAYER, type MapLayerDef } from '../../config/mapLayers.config';
+import { useI18n, type MessageKey } from '../../i18n';
+import { useCells, useComparisons, usePlaces, useSnapshot } from '../../services/comparisons';
+import { useScience } from '../../services/ScienceProvider';
+import { describeError } from '../../shared/errors';
+import { formatDate, formatNumber, formatSmart } from '../../shared/format';
+import type { DerivedData, LayerKey, OverlayLayer, ResultsPair, Zone } from '../../shared/science.types';
+import { sectorMetrics } from '../../shared/sectorMetrics';
+import { layerCoverage } from './basemap';
+import { installMapColorVars } from '../../config/mapColors';
+import { PUBLISHED_THRESHOLD_DB, classifyDelta } from '../../shared/radarClasses';
+import { checkZoneAreaSum } from './clusters';
+import { BaseMapPicker, ClusterInfo, DerivedLegend, DerivedMethod, NasaMenu, ZoneInfo, ZoneSelect } from './ExplorePanels';
+import { ObservatoryMap, type TileSelection, type ZoneView } from './ObservatoryMap';
+import { PeriodPicker } from './PeriodPicker';
+import { PlaceSearch, type PlaceFocus } from './PlaceSearch';
+import { IndicatorCards, KeyMessage, LimitationsCard, LimitationsList, MapLegend, TechnicalDetails } from './panels';
+import { defaultComparison, findComparison, type Picks } from './period';
+import { buildSectorNames, gridName, sectorLabel } from './sectorNames';
+import { zoneName, zoneOptionLabel, zoneShortLabel } from './zoneLabels';
 import './observatory.css';
 
-function RadarScene({ layer, regionId, after = false }: { layer: LayerKey; regionId: string; after?: boolean }) {
-  return (
-    <div className={`radar-scene radar-scene--${layer} ${after ? 'radar-scene--after' : ''}`} aria-hidden="true">
-      <svg viewBox="0 0 800 440" preserveAspectRatio="xMidYMid slice">
-        <defs>
-          <pattern id={`grain-${regionId}-${layer}-${after ? 'b' : 'a'}`} width="18" height="18" patternUnits="userSpaceOnUse">
-            <circle cx="3" cy="4" r="1.2" fill="currentColor" opacity=".22" />
-            <circle cx="13" cy="11" r=".8" fill="currentColor" opacity=".18" />
-            <path d="M0 16 7 13M11 3l5-2" stroke="currentColor" strokeWidth=".7" opacity=".18" />
-          </pattern>
-          <linearGradient id={`terrain-${regionId}-${layer}-${after ? 'b' : 'a'}`} x1="0" y1="0" x2="1" y2="1">
-            <stop stopColor="#8eaa7b" />
-            <stop offset=".48" stopColor="#466b58" />
-            <stop offset="1" stopColor="#183b32" />
-          </linearGradient>
-        </defs>
-        <rect width="800" height="440" fill={`url(#terrain-${regionId}-${layer}-${after ? 'b' : 'a'})`} />
-        <path d="M-20 290C80 250 87 126 197 127s133 87 226 46 111-90 190-54 112 17 214-42v389H-20Z" fill="#b4bd83" opacity=".34" />
-        <path d="M-15 327c110-64 167-20 229-68s134-130 219-82 110 83 193 31 119-33 187-73" fill="none" stroke="#e1ddb2" strokeWidth="2" opacity=".48" />
-        <path d="M12 132c58 20 115 8 160-20s114-27 155 6 107 49 162 12 92-61 160-38 97 34 158 11" fill="none" stroke="#d9dfbd" strokeWidth="1.4" opacity=".42" />
-        <path d="M0 0h800v440H0z" fill={`url(#grain-${regionId}-${layer}-${after ? 'b' : 'a'})`} />
-        {regionId === 'sula' && <path d="M0 300c110-50 167 52 252-1s109-5 178-45 99 24 160-3 125-97 210-71v260H0Z" fill="#96b8a6" opacity=".44" />}
-        {regionId === 'la-tigra' && <path d="M-20 260 81 190l55 24 68-76 57 39 65-92 64 58 57-49 88 91 71-18 91 78 117-21v240H-20Z" fill="#c3c69b" opacity=".35" />}
-        {layer === 'change' && (
-          <g fill="#d1ee84" stroke="#f2f0d5" strokeWidth="1.4">
-            <path d="m208 201 22-15 17 14-9 24-28 2Z" opacity={after ? '.87' : '.48'} />
-            <path d="m485 279 26-8 13 16-11 23-27-6Z" opacity={after ? '.72' : '.35'} />
-            <path d="m594 125 18-9 14 12-7 19-21 2Z" opacity={after ? '.62' : '.3'} />
-          </g>
-        )}
-        {layer === 'moisture' && <g fill="none" stroke="#d1ee84" strokeWidth="11" opacity={after ? '.5' : '.32'}><path d="M88 284c57-42 120-43 171-10s105 32 160-6 109-48 162-13 96 34 143-5" /><path d="M75 321c60-41 120-42 174-12s104 31 160-4 106-46 159-15 97 37 141-1" strokeWidth="5" /></g>}
-        <g fill="none" stroke="#f0f0d6" strokeWidth="1" opacity=".52">
-          <path d="M0 74c117 41 152-39 264-10s142 78 249 30 184-56 287-3" />
-          <path d="M0 96c118 40 151-38 265-8s139 76 249 27 181-53 286-1" />
-          <path d="M10 365c109-30 143 14 231-9s135-59 236-19 174 34 328-10" />
-        </g>
-      </svg>
-      <span className="scene-grid" />
-      <span className="scene-crosshair" />
-      <span className="scene-caption">SIMULATED RADAR VIEW</span>
-    </div>
-  );
+/** Without derived products: the original four radar layers. With them: signal change (default) and the two dates. */
+const RADAR_LAYERS: readonly LayerKey[] = ['candidates', 'delta', 'before', 'after'];
+const DERIVED_LAYERS: readonly LayerKey[] = ['delta', 'before', 'after'];
+const LAYER_LABEL: Record<LayerKey, MessageKey> = {
+  before: 'observatory.layerBefore',
+  after: 'observatory.layerAfter',
+  delta: 'observatory.layerDelta',
+  candidates: 'observatory.layerCandidates',
+  quality: 'observatory.layerQuality',
+};
+
+const BASE_DEFS = MAP_LAYERS.filter((layer) => layer.role === 'base');
+const OVERLAY_DEFS = MAP_LAYERS.filter((layer) => layer.role === 'overlay');
+const NO_HIGHLIGHT: ReadonlySet<string> = new Set();
+const NO_ZONES: Zone[] = [];
+
+/** Perceptual viz raster (same colour scale for both dates) when published; otherwise the engine's original PNG. */
+function pickLayer(key: LayerKey, result: ResultsPair | null, derived: DerivedData | null, grayscale: boolean): OverlayLayer | null {
+  if (!result) return null;
+  if (derived && !grayscale && (key === 'before' || key === 'after' || key === 'delta')) {
+    const viz = derived.viz[key];
+    if (viz) return { url: viz.url, bounds: viz.bounds, crs: null, legend: null, legend_spec: viz.legend, unit: 'dB' };
+  }
+  return result.layers[key];
 }
 
-function TimeSeries({ region }: { region: StudyRegion }) {
-  const points = region.series.map((value, index) => `${24 + index * 42},${88 - value * 0.78}`).join(' ');
-  const areaPoints = `24,94 ${points} 318,94`;
-
+function StepHead({ n, title, lead }: { n: number; title: string; lead: string }) {
+  const { t } = useI18n();
   return (
-    <div className="series-wrap">
-      <svg className="series-chart" viewBox="0 0 350 112" role="img" aria-label="Illustrative radar signal pattern across eight months">
-        <defs><linearGradient id="series-fill" x1="0" x2="0" y1="0" y2="1"><stop stopColor="#a3d977" stopOpacity=".33" /><stop offset="1" stopColor="#a3d977" stopOpacity="0" /></linearGradient></defs>
-        {[24, 48, 72, 96].map((y) => <line key={y} x1="24" x2="330" y1={y} y2={y} stroke="currentColor" opacity=".11" />)}
-        <polygon points={areaPoints} fill="url(#series-fill)" />
-        <polyline points={points} fill="none" stroke="#659666" strokeWidth="2.5" strokeLinejoin="round" strokeLinecap="round" />
-        {region.series.map((value, index) => <circle key={index} cx={24 + index * 42} cy={88 - value * 0.78} r="3" fill="#f7f6ef" stroke="#659666" strokeWidth="2" />)}
-      </svg>
-      <div className="series-months" aria-hidden="true">{timelineMonths.map((month) => <span key={month}>{month}</span>)}</div>
-    </div>
+    <header className="observatory__step-head">
+      <span className="observatory__step-num" aria-label={t('observatory.stepAria', { n })}>{n}</span>
+      <div>
+        <h2 id={`obs-step-${n}-title`}>{title}</h2>
+        <p className="observatory__muted">{lead}</p>
+      </div>
+    </header>
   );
 }
 
 export function Observatory() {
-  const [regionId, setRegionId] = useState(studyRegions[0].id);
-  const [layer, setLayer] = useState<LayerKey>('structure');
-  const [position, setPosition] = useState(54);
-  const [startDate, setStartDate] = useState(studyRegions[0].comparisonDates[0]);
-  const [endDate, setEndDate] = useState(studyRegions[0].comparisonDates[1]);
-  const [selectedPoint, setSelectedPoint] = useState(false);
-  const region = useMemo(() => studyRegions.find((item) => item.id === regionId) ?? studyRegions[0], [regionId]);
+  const { t, locale } = useI18n();
+  const { state, reload } = useScience();
+  const [picks, setPicks] = useState<Picks | null>(null);
+  const compareParam = useHashParam('compare');
+  const zoneParam = useHashParam('zone');
+  const appliedZoneKey = useRef<string | null>(null);
+  const [layerKey, setLayerKey] = useState<LayerKey | null>(null);
+  const [opacity, setOpacity] = useState(75);
+  const [sectorId, setSectorId] = useState<string | null>(null);
+  const [zoneId, setZoneId] = useState<string | null>(null);
+  const [focus, setFocus] = useState<PlaceFocus | null>(null);
+  const [helpOpen, setHelpOpen] = useState(false);
+  const [limitsOpen, setLimitsOpen] = useState(false);
+  const [showFootprints, setShowFootprints] = useState(false);
+  const [showGrid, setShowGrid] = useState(false);
+  const [showQuality, setShowQuality] = useState(false);
+  const [showCells, setShowCells] = useState(false);
+  const [showWindowToggle, setShowWindowToggle] = useState(false);
+  const [grayscale, setGrayscale] = useState(false);
+  const [baseId, setBaseId] = useState<string>(DEFAULT_BASE_ID);
+  const [overlayId, setOverlayId] = useState('');
+  const [nasaSide, setNasaSide] = useState<'initial' | 'final'>('initial');
+  const [failedTileId, setFailedTileId] = useState<string | null>(null);
+  const [clusterIds, setClusterIds] = useState<string[] | null>(null);
+  const [zoomTo, setZoomTo] = useState<{ ids: string[]; nonce: number } | null>(null);
+  const [zoneView, setZoneView] = useState<ZoneView | null>(null);
 
-  function selectRegion(nextId: string) {
-    const nextRegion = studyRegions.find((item) => item.id === nextId);
-    if (!nextRegion) return;
-    setRegionId(nextId);
-    setStartDate(nextRegion.comparisonDates[0]);
-    setEndDate(nextRegion.comparisonDates[1]);
-    setSelectedPoint(false);
+  useEffect(() => { installMapColorVars(); }, []);
+
+  // ---- expanded ("large map") mode: the same map container gets a fixed, dialog-like presentation (no second map).
+  const [expanded, setExpanded] = useState(false);
+  const [legendOpen, setLegendOpen] = useState(false);
+  const boxRef = useRef<HTMLDivElement>(null);
+  const expandBtnRef = useRef<HTMLButtonElement>(null);
+  const closeBtnRef = useRef<HTMLButtonElement>(null);
+  const wasExpanded = useRef(false);
+  useEffect(() => {
+    const resize = () => { requestAnimationFrame(() => window.dispatchEvent(new Event('resize'))); window.setTimeout(() => window.dispatchEvent(new Event('resize')), 260); };
+    if (!expanded) {
+      if (wasExpanded.current) { wasExpanded.current = false; expandBtnRef.current?.focus(); resize(); }
+      return;
+    }
+    wasExpanded.current = true;
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    closeBtnRef.current?.focus();
+    resize();
+    const onKey = (event: KeyboardEvent) => { if (event.key === 'Escape' && !event.defaultPrevented) setExpanded(false); };
+    document.addEventListener('keydown', onKey);
+    return () => { document.removeEventListener('keydown', onKey); document.body.style.overflow = previous; };
+  }, [expanded]);
+  const trapTab = (event: ReactKeyboardEvent<HTMLDivElement>) => {
+    if (event.key !== 'Tab' || !boxRef.current) return;
+    const items = [...boxRef.current.querySelectorAll<HTMLElement>('button:not([disabled]), select, input, a[href], [tabindex="0"]')].filter((el) => el.offsetParent !== null);
+    if (items.length === 0) return;
+    const first = items[0]; const last = items[items.length - 1];
+    if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+    else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+  };
+
+
+  const { comparisons } = useComparisons();
+  const places = usePlaces();
+  const fallback = useMemo(() => defaultComparison(comparisons), [comparisons]);
+
+  // A new set of comparisons (first load / reload) resets the choice; `?compare=<snapshot_id>` selects that comparison.
+  useEffect(() => { setPicks(null); }, [comparisons]);
+  useEffect(() => {
+    const target = compareParam ? comparisons.find((c) => c.snapshot_id === compareParam) : null;
+    if (target) setPicks({ initial: target.initial_date, final: target.final_date });
+  }, [compareParam, comparisons]);
+
+  const effectivePicks: Picks = picks ?? { initial: fallback?.initial_date ?? null, final: fallback?.final_date ?? null };
+  const comparison = findComparison(comparisons, effectivePicks);
+  const { snapshot, retry: retrySnapshot } = useSnapshot(comparison);
+  const snapshotData = snapshot.status === 'ready' ? snapshot.data : null;
+  const snapshotId = comparison?.snapshot_id ?? null;
+
+  // Changing comparison clears the sector/zone selection (they belong to one snapshot).
+  useEffect(() => { setSectorId(null); setZoneId(null); setClusterIds(null); setZoneView(null); }, [snapshotId]);
+
+  const selectSector = useCallback((id: string | null) => { setSectorId(id); if (id) { setZoneId(null); setClusterIds(null); } }, []);
+  const selectZone = useCallback((id: string | null) => { setZoneId(id); if (id) { setSectorId(null); setClusterIds(null); } }, []);
+  const selectCluster = useCallback((ids: string[]) => { setClusterIds(ids); setZoneId(null); setSectorId(null); }, []);
+  const zoomToCluster = useCallback((ids: string[]) => setZoomTo((prev) => ({ ids, nonce: (prev?.nonce ?? 0) + 1 })), []);
+
+  const result = snapshotData?.pair ?? null;
+  const derived = snapshotData?.derived ?? null;
+  const hasDerived = derived !== null;
+  const derivedZones = derived?.zones ?? NO_ZONES;
+  const validGeometry = derived?.validArea?.geometry ?? null;
+  const selectedZone = derivedZones.find((z) => z.zone_id === zoneId) ?? null;
+  const cells = useCells(derived, showCells);
+
+  // `?zone=<zone_id>` (from the Observations page): select that zone and fly to it once its snapshot is loaded.
+  useEffect(() => {
+    if (!zoneParam || !snapshotId || derivedZones.length === 0) return;
+    const key = `${snapshotId}:${zoneParam}`;
+    if (appliedZoneKey.current === key) return;
+    if (!derivedZones.some((z) => z.zone_id === zoneParam)) return;
+    appliedZoneKey.current = key;
+    selectZone(zoneParam);
+    zoomToCluster([zoneParam]);
+  }, [zoneParam, snapshotId, derivedZones, selectZone, zoomToCluster]);
+  const thresholdDb = snapshotData?.pair?.params.threshold_db != null ? Math.abs(snapshotData.pair.params.threshold_db) : PUBLISHED_THRESHOLD_DB;
+  const clusterZones = useMemo(() => (clusterIds ? derivedZones.filter((z) => clusterIds.includes(z.zone_id)) : []), [clusterIds, derivedZones]);
+
+  // Dev check: every candidate cell belongs to one zone, so the zone areas must add up to the published candidate area.
+  const candidateAreaHa = snapshotData?.pair?.metrics?.candidate_area_ha;
+  useEffect(() => {
+    if (import.meta.env.DEV) checkZoneAreaSum(derivedZones, candidateAreaHa);
+  }, [derivedZones, candidateAreaHa]);
+
+  const sectors = useMemo(() => snapshotData?.sectors?.features ?? [], [snapshotData]);
+  const names = useMemo(() => buildSectorNames(sectors, result?.pair_id ?? null), [sectors, result]);
+  const sectorLabels = useMemo(() => new Map(sectors.map((s) => [s.sector_id, sectorLabel(names.get(s.sector_id), s.sector_id, t)])), [sectors, names, t]);
+  const zones = useMemo(() => [...names.values()].filter((n) => n.zone !== null).sort((a, b) => (a.zone ?? 0) - (b.zone ?? 0)), [names]);
+  // Picker order: candidate zones first, then grid cells north→south, west→east.
+  const sortedSectorIds = useMemo(() => [...names.values()].sort((a, b) => {
+    const za = a.zone ?? Infinity; const zb = b.zone ?? Infinity;
+    if (za !== zb) return za - zb;
+    return (a.row ?? Infinity) - (b.row ?? Infinity) || (a.col ?? Infinity) - (b.col ?? Infinity) || a.id.localeCompare(b.id);
+  }).map((n) => n.id), [names]);
+  // With grouped zones the 1 km candidate squares are not highlighted any more (only the optional grid layer shows them).
+  const highlightIds = useMemo(() => (hasDerived ? NO_HIGHLIGHT : new Set(zones.map((z) => z.id))), [zones, hasDerived]);
+  const selectedSector = sectors.find((s) => s.sector_id === sectorId) ?? null;
+  const selectedName = sectorId ? names.get(sectorId) : undefined;
+
+  const tabKeys = hasDerived ? DERIVED_LAYERS : RADAR_LAYERS;
+  const layerOf = (key: LayerKey) => pickLayer(key, result, derived, grayscale);
+  // The sliding before/after comparator is retired from the interface; the map component keeps its (unused) support.
+  const compareOn = false;
+  const advancedKeys = tabKeys.filter((key): key is 'before' | 'after' => key === 'before' || key === 'after');
+  const mainKeys = tabKeys.filter((key) => key !== 'before' && key !== 'after');
+  const wanted: LayerKey = layerKey && tabKeys.includes(layerKey) ? layerKey : tabKeys[0];
+  const effectiveLayer: LayerKey = layerOf(wanted) ? wanted : tabKeys.find((key) => layerOf(key)) ?? wanted;
+  const layerTabs: TabItem[] = mainKeys.map((key) => ({
+    id: key,
+    label: hasDerived && key === 'delta' ? t('explore.layerDeltaDb') : t(LAYER_LABEL[key]),
+    disabled: !layerOf(key),
+    title: layerOf(key) ? undefined : t('observatory.layerMissing'),
+  }));
+
+  // ---- base map / official NASA imagery selection
+  const initialDate = comparison?.initial_date ?? null;
+  const finalDate = comparison?.final_date ?? null;
+  const sideDate = nasaSide === 'initial' ? initialDate : finalDate;
+  const datesFor = (): { left: string | null; right: string | null } => (compareOn ? { left: initialDate, right: finalDate } : { left: sideDate, right: sideDate });
+  const covered = (def: MapLayerDef) => {
+    const d = datesFor();
+    return layerCoverage(def, d.left) === 'ok' && layerCoverage(def, d.right) === 'ok';
+  };
+  const chosenBase = BASE_DEFS.find((d) => d.id === baseId) ?? OSM_LAYER;
+  const baseCovered = covered(chosenBase);
+  const baseDef = baseCovered ? chosenBase : OSM_LAYER;
+  const chosenOverlay = OVERLAY_DEFS.find((d) => d.id === overlayId) ?? null;
+  const overlayCovered = chosenOverlay ? covered(chosenOverlay) : false;
+  const base: TileSelection = { def: baseDef, ...datesFor() };
+  const officialOverlay: TileSelection | null = chosenOverlay && overlayCovered ? { def: chosenOverlay, ...datesFor() } : null;
+  const showsNasa = baseDef.official || !!officialOverlay;
+  const failedDef = failedTileId === baseDef.id ? baseDef : failedTileId && officialOverlay?.def.id === failedTileId ? officialOverlay.def : null;
+  const lang = locale;
+
+  if (state.status === 'loading') return <Shell><EmptyState title={t('observatory.loadingTitle')} /></Shell>;
+  if (state.status === 'no_data') {
+    return <Shell><EmptyState title={t('observatory.noDataTitle')} message={t('observatory.noDataBody')} action={<Button variant="secondary" onClick={reload}>{t('observatory.retryLoad')}</Button>} /></Shell>;
+  }
+  if (state.status === 'error') {
+    return (
+      <Shell>
+        <EmptyState tone="error" title={t('observatory.errorTitle')} message={`${t('observatory.errorBody')} ${describeError(t, state.error)}`}
+          action={<Button variant="secondary" onClick={reload}>{t('common.retry')}</Button>} />
+      </Shell>
+    );
   }
 
+  const catalog = snapshotData?.catalog ?? state.catalog;
+  const ready = state.status === 'ready' && snapshotData !== null;
+  const metrics = selectedSector && result ? sectorMetrics(selectedSector, result.pair_id) : result?.metrics ?? null;
+  const activeLayer = compareOn ? layerOf('before') : layerOf(effectiveLayer);
+  const initialText = formatDate(initialDate, locale) ?? '—';
+  const finalText = formatDate(finalDate, locale) ?? '—';
+
+  const single = compareOn ? null : layerOf(effectiveLayer);
+  // The raw 1 km candidate PNG is replaced by the grouped zones whenever those exist.
+  const radar = single && !(hasDerived && effectiveLayer === 'candidates') ? { url: single.url, bounds: single.bounds } : null;
+  const beforeLayer = layerOf('before');
+  const afterLayer = layerOf('after');
+  const compareLayers = compareOn && beforeLayer && afterLayer ? {
+    before: { url: beforeLayer.url, bounds: beforeLayer.bounds },
+    after: { url: afterLayer.url, bounds: afterLayer.bounds },
+  } : null;
+  const qualityLayer = showQuality && result?.layers.quality ? { url: result.layers.quality.url, bounds: result.layers.quality.bounds } : null;
+  const showWindow = !validGeometry || showWindowToggle;
+
+  const nasaBadge = showsNasa ? <StatusBadge tone="info">{t('observatory.badgeNasa')}</StatusBadge> : null;
+  const noCoverageText = t('observatory.noNasaCoverage');
+  const baseOptionDisabled = (def: MapLayerDef) => !covered(def);
+  const officialNote = showsNasa ? (
+    <p className="observatory__muted">{nasaBadge} {(baseDef.official ? baseDef : officialOverlay?.def)?.description[lang]}</p>
+  ) : null;
+
+  const zoneTip = (zone: Zone) => zoneShortLabel(zone, t, locale);
+  const zonePopup = (zone: Zone) => ({
+    title: zoneName(zone, t),
+    lines: [
+      `${t('explore.zoneArea')}: ${formatSmart(zone.area_ha, locale) ?? '?'} ${t('common.hectares')}`,
+      `${t('explore.zoneMean')}: ${zone.mean_delta_db === null ? t('explore.zoneNotAvailable') : `${formatNumber(zone.mean_delta_db, locale, 2)} dB`}`,
+      `${t('explore.intensityLabel')}: ${t(`explore.intensityShort_${classifyDelta(zone.mean_delta_db, thresholdDb) ?? 'noData'}` as MessageKey)}`,
+    ],
+  });
+
+  const pickBase = (id: string) => { setBaseId(id); setFailedTileId(null); };
+  const nasaDates = (chosenBase.time.mode === 'pairDate' || chosenOverlay?.time.mode === 'pairDate') ? (
+    <div className="obs-pop__dates" role="group" aria-label={t('observatory.nasaDateLabel')}>
+      <span className="obs-pop__lead">{t('observatory.nasaDateLabel')}</span>
+      {compareOn ? <small className="observatory__muted">{t('observatory.nasaDateCompare', { initial: initialText, final: finalText })}</small> : (
+        <div className="obs-seg obs-seg--wrap">
+          <button type="button" className="obs-seg__btn" aria-pressed={nasaSide === 'initial'} onClick={() => { setNasaSide('initial'); setFailedTileId(null); }}>{t('observatory.swipeBefore', { date: initialText })}</button>
+          <button type="button" className="obs-seg__btn" aria-pressed={nasaSide === 'final'} onClick={() => { setNasaSide('final'); setFailedTileId(null); }}>{t('observatory.swipeAfter', { date: finalText })}</button>
+        </div>
+      )}
+    </div>
+  ) : null;
+  const legendEl = hasDerived ? (
+    <DerivedLegend layerKey={compareOn ? 'before' : effectiveLayer} layer={activeLayer} compare={compareOn} grayscale={grayscale} hasValidArea={!!validGeometry}
+      hasZones={derivedZones.length > 0} zoneView={zoneView} hasSelection={!!selectedZone} showWindow={showWindow} showCells={showCells} showGrid={showGrid}
+      showFootprints={showFootprints} official={officialNote} />
+  ) : (
+    <MapLegend thresholdDb={result?.params.threshold_db ?? null} layerKey={effectiveLayer} layer={activeLayer} compare={compareOn} showQuality={showQuality}
+      showGrid={showGrid} showFootprints={showFootprints} official={officialNote} />
+  );
+
+  const showWorkspace = comparisons.length === 0 || comparison !== null;
+
   return (
-    <section className="observatory section-shell" id="observatory" aria-labelledby="observatory-title">
-      <div className="observatory-intro">
+    <Shell onHelp={() => setHelpOpen(true)}>
+      {snapshotData?.results.data_mode === 'demo' && <p className="observatory__demo" role="status"><StatusBadge tone="demo">{t('observatory.demoBadge')}</StatusBadge> {t('observatory.demoBanner')}</p>}
+
+      {state.status === 'catalog_only' && (
+        <EmptyState title={t('observatory.catalogOnlyTitle')} message={t('observatory.catalogOnlyBody')}
+          action={<Button variant="secondary" disabled aria-describedby="compare-hint">{t('observatory.modeCompare')}</Button>}>
+          <p id="compare-hint" className="observatory__muted">{t('observatory.compareDisabled')}</p>
+        </EmptyState>
+      )}
+
+      {/* STEP 1 */}
+      <section className="observatory__step" id="obs-step-1" aria-labelledby="obs-step-1-title">
+        <StepHead n={1} title={t('observatory.step1Title')} lead={t('observatory.step1Lead')} />
+        {comparisons.length > 0 ? (
+          <PeriodPicker comparisons={comparisons} selected={comparison} scenes={state.catalog.scenes} picks={effectivePicks} onPicks={setPicks} />
+        ) : <p className="observatory__muted">{t('observatory.periodNone')}</p>}
+      </section>
+
+      {showWorkspace && <div className="observatory__layout">
+        {/* STEP 2 */}
+        <section className="observatory__step observatory__main" id="obs-step-2" aria-labelledby="obs-step-2-title">
+          <StepHead n={2} title={t('observatory.step2Title')} lead={t('observatory.step2Lead')} />
+          <div className={expanded ? 'obs-mapbox-slot is-held' : 'obs-mapbox-slot'}>
+          <div
+            ref={boxRef}
+            className={`obs-mapbox${expanded ? ' is-expanded' : ''}`}
+            role={expanded ? 'dialog' : undefined}
+            aria-modal={expanded ? true : undefined}
+            aria-labelledby={expanded ? 'obs-map-dialog-title' : undefined}
+            onKeyDown={expanded ? trapTab : undefined}
+          >
+            {expanded && (
+              <div className="obs-mapbox__head">
+                <h2 id="obs-map-dialog-title">{t('explore.mapExpandTitle')}</h2>
+                {hasDerived && derivedZones.length > 0 && (
+                  <label className="obs-mapbox__zone">
+                    <span className="sr-only">{t('explore.zonePick')}</span>
+                    <select value={selectedZone?.zone_id ?? ''} data-testid="map-expand-zone" onChange={(e) => { const id = e.target.value || null; selectZone(id); if (id) zoomToCluster([id]); }}>
+                      <option value="">{t('explore.zoneAll')}</option>
+                      {derivedZones.map((zone) => <option key={zone.zone_id} value={zone.zone_id}>{zoneOptionLabel(zone, t, locale)}</option>)}
+                    </select>
+                  </label>
+                )}
+                <button ref={closeBtnRef} type="button" className="obs-tool" data-testid="map-expand-close" aria-label={t('explore.mapExpandClose')} onClick={() => setExpanded(false)}>
+                  <X size={16} aria-hidden="true" /><span>{t('common.close')}</span>
+                </button>
+              </div>
+            )}
+            <div className="obs-toolbar" role="group" aria-label={t('explore.mapToolbar')}>
+              {ready && result && (
+                <Tabs idPrefix="obs-layer" tabs={layerTabs} activeId={effectiveLayer} onChange={(id) => setLayerKey(id as LayerKey)} label={t('observatory.layerGroup')} />
+              )}
+              <BaseMapPicker defs={BASE_DEFS} selectedId={baseDef.id} locale={lang} isCovered={(def) => !baseOptionDisabled(def)} onPick={pickBase} />
+              <NasaMenu defs={BASE_DEFS} selectedId={baseDef.id} locale={lang} isCovered={(def) => !baseOptionDisabled(def)} onPick={pickBase}>
+                {nasaDates}
+                {!baseCovered && <p className="obs-pop__note" role="status">{chosenBase.label[lang]}: {noCoverageText}</p>}
+              </NasaMenu>
+              {!expanded && (
+                <button ref={expandBtnRef} type="button" className="obs-tool obs-toolbar__expand" data-testid="map-expand" aria-label={t('explore.mapExpand')} title={t('explore.mapExpand')} onClick={() => { setLegendOpen(false); setExpanded(true); }}>
+                  <Maximize2 size={16} aria-hidden="true" /><span>{t('explore.mapExpand')}</span>
+                </button>
+              )}
+            </div>
+            {ready && result && !hasDerived && <p className="observatory__muted" data-testid="no-derived">{t('explore.noDerivedNotice')}</p>}
+            <div className="obs-mapbox__body" id={panelDomId('obs-layer')} role={ready && result && !compareOn ? 'tabpanel' : undefined} aria-labelledby={ready && result && !compareOn ? tabDomId('obs-layer', effectiveLayer) : undefined}>
+              <ObservatoryMap
+                bbox={catalog.query.bbox}
+                scenes={catalog.scenes}
+                sectors={sectors}
+                selectedSectorId={sectorId}
+                highlightIds={highlightIds}
+                sectorLabels={sectorLabels}
+                onSelectSector={selectSector}
+                zones={derivedZones}
+                selectedZoneId={selectedZone?.zone_id ?? null}
+                onSelectZone={selectZone}
+                zoneTip={zoneTip}
+                zonePopup={zonePopup}
+                thresholdDb={thresholdDb}
+                onSelectCluster={selectCluster}
+                zoomTo={zoomTo}
+                onZoneView={setZoneView}
+                clusterAria={(count) => t('explore.clusterAria', { count })}
+                validArea={validGeometry}
+                showWindow={showWindow}
+                cells={cells}
+                focus={focus}
+                radar={radar}
+                compare={compareLayers}
+                quality={qualityLayer}
+                opacity={opacity / 100}
+                showFootprints={showFootprints}
+                showGrid={showGrid}
+                base={base}
+                officialOverlay={officialOverlay}
+                onTileFailure={setFailedTileId}
+                labels={{
+                  window: t('observatory.studyWindow'), footprint: t('observatory.footprints'), map: t('observatory.mapLabel'),
+                  unavailable: t('observatory.mapUnavailable'), overlayError: t('observatory.overlayError'),
+                  before: t('observatory.swipeBefore', { date: initialText }), after: t('observatory.swipeAfter', { date: finalText }),
+                  divider: t('observatory.swipeLabel'),
+                }}
+              >
+                {places && <PlaceSearch gazetteer={places} validArea={validGeometry} zones={derivedZones} focus={focus} onFocus={setFocus} onSelectZone={selectZone} />}
+                {result && (
+                  <div className="obs-origin" aria-label={t('observatory.provenanceChips')}>
+                    <StatusBadge tone="ok">{t('observatory.badgeCalculated')}</StatusBadge>
+                    {nasaBadge}
+                  </div>
+                )}
+                {expanded && (
+                  <div className="obs-float obs-float--left">
+                    {selectedZone ? (
+                      <div className="obs-float__card" data-testid="map-zone-float">
+                        <div className="obs-float__row">
+                          <strong>{zoneName(selectedZone, t)}</strong>
+                          <button type="button" className="obs-float__x" aria-label={t('observatory.backToWindow')} onClick={() => setZoneId(null)}><X size={14} aria-hidden="true" /></button>
+                        </div>
+                        <span>{formatSmart(selectedZone.area_ha, locale) ?? '?'} {t('common.hectares')} · {selectedZone.mean_delta_db === null ? t('explore.zoneNotAvailable') : `${formatNumber(selectedZone.mean_delta_db, locale, 2)} dB`}</span>
+                        <span>{t('explore.intensityLabel')}: {t(`explore.intensityShort_${classifyDelta(selectedZone.mean_delta_db, thresholdDb) ?? 'noData'}` as MessageKey)}</span>
+                      </div>
+                    ) : clusterZones.length > 1 ? (
+                      <div className="obs-float__card" data-testid="map-cluster-float">
+                        <strong>{t('explore.clusterTitle', { count: clusterZones.length })}</strong>
+                        <Button variant="secondary" className="btn--sm" onClick={() => zoomToCluster(clusterZones.map((z) => z.zone_id))}>{t('explore.clusterZoom')}</Button>
+                      </div>
+                    ) : null}
+                    <div className="obs-float__legend">
+                      <button type="button" className="obs-tool" aria-expanded={legendOpen} onClick={() => setLegendOpen((v) => !v)}>
+                        <ListTree size={15} aria-hidden="true" /><span>{t('explore.legendToggle')}</span>
+                      </button>
+                      {legendOpen && legendEl}
+                    </div>
+                  </div>
+                )}
+              </ObservatoryMap>
+            </div>
+          </div>
+          </div>
+          {failedDef && (
+            <p className="observatory__warning" role="alert">
+              {failedDef.official ? t('observatory.tileFailure') : t('observatory.tileFailureOsm')}{' '}
+              {failedDef.id !== OSM_LAYER.id && <Button variant="ghost" className="btn--sm" onClick={() => { setBaseId(OSM_LAYER.id); setOverlayId(''); setFailedTileId(null); }}>{t('observatory.tileBackToOsm')}</Button>}
+            </p>
+          )}
+          {ready && result && (
+            <div className="observatory__slider obs-opacity">
+              <label>
+                <span>{t('observatory.opacity')} <b>{opacity}%</b></span>
+                <input type="range" min={0} max={100} step={5} value={opacity} data-testid="opacity-slider" onChange={(event) => setOpacity(Number(event.target.value))} />
+              </label>
+              {!compareOn && !layerOf(effectiveLayer) && <small className="observatory__muted">{t('observatory.layerNone')}</small>}
+            </div>
+          )}
+
+          {!expanded && legendEl}
+
+          <details className="observatory__details observatory__advanced" data-testid="map-advanced">
+            <summary>{t('observatory.advancedControls')}</summary>
+            <fieldset className="observatory__fieldset">
+              <legend>{t('observatory.advancedLayers')}</legend>
+              <label className="observatory__check"><input type="checkbox" checked={showFootprints} data-testid="toggle-footprints" onChange={(e) => setShowFootprints(e.target.checked)} />{t('observatory.toggleFootprints')}</label>
+              <label className="observatory__check"><input type="checkbox" checked={showGrid} data-testid="toggle-grid" onChange={(e) => setShowGrid(e.target.checked)} />{t('observatory.toggleGrid')}</label>
+              <label className="observatory__check"><input type="checkbox" checked={showQuality} disabled={!result?.layers.quality} data-testid="toggle-quality" onChange={(e) => setShowQuality(e.target.checked)} />{t('observatory.toggleQuality')}</label>
+              {hasDerived && derived.cellsUrl && <label className="observatory__check"><input type="checkbox" checked={showCells} data-testid="toggle-cells" onChange={(e) => setShowCells(e.target.checked)} />{t('explore.advCells')}</label>}
+              {validGeometry && <label className="observatory__check"><input type="checkbox" checked={showWindowToggle} data-testid="toggle-window" onChange={(e) => setShowWindowToggle(e.target.checked)} />{t('explore.advWindow')}</label>}
+              {hasDerived && <label className="observatory__check"><input type="checkbox" checked={grayscale} data-testid="toggle-grayscale" onChange={(e) => setGrayscale(e.target.checked)} />{t('explore.advGrayscale')}</label>}
+            </fieldset>
+            {ready && result && advancedKeys.length > 0 && (
+              <fieldset className="observatory__fieldset" data-testid="advanced-dates">
+                <legend>{t('observatory.advancedDatesTitle')}</legend>
+                <div className="observatory__filters" role="group" aria-label={t('observatory.advancedDatesTitle')}>
+                  <button type="button" className="observatory__chip" aria-pressed={effectiveLayer !== 'before' && effectiveLayer !== 'after'} onClick={() => setLayerKey(null)}>{t('observatory.advancedBackToChange')}</button>
+                  {advancedKeys.map((key) => (
+                    <button key={key} type="button" className="observatory__chip" data-testid={`adv-layer-${key}`} disabled={!layerOf(key)} aria-pressed={effectiveLayer === key} onClick={() => setLayerKey(key)}>
+                      {key === 'before' ? t('observatory.swipeBefore', { date: initialText }) : t('observatory.swipeAfter', { date: finalText })}
+                    </button>
+                  ))}
+                </div>
+              </fieldset>
+            )}
+            {OVERLAY_DEFS.length > 0 && (
+              <fieldset className="observatory__fieldset">
+                <legend>{t('observatory.overlayNasaLabel')}</legend>
+                <label className="observatory__field">{t('observatory.overlayNasaLabel')}
+                  <select value={overlayId} onChange={(e) => setOverlayId(e.target.value)}>
+                    <option value="">{t('observatory.overlayNone')}</option>
+                    {OVERLAY_DEFS.map((def) => <option key={def.id} value={def.id} disabled={baseOptionDisabled(def)}>{def.label[lang]}{baseOptionDisabled(def) ? ` — ${noCoverageText}` : ''}</option>)}
+                  </select>
+                </label>
+                {chosenOverlay && !overlayCovered && <p className="observatory__warning" role="status">{chosenOverlay.label[lang]}: {noCoverageText}</p>}
+              </fieldset>
+            )}
+            {sectors.length > 0 && (
+              <label className="observatory__field">{t('observatory.sectorPick')}
+                <select value={sectorId ?? ''} onChange={(event) => selectSector(event.target.value || null)}>
+                  <option value="">{t('observatory.sectorPickPlaceholder')}</option>
+                  {sortedSectorIds.map((id) => <option key={id} value={id}>{sectorLabels.get(id)}</option>)}
+                </select>
+              </label>
+            )}
+          </details>
+        </section>
+
+        {/* STEP 3 */}
+        <section className="observatory__step observatory__side" id="obs-step-3" aria-labelledby="obs-step-3-title">
+          <StepHead n={3} title={t('observatory.step3Title')} lead={t('observatory.step3Lead')} />
+          {ready && result ? (
+            <>
+              <div className="observatory__scope" aria-live="polite">
+                <span className="observatory__label">{t('explore.selectionTitle')}</span>
+                {selectedSector ? (
+                  <>
+                    <div>
+                      <strong>{sectorLabel(selectedName, selectedSector.sector_id, t)}</strong>
+                      {selectedName && selectedName.zone !== null && <span className="observatory__muted"> · {gridName(selectedName, t)}</span>}
+                      <small className="observatory__id">{t('observatory.sectorTechId', { id: selectedSector.sector_id })}</small>
+                    </div>
+                    <Button variant="ghost" className="btn--sm" onClick={() => setSectorId(null)} data-testid="back-to-window">{t('observatory.backToWindow')}</Button>
+                  </>
+                ) : selectedZone ? (
+                  <>
+                    <strong>{zoneName(selectedZone, t)}</strong>
+                    <Button variant="ghost" className="btn--sm" onClick={() => setZoneId(null)} data-testid="back-to-window">{t('observatory.backToWindow')}</Button>
+                  </>
+                ) : <strong>{t('observatory.scopePair')}</strong>}
+              </div>
+              {selectedZone && <ZoneInfo zone={selectedZone} initialText={initialText} finalText={finalText} snapshotId={snapshotId} thresholdDb={thresholdDb} />}
+              {!selectedZone && !selectedSector && clusterZones.length > 1 && (
+                <ClusterInfo zones={clusterZones} initialText={initialText} finalText={finalText} snapshotId={snapshotId}
+                  onZoom={() => zoomToCluster(clusterZones.map((z) => z.zone_id))} onClose={() => setClusterIds(null)} />
+              )}
+              <IndicatorCards metrics={selectedZone ? result.metrics : metrics} note={selectedZone ? t('explore.zoneAll') : undefined} />
+              <KeyMessage />
+              <LimitationsCard onSeeAll={() => setLimitsOpen(true)} />
+              <div className="observatory__block">
+                <h3>{t('observatory.zonesTitle')}</h3>
+                {hasDerived ? (
+                  derivedZones.length === 0 ? <p className="observatory__muted">{t('explore.zonesNone')}</p> : (
+                    <>
+                      <p className="observatory__muted">{t('explore.zonesHint', { count: derivedZones.length })}</p>
+                      <ZoneSelect zones={derivedZones} value={selectedZone?.zone_id ?? null} onChange={selectZone} />
+                    </>
+                  )
+                ) : sectors.length === 0 ? <p className="observatory__muted">{t('observatory.sectorsNone')}</p> : zones.length === 0 ? <p className="observatory__muted">{t('observatory.sectorsNoCandidates')}</p> : (
+                  <>
+                    <p className="observatory__muted">{t('observatory.zonesHint', { count: zones.length })}</p>
+                    <label className="observatory__field explore-zone-pick">
+                      <span>{t('explore.zonePick')}</span>
+                      <select value={zones.some((z) => z.id === sectorId) ? sectorId ?? '' : ''} data-testid="zone-select" onChange={(event) => selectSector(event.target.value || null)}>
+                        <option value="">{t('explore.zoneAll')}</option>
+                        {zones.map((z) => {
+                          const sector = sectors.find((s) => s.sector_id === z.id);
+                          const area = sector ? formatSmart(sectorMetrics(sector, result.pair_id)?.candidate_area_ha ?? null, locale) : null;
+                          return <option key={z.id} value={z.id}>{t('observatory.zoneName', { n: z.zone ?? 0 })}{area ? ` · ${area} ${t('common.hectares')}` : ''} · {gridName(z, t)}</option>;
+                        })}
+                      </select>
+                    </label>
+                  </>
+                )}
+                {derived && <DerivedMethod derived={derived} />}
+              </div>
+              <Button variant="secondary" href={routeHref('observations')}>{t('observatory.openObservations')}</Button>
+            </>
+          ) : snapshot.status === 'loading' ? <EmptyState title={t('observatory.snapshotLoading')} />
+            : snapshot.status === 'error' ? (
+              <EmptyState tone="error" title={t('observatory.snapshotErrorTitle')} message={`${t('observatory.snapshotErrorBody')} ${describeError(t, snapshot.error)}`}
+                action={<Button variant="secondary" onClick={retrySnapshot}>{t('common.retry')}</Button>} />
+            ) : <EmptyState title={t('observatory.step3Empty')} message={t('observatory.step3EmptyBody')} />}
+        </section>
+      </div>}
+
+      {ready && result && (
+        <section className="observatory__tech" aria-label={t('observatory.technical')}>
+          <TechnicalDetails pair={result} comparison={comparison} algorithm={snapshotData.results.algorithm_version} processedAt={snapshotData.results.processed_at} snapshotId={snapshotId}>
+            <p className="observatory__muted">{state.manifest.updated_at ? `${t('observatory.updated')}: ${formatDate(state.manifest.updated_at, locale, true)} · ` : ''}{snapshotData.results.data_mode ? `${t('observatory.mode')}: ${snapshotData.results.data_mode}` : ''}</p>
+          </TechnicalDetails>
+        </section>
+      )}
+
+      <Modal open={helpOpen} title={t('observatory.howToTitle')} closeLabel={t('common.close')} onClose={() => setHelpOpen(false)}>
+        <p>{t('observatory.howToBody1')}</p>
+        <p>{t('observatory.howToBody2')}</p>
+        <p>{t('observatory.howToBody3')}</p>
+      </Modal>
+      <Modal open={limitsOpen} title={t('observatory.limitsModalTitle')} closeLabel={t('common.close')} onClose={() => setLimitsOpen(false)}>
+        <LimitationsList items={result?.limitations ?? []} />
+      </Modal>
+    </Shell>
+  );
+}
+
+function Shell({ children, onHelp }: { children: ReactNode; onHelp?: () => void }) {
+  const { t } = useI18n();
+  return (
+    <section className="observatory page" aria-labelledby="observatory-title">
+      <div className="page__head observatory__head">
         <div>
-          <p className="eyebrow"><span className="eyebrow-line" /> EARTH OBSERVATION / HONDURAS</p>
-          <h2 id="observatory-title">Look closer.<br /><em>See what shifts.</em></h2>
+          <p className="eyebrow"><span className="eyebrow-line" /> {t('observatory.eyebrow')}</p>
+          <h1 id="observatory-title">{t('observatory.title')} <em>{t('observatory.titleEm')}</em></h1>
+          <p>{t('observatory.lede')}</p>
         </div>
-        <p className="observatory-lede">Explore how radar can help us observe changing landscapes, through a prototype built around Honduras’ forests and watersheds.</p>
-      </div>
-
-      <div className="observatory-frame">
-        <header className="observatory-toolbar">
-          <label className="region-select-wrap">
-            <span className="data-label">STUDY AREA</span>
-            <select value={regionId} onChange={(event) => selectRegion(event.target.value)} aria-label="Select a study area">
-              {studyRegions.map((item) => <option key={item.id} value={item.id}>{item.name}</option>)}
-            </select>
-          </label>
-          <div className="date-controls">
-            <label><span className="data-label">COMPARISON LABEL A</span><input aria-label="Comparison label A; does not query imagery" type="date" value={startDate} onChange={(event) => setStartDate(event.target.value)} /></label>
-            <span className="date-divider" aria-hidden="true">→</span>
-            <label><span className="data-label">COMPARISON LABEL B</span><input aria-label="Comparison label B; does not query imagery" type="date" value={endDate} onChange={(event) => setEndDate(event.target.value)} /></label>
-            <p className="date-note">Dates are labels only · no imagery is queried</p>
-          </div>
-          <span className="demo-badge"><span /> DEMO DATA</span>
-        </header>
-
-        <div className="observatory-body">
-          <div className="map-column">
-            <div className="map-topline">
-              <div><h3>{region.name}</h3><p>{region.subtitle} <span>·</span> CANDIDATE STUDY AREA</p></div>
-              <button type="button" className="map-reset" onClick={() => setPosition(54)} aria-label="Reset comparison divider">RESET SWIPE ↺</button>
-            </div>
-            <div className="comparison">
-              <RadarScene layer={layer} regionId={region.id} />
-              <div className="comparison-after" style={{ clipPath: `inset(0 0 0 ${position}%)` }}>
-                <RadarScene layer={layer} regionId={region.id} after />
-              </div>
-              <div className="compare-divider" style={{ left: `${position}%` }} aria-hidden="true"><span>↔</span></div>
-              <span className="compare-tag compare-tag--a">LABEL A · {startDate || '—'}</span>
-              <span className="compare-tag compare-tag--b">LABEL B · {endDate || '—'}</span>
-              <button className="map-hotspot" type="button" style={{ left: '62%', top: '48%' }} aria-label="Inspect an illustrative change candidate" aria-pressed={selectedPoint} onClick={() => setSelectedPoint((selected) => !selected)}><span /></button>
-              <input className="compare-range" type="range" min="5" max="95" value={position} onChange={(event) => setPosition(Number(event.target.value))} aria-label="Drag to compare illustration A and B" />
-              {selectedPoint && <div className="hotspot-card"><span className="data-label">CANDIDATE AREA · DEMO</span><strong>Signal pattern differs</strong><p>Requires review with calibrated imagery and local knowledge.</p></div>}
-            </div>
-            <div className="map-footline"><span><i className="status-dot" /> CANDIDATE STUDY AREA</span><span>CONCEPTUAL VISUALIZATION · NOT NISAR OBSERVATIONS</span></div>
-            <div className="layer-row" role="group" aria-label="Map visualization layer">
-              <span className="data-label">VIEW LAYER</span>
-              {visualizationLayers.map((item) => <button type="button" key={item.id} className={`layer-button ${layer === item.id ? 'is-active' : ''}`} aria-pressed={layer === item.id} onClick={() => setLayer(item.id)} title={item.description}>{item.label}</button>)}
-            </div>
-          </div>
-
-          <aside className="observatory-side" aria-label="Study area information">
-            <div className="side-section side-summary">
-              <div className="side-heading"><span className="data-label">AREA BRIEF</span><span className="brief-index">01 / 03</span></div>
-              <div className="study-area-schematic" role="group" aria-label="Honduras study areas, schematic not to scale">
-                <svg viewBox="0 0 300 142" aria-hidden="true" focusable="false">
-                  <path className="honduras-outline" d="M16 67 37 51 52 54 68 40 91 44 104 34 128 43 145 37 161 48 181 42 197 50 216 46 235 56 251 54 269 64 285 62 279 79 264 87 253 101 235 99 221 110 203 106 190 119 169 112 153 122 137 113 120 119 104 109 86 113 74 101 56 103 49 89 32 87 27 76Z" />
-                  <path className="schematic-river" d="M36 76c42-14 56 13 93-1s55-12 82 0 44 4 63-8" />
-                </svg>
-                <button type="button" className={`study-marker study-marker--rio ${regionId === 'rio-platano' ? 'is-selected' : ''}`} aria-label="Select Río Plátano Biosphere Reserve" aria-pressed={regionId === 'rio-platano'} onClick={() => selectRegion('rio-platano')}><span className="study-marker-dot" /><span className="study-marker-label">Río Plátano</span></button>
-                <button type="button" className={`study-marker study-marker--tigra ${regionId === 'la-tigra' ? 'is-selected' : ''}`} aria-label="Select La Tigra National Park" aria-pressed={regionId === 'la-tigra'} onClick={() => selectRegion('la-tigra')}><span className="study-marker-dot" /><span className="study-marker-label">La Tigra</span></button>
-                <button type="button" className={`study-marker study-marker--sula ${regionId === 'sula' ? 'is-selected' : ''}`} aria-label="Select Sula Valley" aria-pressed={regionId === 'sula'} onClick={() => selectRegion('sula')}><span className="study-marker-dot" /><span className="study-marker-label">Sula Valley</span></button>
-              </div>
-              <p className="schematic-note">SCHEMATIC / NOT TO SCALE · STUDY AREA PROPOSALS</p>
-              <p className="brief-copy">A place to explore how multi-date radar observations may reveal patterns worth a closer look.</p>
-              <div className="brief-meta"><span>LANDSCAPE</span><strong>{regionId === 'sula' ? 'WETLAND · AGRICULTURE' : 'MONTANE · TROPICAL FOREST'}</strong></div>
-              <div className="brief-meta"><span>LOCATION STATUS</span><strong>CANDIDATE AREA</strong></div>
-            </div>
-
-            <div className="side-section signal-section">
-              <div className="side-heading"><span className="data-label">SIGNAL PROFILE</span><span className="tiny-note">ILLUSTRATIVE</span></div>
-              <div className="signal-value">{region.signal}<span>relative pattern</span></div>
-              <TimeSeries region={region} />
-              <div className="signal-legend"><span><i /> DEMO SIGNAL</span><span>FEB — SEP 2026</span></div>
-            </div>
-
-            <div className="side-section interpretation-section">
-              <div className="side-heading"><span className="data-label">WHAT YOU’RE SEEING</span><span className="info-mark" aria-label="Interpretation note">i</span></div>
-              <p>{selectedPoint ? 'This highlighted area represents a possible signal difference. It is a prompt for investigation, not a confirmed environmental event.' : visualizationLayers.find((item) => item.id === layer)?.description + ' across two comparison labels. The dates do not query image data. Select a marker to inspect a sample interpretation.'}</p>
-            <a className="learn-link" href="#science">HOW RADAR OBSERVES <span>↗</span></a>
-            </div>
-          </aside>
+        <div className="observatory__head-actions">
+          {onHelp && <Button variant="ghost" className="btn--sm" onClick={onHelp}>{t('observatory.howTo')}</Button>}
+          <Button variant="ghost" className="btn--sm" href={routeHref('data')} data-testid="technical-link">{t('observatory.technicalData')}</Button>
         </div>
-        <footer className="observatory-disclaimer"><span>PROTOTYPE / LOCAL DEMONSTRATION DATA</span><span>DATES ARE LABELS ONLY · NO IMAGE DATA IS QUERIED</span></footer>
       </div>
+      {children}
     </section>
   );
 }

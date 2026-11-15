@@ -5,15 +5,6 @@
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  --forest: #102820;
-  --forest-dark: #091510;
-  --moss: #52796f;
-  --lime: #a3d977;
-  --paper: #f5f5f0;
-  --mist: #e8ebe6;
-  --muted: #65736b;
-  --line: rgba(16, 40, 32, .17);
-  --mono: 'JetBrains Mono', ui-monospace, monospace;
 }
 
 * { box-sizing: border-box; }
@@ -26,6 +17,9 @@ button { color: inherit; }
 ::selection { color: var(--forest-dark); background: var(--lime); }
 :focus-visible { outline: 3px solid #76a944; outline-offset: 4px; }
 .mono { font-family: var(--mono); letter-spacing: .1em; text-transform: uppercase; }
+/* Leaflet panes/controls use z-index 400–1000. Without its own stacking context the map would paint
+   above the sticky header (z 30) and portal modals (z 200). Isolating the container keeps every pane inside it. */
+.leaflet-container { position: relative; z-index: 0; isolation: isolate; }
 .skip-link { position: fixed; top: 8px; left: 8px; z-index: 100; padding: 10px 14px; transform: translateY(-150%); color: white; background: var(--forest); }
 .skip-link:focus { transform: none; }
 
@@ -45,10 +39,6 @@ button { color: inherit; }
 .eyebrow { display: flex; align-items: center; gap: 11px; font-family: var(--mono); color: #526d5a; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; }
 .eyebrow-line { width: 24px; height: 1px; background: #638b54; }
 h1 em, h2 em { color: #638867; font-style: normal; }
-.button { min-height: 48px; display: inline-flex; align-items: center; justify-content: center; gap: 13px; padding: 0 19px; font-family: var(--mono); font-size: 10px; letter-spacing: .055em; text-transform: uppercase; transition: background .2s, color .2s, transform .2s; }
-.button:hover { transform: translateY(-2px); }
-.button-light { color: var(--forest); background: var(--lime); }
-.button-light:hover { background: #b9e594; }
 .text-link { display: inline-flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 10px; letter-spacing: .045em; text-transform: uppercase; }
 
 .section-shell { padding-left: clamp(22px, 8vw, 124px); padding-right: clamp(22px, 8vw, 124px); }

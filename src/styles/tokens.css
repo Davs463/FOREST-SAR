@@ -1,0 +1,62 @@
+/* Design tokens: values extracted from the original template (index.css, story-hero.css, observatory.css).
+   Change a token here and every module follows. Risk colours are scientific-legend roles and are
+   always paired with a text label; they must not be changed for decoration. */
+:root {
+  --font-sans: 'Inter Tight', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --mono: var(--font-mono);
+
+  --forest: #102820;
+  --forest-dark: #091510;
+  --forest-mid: #17362c;
+  --forest-hover: #315d42;
+  --moss: #52796f;
+  --lime: #a3d977;
+  --lime-hover: #b9e594;
+  --paper: #f5f5f0;
+  --mist: #e8ebe6;
+  --white: #fff;
+  --muted: #65736b;
+  --muted-soft: #77837b;
+  --line: rgba(16, 40, 32, .17);
+  --line-strong: rgba(16, 40, 32, .3);
+  --focus-ring: #76a944;
+  --link-hover: #58803d;
+
+  --color-primary: var(--forest);
+  --color-surface: var(--paper);
+  --color-text: var(--forest);
+  --color-border: var(--line);
+  --color-danger: #9b3b2e;
+  --color-warning: #8a6a12;
+  --color-info: #3f6f86;
+
+  /* Loss-of-cover semaphore roles (contract section 4). Grey = not evaluated. */
+  --risk-none: #8a968f;
+  --risk-gain: #52796f;
+  --risk-stable: #6f9f54;
+  --risk-watch: #b8a21f;
+  --risk-caution: #d08a1f;
+  --risk-high: #c4571f;
+  --risk-very-high: #9b2d20;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 40px;
+  --radius-sm: 2px;
+  --radius-md: 6px;
+  --shadow-card: 0 1px 0 rgba(16, 40, 32, .05), 0 12px 28px rgba(16, 40, 32, .07);
+
+  --header-height: 76px;
+  --page-gutter: clamp(22px, 8vw, 124px);
+
+  --z-header: 30;
+  --z-skip: 100;
+  --z-modal: 200;
+
+  --motion-fast: .2s;
+  --motion-ease: ease;
+}

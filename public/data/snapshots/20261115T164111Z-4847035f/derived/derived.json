@@ -1,0 +1,115 @@
+{
+ "schema_version": 1,
+ "snapshot_id": "20261115T164111Z-4847035f",
+ "pair_id": "pair-642e3bf57f",
+ "generated_at": "2026-11-15T17:04:45Z",
+ "method_note": "Derived visualisation products only; recomputed from the subset cache with the same multilook code and parameters as the snapshot and verified equal to results.json and sectors.geojson. Radar backscatter change candidates, not deforestation.",
+ "cluster_rule": "Zones = connected components of candidate cells (8-neighbourhood), merged when separated by <= 2 empty cells (<= 200 m). Outline = union of cells buffered +50 m, simplified 10 m.",
+ "verification": {
+  "candidate_cells": 28,
+  "valid_cells": 117537,
+  "candidate_area_ha": 28.0,
+  "valid_area_ha": 117537.0,
+  "sectors_checked": 1320,
+  "ok": true
+ },
+ "files": {
+  "zones": "snapshots/20261115T164111Z-4847035f/derived/zones.geojson",
+  "cells": "snapshots/20261115T164111Z-4847035f/derived/cells.geojson",
+  "valid_area": "snapshots/20261115T164111Z-4847035f/derived/valid_area.geojson",
+  "viz_before": "snapshots/20261115T164111Z-4847035f/derived/viz_before.png",
+  "viz_after": "snapshots/20261115T164111Z-4847035f/derived/viz_after.png",
+  "viz_delta": "snapshots/20261115T164111Z-4847035f/derived/viz_delta.png"
+ },
+ "viz": {
+  "before": {
+   "url": "snapshots/20261115T164111Z-4847035f/derived/viz_before.png",
+   "bounds": [
+    [
+     13.999999999999995,
+     -87.35
+    ],
+    [
+     14.349999999999998,
+     -87.05000000000001
+    ]
+   ],
+   "legend": {
+    "type": "gradient",
+    "min": -25.0,
+    "max": -5.0,
+    "colors": [
+     "#00204d",
+     "#00306f",
+     "#31446b",
+     "#4d576b",
+     "#6a6c72",
+     "#868178",
+     "#a29a76",
+     "#c3b56a",
+     "#ffea46"
+    ],
+    "note": "HVHV gamma0 in dB, 100 m multilook cells; fixed stretch -25..-5 dB identical for both dates (comparable); 9 discrete steps; transparent outside the valid area"
+   }
+  },
+  "after": {
+   "url": "snapshots/20261115T164111Z-4847035f/derived/viz_after.png",
+   "bounds": [
+    [
+     13.999999999999995,
+     -87.35
+    ],
+    [
+     14.349999999999998,
+     -87.05000000000001
+    ]
+   ],
+   "legend": {
+    "type": "gradient",
+    "min": -25.0,
+    "max": -5.0,
+    "colors": [
+     "#00204d",
+     "#00306f",
+     "#31446b",
+     "#4d576b",
+     "#6a6c72",
+     "#868178",
+     "#a29a76",
+     "#c3b56a",
+     "#ffea46"
+    ],
+    "note": "HVHV gamma0 in dB, 100 m multilook cells; fixed stretch -25..-5 dB identical for both dates (comparable); 9 discrete steps; transparent outside the valid area"
+   }
+  },
+  "delta": {
+   "url": "snapshots/20261115T164111Z-4847035f/derived/viz_delta.png",
+   "bounds": [
+    [
+     13.999999999999995,
+     -87.35
+    ],
+    [
+     14.349999999999998,
+     -87.05000000000001
+    ]
+   ],
+   "legend": {
+    "type": "diverging",
+    "min": -6.0,
+    "max": 6.0,
+    "colors": [
+     "#b2182b",
+     "#ffffff",
+     "#2166ac"
+    ],
+    "note": "delta_db = final - initial, clipped to +/-6 dB. Red = signal decrease, blue = signal increase (not recovery); opacity grows with |delta|, |delta| < 1 dB almost transparent"
+   }
+  }
+ },
+ "places_used": {
+  "path": "places/places.json",
+  "retrieved_at": "2026-11-15T17:03:31Z",
+  "license": "ODbL 1.0 — © OpenStreetMap contributors"
+ }
+}

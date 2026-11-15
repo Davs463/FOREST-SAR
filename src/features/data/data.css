@@ -1,0 +1,25 @@
+/* Technical data view. Prefix: data__. */
+.data { color: var(--forest); padding-top: 32px; padding-bottom: 56px; }
+.data .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+.data__head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px 24px; max-width: none; margin-bottom: 20px; }
+.data__head > div { max-width: 720px; }
+.data__panel { margin-top: 16px; min-width: 0; }
+.data__muted { margin: 4px 0; color: var(--muted); font-size: 13px; line-height: 1.5; }
+.data__search { display: grid; gap: 4px; margin: 10px 0; max-width: 420px; font-size: 13px; }
+.data__search input { min-height: 40px; padding: 0 10px; border: 1px solid var(--line-strong); border-radius: 0; background: var(--white); font: inherit; max-width: 100%; }
+.data__filters { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0 10px; }
+.data__chip { min-height: 40px; padding: 4px 12px; border: 1px solid var(--line-strong); background: transparent; cursor: pointer; font-size: 12px; text-align: left; }
+.data__chip[aria-pressed='true'] { color: var(--paper); background: var(--forest); border-color: var(--forest); }
+.data__rows { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+.data__row { display: grid; gap: 4px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.data__row-main { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; }
+.data__reason { margin: 0; color: var(--color-warning); font-size: 13px; }
+.data__id { display: block; color: var(--muted); font-family: var(--font-mono); font-size: 10px; overflow-wrap: anywhere; }
+td.data__id { font-size: 11px; max-width: 360px; }
+.data__caption { margin-bottom: 8px; text-align: left; font-family: var(--font-mono); font-size: 11px; }
+.data__pager { display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 14px; font-size: 13px; }
+.data__excluded { margin-top: 14px; font-size: 13px; }
+.data__excluded summary { cursor: pointer; min-height: 32px; display: flex; align-items: center; }
+.data input:focus-visible, .data summary:focus-visible, .data__chip:focus-visible { outline: 3px solid var(--focus-ring); outline-offset: 2px; }
+@media (max-width: 560px) { .data { padding-top: 20px; } }
+td.data__id { display: table-cell; white-space: normal; min-width: 220px; max-width: 340px; } /* block display broke the table layout */

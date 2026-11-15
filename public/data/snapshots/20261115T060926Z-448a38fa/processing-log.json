@@ -1,0 +1,430 @@
+{
+ "schema_version": 1,
+ "snapshot_id": "20261115T060926Z-448a38fa",
+ "status": "ready",
+ "generated_at": "2026-11-15T06:09:32Z",
+ "algorithm_version": "forest-sar-engine-0.1.0",
+ "config_version": "1.0.0",
+ "config_sha256": "448a38fa75d3b13d8d38dbe71794277ebe82f4c3067a6f02710bc54be62f209b",
+ "parameters": {
+  "polarization": "HVHV",
+  "frequency_preference": [
+   "frequencyA",
+   "frequencyB"
+  ],
+  "threshold_db": 3.0,
+  "threshold_note": "Exploratory radar threshold. candidate if delta_db <= -threshold_db. Not a forest-loss threshold.",
+  "minimum_patch_ha": null,
+  "noise_floor_db": null,
+  "normalization_offset_db": 0.0,
+  "minimum_looks": null,
+  "metric_crs": "EPSG:32616",
+  "sector_size_m": 1000,
+  "min_common_coverage_pct": 10.0,
+  "max_output_pixels": 4000000,
+  "mask_rule": "valid if mask in 1..254 (subswath number of a fully focused averaging ensemble); 0 = invalid; 255 = fill. Source: NISAR GCOV product specification as summarized by ASF docs and file attributes; see processing-log for the attributes read from the file."
+ },
+ "source_checksums_sha256": {
+  "initial": {
+   "HVHV": {
+    "file": "GCOV_grids_frequencyA_HVHV_subsetted.tif",
+    "sha256": "226118c254066b7dd867e0047887567987170eef2a2150811a5b90b871870572"
+   },
+   "mask": {
+    "file": "GCOV_grids_frequencyA_mask_subsetted.tif",
+    "sha256": "bc74ca517e76a333aa80df2add85f7ea8d6d03a1e2c8222f4b36a9b36d1f817a"
+   },
+   "numberOfLooks": {
+    "file": "GCOV_grids_frequencyA_numberOfLooks_subsetted.tif",
+    "sha256": "b65dd835b0dfcc14a7867ea72e5456a2812b84c9b397f9d800721fce55bab071"
+   }
+  },
+  "final": {
+   "HVHV": {
+    "file": "GCOV_grids_frequencyA_HVHV_subsetted.tif",
+    "sha256": "44aab4e330f85ffcddf0bb1d70846425a5af344e36faa1147cc3955e2e49708a"
+   },
+   "mask": {
+    "file": "GCOV_grids_frequencyA_mask_subsetted.tif",
+    "sha256": "5ae32bb999d1b3612e97cbafe4676326b88d916a8bf40e90f193304c64df38db"
+   },
+   "numberOfLooks": {
+    "file": "GCOV_grids_frequencyA_numberOfLooks_subsetted.tif",
+    "sha256": "c9b3dc19a06c2de36c8418d57f3c27996bb4fd384f73abd891f766088612ac6d"
+   }
+  }
+ },
+ "dependencies": {
+  "python": "3.12.6",
+  "numpy": "2.5.4",
+  "rasterio": "1.5.2",
+  "shapely": "2.2.0",
+  "h5py": "3.16.0",
+  "earthaccess": "0.19.0",
+  "requests": "2.34.2"
+ },
+ "platform": "Windows-11-10.0.26200-SP0",
+ "stages": [
+  {
+   "stage": "catalog",
+   "status": "ok",
+   "at": "2026-11-15T06:08:16Z",
+   "source": "file",
+   "file": ".bosquevivo-work/catalog/cmr-20261115T045835840671Z.json",
+   "retrieved_at": "2026-11-15T04:58:34.189218+00:00"
+  },
+  {
+   "stage": "inspect",
+   "status": "ok",
+   "at": "2026-11-15T06:08:17Z",
+   "scenes": 52,
+   "notes": [],
+   "in_aoi": 52
+  },
+  {
+   "stage": "pairing",
+   "status": "ok",
+   "at": "2026-11-15T06:08:18Z",
+   "evaluated": 1326,
+   "by_status": {
+    "incompatible": 1164,
+    "compatible": 162
+   },
+   "chosen": "pair-f93b4394cc",
+   "rule": "highest-priority collection tier with a compatible pair; coverage within 90% of the tier maximum; most recent final date; then shortest interval (fewest temporal confounders)"
+  },
+  {
+   "stage": "acquire",
+   "status": "ok",
+   "at": "2026-11-15T06:08:18Z",
+   "scene": "NISAR_L2_PR_GCOV_032_098_D_081_4005_DHDH_A_20261007T001620_20261007T001654_P05023_N_F_J_001",
+   "tag": "initial",
+   "method": [
+    "cache_hit"
+   ]
+  },
+  {
+   "stage": "acquire",
+   "status": "ok",
+   "at": "2026-11-15T06:08:18Z",
+   "scene": "NISAR_L2_PR_GCOV_033_098_D_081_4005_DHDH_A_20261019T001620_20261019T001654_P05023_N_F_J_001",
+   "tag": "final",
+   "method": [
+    "cache_hit"
+   ]
+  },
+  {
+   "stage": "inspect_files",
+   "status": "ok",
+   "at": "2026-11-15T06:08:19Z",
+   "var": "mask",
+   "initial_tags": {
+    "description": "Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0",
+    "grid_mapping": "projection",
+    "long_name": "Valid samples subswath mask",
+    "valid_min": "0",
+    "_FillValue": "255"
+   },
+   "initial_descr": null,
+   "nodata": 255.0
+  },
+  {
+   "stage": "inspect_files",
+   "status": "ok",
+   "at": "2026-11-15T06:08:19Z",
+   "var": "numberOfLooks",
+   "initial_tags": {
+    "description": "Number of averaged radar-grid pixels for covariance estimation",
+    "grid_mapping": "projection",
+    "long_name": "Number of radar looks",
+    "max_value": "17.104414",
+    "mean_value": "4.6700735",
+    "min_value": "1.0518031e-11",
+    "sample_stddev": "1.5288792",
+    "units": "1",
+    "valid_min": "0",
+    "_FillValue": "nan"
+   },
+   "initial_descr": null,
+   "nodata": null
+  },
+  {
+   "stage": "inspect_files",
+   "status": "ok",
+   "at": "2026-11-15T06:08:19Z",
+   "var": "HVHV",
+   "tags_band": {
+    "description": "Covariance between HV and HV",
+    "grid_mapping": "projection",
+    "long_name": "Geocoded polarimetric covariance term HVHV",
+    "max_value": "4758.3457",
+    "mean_value": "0.078852393",
+    "min_value": "9.6379849e-17",
+    "sample_stddev": "1.4332714",
+    "units": "1",
+    "valid_min": "0",
+    "_FillValue": "nan"
+   },
+   "descr": null,
+   "frequency": "A",
+   "crs": [
+    "EPSG:32616",
+    "EPSG:32616"
+   ],
+   "transform": [
+    [
+     10.0,
+     0.0,
+     462210.0,
+     0.0,
+     -10.0,
+     1586460.0
+    ],
+    [
+     10.0,
+     0.0,
+     462210.0,
+     0.0,
+     -10.0,
+     1586460.0
+    ]
+   ],
+   "shape": [
+    [
+     3873,
+     3239
+    ],
+    [
+     3873,
+     3239
+    ]
+   ]
+  },
+  {
+   "stage": "units",
+   "status": "ok",
+   "at": "2026-11-15T06:08:19Z",
+   "unit": "linear",
+   "initial": {
+    "n": 12302383,
+    "attr_hint": null,
+    "min": 0.0002008546143770218,
+    "p50": 0.06573963165283203,
+    "p99": 0.3926963806152344,
+    "frac_le_zero": 0.0
+   },
+   "final": {
+    "n": 11853450,
+    "attr_hint": null,
+    "min": 0.00013585761189460754,
+    "p50": 0.06332778930664062,
+    "p99": 0.38810160756111145,
+    "frac_le_zero": 0.0
+   }
+  },
+  {
+   "stage": "delta",
+   "status": "ok",
+   "at": "2026-11-15T06:08:20Z",
+   "grid_mode": "identical_grid_passthrough",
+   "valid_px": 11853388,
+   "candidate_px": 1491730,
+   "aoi_px": 12529313,
+   "mask_values_initial": [
+    0,
+    1,
+    255
+   ],
+   "mask_values_final": [
+    0,
+    1,
+    255
+   ],
+   "looks_median_valid": 4.251434803009033
+  },
+  {
+   "stage": "diagnostics",
+   "status": "ok",
+   "at": "2026-11-15T06:08:20Z",
+   "delta_db_median": -0.15008078713774786,
+   "delta_db_p05": -4.345957470938205,
+   "delta_db_p95": 4.033189581184426,
+   "share_delta_le_minus_threshold_pct": 12.584840722331878,
+   "share_delta_ge_plus_threshold_pct": 10.320627317691786,
+   "note": "Diagnostic only, not applied. A near-symmetric share of increases and decreases and a near-zero median indicate speckle-dominated differences at native pixel size."
+  },
+  {
+   "stage": "validation",
+   "status": "ok",
+   "at": "2026-11-15T06:09:26Z",
+   "sector_sum_equals_direct": true,
+   "pixel_area_m2": 100.0,
+   "n_sectors": 1320,
+   "sample_pixels": [
+    {
+     "row": 0,
+     "col": 26,
+     "initial_raw": 0.09494972229003906,
+     "final_raw": 0.0433349609375,
+     "mask_initial": 1,
+     "mask_final": 1,
+     "delta_manual_db": -3.4065528942242036,
+     "delta_array_db": -3.4065528942242036,
+     "abs_diff": 0.0,
+     "candidate": true
+    },
+    {
+     "row": 1284,
+     "col": 2276,
+     "initial_raw": 0.2724189758300781,
+     "final_raw": 0.1173105239868164,
+     "mask_initial": 1,
+     "mask_final": 1,
+     "delta_manual_db": -3.659003812095886,
+     "delta_array_db": -3.659003812095886,
+     "abs_diff": 0.0,
+     "candidate": true
+    },
+    {
+     "row": 2430,
+     "col": 1398,
+     "initial_raw": 0.04110097885131836,
+     "final_raw": 0.017094850540161133,
+     "mask_initial": 1,
+     "mask_final": 1,
+     "delta_manual_db": -3.8098685693152134,
+     "delta_array_db": -3.8098685693152134,
+     "abs_diff": 0.0,
+     "candidate": true
+    },
+    {
+     "row": 0,
+     "col": 5,
+     "initial_raw": 0.11470317840576172,
+     "final_raw": 0.1892070770263672,
+     "mask_initial": 1,
+     "mask_final": 1,
+     "delta_manual_db": 2.1736192425292398,
+     "delta_array_db": 2.1736192425292398,
+     "abs_diff": 0.0,
+     "candidate": false
+    },
+    {
+     "row": 1213,
+     "col": 3183,
+     "initial_raw": 0.013954997062683105,
+     "final_raw": 0.046586036682128906,
+     "mask_initial": 1,
+     "mask_final": 1,
+     "delta_manual_db": 5.235260149038595,
+     "delta_array_db": 5.235260149038595,
+     "abs_diff": 0.0,
+     "candidate": false
+    },
+    {
+     "row": 2447,
+     "col": 2330,
+     "initial_raw": 0.035742759704589844,
+     "final_raw": 0.022892236709594727,
+     "mask_initial": 1,
+     "mask_final": 1,
+     "delta_manual_db": -1.934998534775442,
+     "delta_array_db": -1.934998534775442,
+     "abs_diff": 0.0,
+     "candidate": false
+    }
+   ],
+   "max_sample_abs_diff": 0.0
+  },
+  {
+   "stage": "render",
+   "status": "ok",
+   "at": "2026-11-15T06:09:31Z",
+   "layers": {
+    "before": 914806,
+    "after": 886426,
+    "delta": 355002,
+    "candidates": 14454,
+    "quality": 3340
+   }
+  }
+ ],
+ "validation": {
+  "sector_sum_equals_direct": true,
+  "sample_pixels": [
+   {
+    "row": 0,
+    "col": 26,
+    "initial_raw": 0.09494972229003906,
+    "final_raw": 0.0433349609375,
+    "mask_initial": 1,
+    "mask_final": 1,
+    "delta_manual_db": -3.4065528942242036,
+    "delta_array_db": -3.4065528942242036,
+    "abs_diff": 0.0,
+    "candidate": true
+   },
+   {
+    "row": 1284,
+    "col": 2276,
+    "initial_raw": 0.2724189758300781,
+    "final_raw": 0.1173105239868164,
+    "mask_initial": 1,
+    "mask_final": 1,
+    "delta_manual_db": -3.659003812095886,
+    "delta_array_db": -3.659003812095886,
+    "abs_diff": 0.0,
+    "candidate": true
+   },
+   {
+    "row": 2430,
+    "col": 1398,
+    "initial_raw": 0.04110097885131836,
+    "final_raw": 0.017094850540161133,
+    "mask_initial": 1,
+    "mask_final": 1,
+    "delta_manual_db": -3.8098685693152134,
+    "delta_array_db": -3.8098685693152134,
+    "abs_diff": 0.0,
+    "candidate": true
+   },
+   {
+    "row": 0,
+    "col": 5,
+    "initial_raw": 0.11470317840576172,
+    "final_raw": 0.1892070770263672,
+    "mask_initial": 1,
+    "mask_final": 1,
+    "delta_manual_db": 2.1736192425292398,
+    "delta_array_db": 2.1736192425292398,
+    "abs_diff": 0.0,
+    "candidate": false
+   },
+   {
+    "row": 1213,
+    "col": 3183,
+    "initial_raw": 0.013954997062683105,
+    "final_raw": 0.046586036682128906,
+    "mask_initial": 1,
+    "mask_final": 1,
+    "delta_manual_db": 5.235260149038595,
+    "delta_array_db": 5.235260149038595,
+    "abs_diff": 0.0,
+    "candidate": false
+   },
+   {
+    "row": 2447,
+    "col": 2330,
+    "initial_raw": 0.035742759704589844,
+    "final_raw": 0.022892236709594727,
+    "mask_initial": 1,
+    "mask_final": 1,
+    "delta_manual_db": -1.934998534775442,
+    "delta_array_db": -1.934998534775442,
+    "abs_diff": 0.0,
+    "candidate": false
+   }
+  ]
+ },
+ "note": "No credentials or signed URLs are stored in this log."
+}

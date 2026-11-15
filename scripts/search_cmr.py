@@ -8,9 +8,23 @@ from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 from urllib.error import HTTPError, URLError
 
-COLLECTIONS = ("NISAR_L2_GCOV_V1", "NISAR_L2_GCOV_PROVISIONAL_V1", "NISAR_L2_GCOV_BETA_V1")
 ENDPOINT = "https://cmr.earthdata.nasa.gov/search/granules.json"
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def _load_defaults():
+    """Defaults come from config/science.json (single source); literals only if it is missing."""
+    try:
+        cfg = json.loads((ROOT / "config" / "science.json").read_text(encoding="utf-8"))
+        return (tuple(c["short_name"] for c in cfg["search"]["collections"]),
+                ",".join(str(v) for v in cfg["aoi"]["bbox_wsen"]),
+                cfg["search"]["start"], cfg["search"]["end"], int(cfg["search"].get("max_pages", 3)))
+    except (OSError, KeyError, ValueError):
+        return (("NISAR_L2_GCOV_V1", "NISAR_L2_GCOV_PROVISIONAL_V1", "NISAR_L2_GCOV_BETA_V1"),
+                "-87.35,14.00,-87.05,14.35", "2026-06-01", "2026-10-31", 3)
+
+
+COLLECTIONS, DEF_BBOX, DEF_START, DEF_END, DEF_PAGES = _load_defaults()
 
 def utc_now():
     return datetime.now(timezone.utc).isoformat()
@@ -52,10 +66,10 @@ def search(short_name, bbox, start, end, max_pages):
 
 def main():
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument("--bbox", default="-87.35,14.00,-87.05,14.35")
-    p.add_argument("--start", default="2026-06-01")
-    p.add_argument("--end", default="2026-10-31")
-    p.add_argument("--max-pages", type=int, default=3, choices=range(1, 11))
+    p.add_argument("--bbox", default=DEF_BBOX)
+    p.add_argument("--start", default=DEF_START)
+    p.add_argument("--end", default=DEF_END)
+    p.add_argument("--max-pages", type=int, default=DEF_PAGES, choices=range(1, 11))
     args = p.parse_args()
     start, end = (datetime.strptime(x, "%Y-%m-%d").date() for x in (args.start, args.end))
     if start > end:

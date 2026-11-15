@@ -31,10 +31,7 @@
 .story-beat h1, .story-beat h2 { margin: 23px 0 19px; font-size: clamp(54px, 7vw, 100px); font-weight: 500; letter-spacing: -.07em; line-height: .94; }
 .story-beat h1 em, .story-beat h2 em { color: #527b5d; font-style: normal; }
 .story-beat p { max-width: 460px; margin: 0; color: #4d6253; font-size: 15px; line-height: 1.65; }
-.story-button { display: inline-flex; min-height: 48px; align-items: center; gap: 14px; margin-top: 27px; padding: 0 18px; color: #f5f5f0; background: var(--forest); font-family: var(--mono); font-size: 9px; letter-spacing: .08em; text-transform: uppercase; transition: background .2s ease, transform .2s ease; }
-.story-button:hover { transform: translateY(-2px); background: #315d42; }
-.story-button svg { transition: transform .2s ease; }
-.story-button:hover svg { transform: translateX(4px); }
+.story-button { margin-top: 27px; }
 .beat-signal, .beat-explore { max-width: 670px; }
 .beat-signal h2, .beat-explore h2 { font-size: clamp(48px, 6.3vw, 86px); }
 .story-readout { display: flex; align-items: center; gap: 12px; margin-top: 30px; color: #526d5a; font-size: 8px; }

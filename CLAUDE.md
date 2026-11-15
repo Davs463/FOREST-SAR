@@ -28,3 +28,11 @@ Eres el líder técnico y coordinador del departamento. Lee primero `docs/PLAN_M
 
 ## Idioma y producto
 Web bilingüe ES/EN con inglés completo para evaluación (por defecto inglés en enlace de jueces); documentación interna en español, README y materiales de entrega en inglés. UX simple, accesible y responsive, aprovecha la plantilla actual. Cumple licencias y declara IA utilizada conforme guía del evento.
+
+
+<!-- FOREST_SAR_HN_V5_COORDINATION -->
+## Coordinación v5 (prevalece en nombre, modelos y operación)
+- Nombre oficial: FOREST_SAR_HN; el nombre anterior es histórico. No cambies el contrato científico ni el alcance por el renombrado.
+- Lee docs/PROMPT_INICIO.md como orden vigente. Opus 5.5 coordina, agentes Sonnet 5.5 implementan/revisan, Haiku 5.5 documenta. Usa los modelos y maxTurns del frontmatter. Máximo dos frentes simultáneos, diez delegaciones totales, no ocho agentes para cada cambio.
+- Ejecuta Python con `.venv/Scripts/python.exe` y los entrypoints permitidos. No se permite Python global, comandos arbitrarios ni escalada de permisos.
+- Conserva datos reales, evidencia y PROGRESS/HANDOFF. Usa Earthdata por entorno, no imprimas ni guardes el token. No bloquees toda la ejecución por una tarea independiente denegada.

@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "snapshot_id": "20261115T163540Z-4847035f",
+  "updated_at": "2026-11-15T16:45:17Z",
+  "catalog_path": "snapshots/20261115T163540Z-4847035f/catalog.json",
+  "results_path": "snapshots/20261115T163540Z-4847035f/results.json",
+  "sectors_path": "snapshots/20261115T163540Z-4847035f/sectors.geojson",
+  "processing_log_path": "snapshots/20261115T163540Z-4847035f/processing-log.json",
+  "data_mode": "real",
+  "message": null,
+  "index_path": "snapshots/index.json"
+}

@@ -1,5 +1,8 @@
 import { useEffect, useRef } from 'react';
 import { ArrowDown, ArrowRight, Satellite } from 'lucide-react';
+import { Button } from '../../components';
+import { routeHref } from '../../config/app.config';
+import { useI18n } from '../../i18n';
 import './story-hero.css';
 
 type FloatingIslandProps = {
@@ -63,6 +66,7 @@ function setBeat(element: HTMLElement | null, progress: number, enterAt: number,
 }
 
 export function StoryHero() {
+  const { t } = useI18n();
   const storyRef = useRef<HTMLElement>(null);
   const stageRef = useRef<HTMLDivElement>(null);
 
@@ -130,7 +134,7 @@ export function StoryHero() {
   }, []);
 
   return (
-    <section className="story-hero" id="home" ref={storyRef} aria-label="BosqueVivo HN introduction">
+    <section className="story-hero" id="home" ref={storyRef} aria-label={t('home.heroLabel')}>
       <div className="story-stage" ref={stageRef}>
         <div className="story-landscape" aria-hidden="true">
           <div className="story-contours" />
@@ -142,34 +146,34 @@ export function StoryHero() {
           <FloatingIsland variant="three" depth={0.48} className="island-far" />
         </div>
 
-        <div className="story-brand-stamp mono"><Satellite size={14} /> BOSQUEVIVO HN <span>·</span> EARTH OBSERVATION</div>
+        <div className="story-brand-stamp mono"><Satellite size={14} /> {t('home.stamp')}</div>
         <div className="story-beats">
-          <article className="story-beat beat-opening" data-story-beat="0" aria-label="Introduction">
-            <span className="story-kicker"><i /> A LIVING VIEW OF HONDURAS</span>
-            <h1>The forest is always changing.<br /><em>Now we can observe how.</em></h1>
-            <p>BosqueVivo HN turns satellite radar concepts into a shared space to explore environmental change and local knowledge.</p>
-            <a className="story-button" href="#observatory">Explore the observatory <ArrowRight size={16} /></a>
+          <article className="story-beat beat-opening" data-story-beat="0" aria-label={t('home.beatIntro')}>
+            <span className="story-kicker"><i /> {t('home.kicker1')}</span>
+            <h1>{t('home.title1')}<br /><em>{t('home.title1em')}</em></h1>
+            <p>{t('home.lead1')}</p>
+            <Button className="story-button" href={routeHref('observatory')} icon={<ArrowRight size={16} />}>{t('home.cta')}</Button>
           </article>
 
-          <article className="story-beat beat-signal" data-story-beat="1" aria-label="Understanding the radar signal">
-            <span className="story-kicker"><i /> READ THE SIGNAL</span>
-            <h2>A view through<br /><em>cloud, time, and change.</em></h2>
-            <p>NISAR uses radar to observe Earth's surface day and night, through most clouds. Comparing signals can help researchers find patterns worth investigating.</p>
-            <div className="story-readout mono"><span>01 / SEND</span><b>↗</b><span>02 / RETURN</span><b>↗</b><span>03 / COMPARE</span></div>
+          <article className="story-beat beat-signal" data-story-beat="1" aria-label={t('home.beatSignal')}>
+            <span className="story-kicker"><i /> {t('home.kicker2')}</span>
+            <h2>{t('home.title2')}<br /><em>{t('home.title2em')}</em></h2>
+            <p>{t('home.lead2')}</p>
+            <div className="story-readout mono"><span>{t('home.step1')}</span><b>↗</b><span>{t('home.step2')}</span><b>↗</b><span>{t('home.step3')}</span></div>
           </article>
 
-          <article className="story-beat beat-explore" data-story-beat="2" aria-label="Explore the prototype">
-            <span className="story-kicker"><i /> EXPLORE HONDURAS</span>
-            <h2>Every landscape<br />holds a <em>different story.</em></h2>
-            <p>Compare illustrative views, learn what a radar response can mean, and bring community observations into the conversation.</p>
-            <a className="story-button" href="#observatory">Enter the observatory <ArrowRight size={16} /></a>
+          <article className="story-beat beat-explore" data-story-beat="2" aria-label={t('home.beatExplore')}>
+            <span className="story-kicker"><i /> {t('home.kicker3')}</span>
+            <h2>{t('home.title3')}<br /><em>{t('home.title3em')}</em></h2>
+            <p>{t('home.lead3')}</p>
+            <Button className="story-button" href={routeHref('observatory')} icon={<ArrowRight size={16} />}>{t('home.cta3')}</Button>
           </article>
         </div>
 
-        <div className="story-coordinate mono">HONDURAS / CONCEPTUAL VIEW<br /><span>ILLUSTRATIVE ART · NOT TO SCALE</span></div>
-        <div className="story-scroll-cue mono"><span className="story-scroll-ring"><ArrowDown size={12} /></span> SCROLL TO EXPLORE</div>
+        <div className="story-coordinate mono">{t('home.coordinate')}<br /><span>{t('home.coordinateNote')}</span></div>
+        <div className="story-scroll-cue mono"><span className="story-scroll-ring"><ArrowDown size={12} /></span> {t('home.scroll')}</div>
         <div className="story-progress" aria-hidden="true"><span /></div>
-        <div className="story-demo-note mono">EDUCATIONAL PROTOTYPE · NO LIVE NISAR DATA</div>
+        <div className="story-demo-note mono">{t('home.note')}</div>
       </div>
     </section>
   );

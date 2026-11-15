@@ -1,0 +1,89 @@
+{
+ "schema_version": 1,
+ "snapshot_id": "20261115T060645Z-448a38fa",
+ "status": "catalog_only",
+ "reason": "acquisition/processing blocked: GridMismatch: no frequency with HVHV found in subset",
+ "generated_at": "2026-11-15T06:06:45Z",
+ "config_version": "1.0.0",
+ "config_sha256": "448a38fa75d3b13d8d38dbe71794277ebe82f4c3067a6f02710bc54be62f209b",
+ "parameters": {
+  "polarization": "HVHV",
+  "frequency_preference": [
+   "frequencyA",
+   "frequencyB"
+  ],
+  "threshold_db": 3.0,
+  "threshold_note": "Exploratory radar threshold. candidate if delta_db <= -threshold_db. Not a forest-loss threshold.",
+  "minimum_patch_ha": null,
+  "noise_floor_db": null,
+  "normalization_offset_db": 0.0,
+  "minimum_looks": null,
+  "metric_crs": "EPSG:32616",
+  "sector_size_m": 1000,
+  "min_common_coverage_pct": 10.0,
+  "max_output_pixels": 4000000,
+  "mask_rule": "valid if mask in 1..254 (subswath number of a fully focused averaging ensemble); 0 = invalid; 255 = fill. Source: NISAR GCOV product specification as summarized by ASF docs and file attributes; see processing-log for the attributes read from the file."
+ },
+ "pairs_by_status": {
+  "incompatible": 1164,
+  "compatible": 162
+ },
+ "chosen_pair": "pair-f93b4394cc",
+ "stages": [
+  {
+   "stage": "catalog",
+   "status": "ok",
+   "at": "2026-11-15T06:06:43Z",
+   "source": "file",
+   "file": ".bosquevivo-work/catalog/cmr-20261115T045835840671Z.json",
+   "retrieved_at": "2026-11-15T04:58:34.189218+00:00"
+  },
+  {
+   "stage": "inspect",
+   "status": "ok",
+   "at": "2026-11-15T06:06:44Z",
+   "scenes": 52,
+   "notes": [],
+   "in_aoi": 52
+  },
+  {
+   "stage": "pairing",
+   "status": "ok",
+   "at": "2026-11-15T06:06:45Z",
+   "evaluated": 1326,
+   "by_status": {
+    "incompatible": 1164,
+    "compatible": 162
+   },
+   "chosen": "pair-f93b4394cc",
+   "rule": "highest-priority collection tier with a compatible pair; coverage within 90% of the tier maximum; most recent final date; then shortest interval (fewest temporal confounders)"
+  },
+  {
+   "stage": "acquire",
+   "status": "ok",
+   "at": "2026-11-15T06:06:45Z",
+   "scene": "NISAR_L2_PR_GCOV_032_098_D_081_4005_DHDH_A_20261007T001620_20261007T001654_P05023_N_F_J_001",
+   "tag": "initial",
+   "method": [
+    "cache_hit"
+   ]
+  },
+  {
+   "stage": "acquire",
+   "status": "ok",
+   "at": "2026-11-15T06:06:45Z",
+   "scene": "NISAR_L2_PR_GCOV_033_098_D_081_4005_DHDH_A_20261019T001620_20261019T001654_P05023_N_F_J_001",
+   "tag": "final",
+   "method": [
+    "cache_hit"
+   ]
+  },
+  {
+   "stage": "acquire_process",
+   "status": "blocked",
+   "at": "2026-11-15T06:06:45Z",
+   "error_type": "GridMismatch",
+   "message": "no frequency with HVHV found in subset"
+  }
+ ]
+}
