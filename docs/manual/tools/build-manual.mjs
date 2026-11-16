@@ -18,7 +18,7 @@ const BASE = 'Manual_Usuario_FOREST_SAR_HN';
 const META = {
   subtitle: 'Manual de usuario y documentación del proyecto',
   lede: 'Observatorio web de cambios de retrodispersión radar con datos reales de NISAR en una ventana de estudio de Honduras',
-  version: '1.0', date: '15 de noviembre de 2026',
+  version: '1.1', date: '15 de noviembre de 2026',
   link: '[enlace público pendiente]', team: '[integrantes: completar]',
 };
 const warnings = []; const errors = [];

@@ -5,6 +5,8 @@ export interface NavItem {
   id: string;
   href: string;
   label: string;
+  /** Optional decorative icon shown before the label. */
+  icon?: ReactNode;
 }
 
 interface NavbarProps {
@@ -59,7 +61,7 @@ export function Navbar({ brandName, homeHref, homeLabel, items, activeId, navLab
             aria-current={item.id === activeId ? 'page' : undefined}
             className={item.id === activeId ? 'is-active' : undefined}
             onClick={() => setOpen(false)}
-          >{item.label}</a>
+          >{item.icon}{item.label}</a>
         ))}
       </nav>
       <div className="header-action">{actions}</div>

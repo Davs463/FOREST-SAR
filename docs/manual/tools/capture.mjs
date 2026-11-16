@@ -19,7 +19,9 @@ const mk = async (w, h) => {
   return { ctx, page: await ctx.newPage() };
 };
 const go = async (page, route, lang = 'es') => { await page.goto(`${BASE}?lang=${lang}#${route}`); await wait(page, 3500); };
-const step = async (name, fn) => { try { await fn(); done.push(name); } catch (e) { notes.push(`${name}: ${String(e.message).split('\n')[0]}`); console.log('FALLO', name, e.message.split('\n')[0]); } };
+// ONLY=21,22 limits the run to those steps (e.g. to add new screenshots without retaking the rest).
+const ONLY = process.env.ONLY ? new Set(process.env.ONLY.split(',')) : null;
+const step = async (name, fn) => { if (ONLY && !ONLY.has(name)) return; try { await fn(); done.push(name); } catch (e) { notes.push(`${name}: ${String(e.message).split('\n')[0]}`); console.log('FALLO', name, e.message.split('\n')[0]); } };
 const shot = (page, f, opts = {}) => page.screenshot({ path: path.join(OUT, f), ...opts });
 const lshot = (loc, f) => loc.screenshot({ path: path.join(OUT, f) });
 const mapEl = (page) => page.getByTestId('obs-map');
@@ -173,6 +175,53 @@ await step('17', async () => {
 });
 await step('19', async () => { await go(page, '/data'); await shot(page, '19-datos-tecnicos.png'); });
 await step('20', async () => { await go(page, '/observatory', 'en'); await shot(page, '20-idioma-en.png'); });
+
+// Bosques y Conservación (#/conservation). Scroll so the sticky header does not cover the block.
+const toId = (p, sel) => p.evaluate((s) => { const el = document.querySelector(s); window.scrollTo(0, el.getBoundingClientRect().top + window.scrollY - 140); }, sel);
+await step('21', async () => { await go(page, '/conservation'); await shot(page, '21-conservacion-inicio.png'); });
+await step('22', async () => {
+  await go(page, '/conservation');
+  await toId(page, '[data-testid=cons-stat-total]'); await wait(page, 1200);
+  await shot(page, '22-conservacion-cifras.png');
+  await page.getByTestId('forest-bar-coniferous').click(); await wait(page, 600);
+  await lshot(page.getByTestId('forest-types-chart'), '22b-conservacion-grafico.png');
+  await toId(page, '[data-testid=forest-type-cards]'); await wait(page, 1500);
+  await shot(page, '22c-conservacion-tipos.png');
+});
+await step('23', async () => {
+  await go(page, '/conservation');
+  await toId(page, '#cons-protected'); await wait(page, 1500);
+  await shot(page, '23-conservacion-areas.png');
+  await page.getByTestId('area-more-tigra').click(); await wait(page, 1500);
+  await shot(page, '23b-conservacion-la-tigra.png');
+  await page.keyboard.press('Escape'); await wait(page, 600);
+  await toId(page, '[data-testid=cons-region]'); await wait(page, 1200);
+  await shot(page, '23c-conservacion-region.png');
+});
+await step('24', async () => {
+  await go(page, '/conservation');
+  await toId(page, '#cons-threats'); await wait(page, 1500);
+  await shot(page, '24-conservacion-amenazas.png');
+  await toId(page, '#cons-benefits'); await wait(page, 1500);
+  await shot(page, '24b-conservacion-beneficios.png');
+});
+await step('25', async () => {
+  await go(page, '/conservation');
+  await toId(page, '[data-testid=sar-animation]'); await wait(page, 1500);
+  await shot(page, '25-conservacion-tecnologia.png');
+  await toId(page, '[data-testid=cons-system]'); await wait(page, 1500);
+  await shot(page, '25b-conservacion-sistema.png');
+});
+await step('26', async () => {
+  await go(page, '/conservation');
+  await page.getByTestId('role-observer').click(); await page.getByTestId('role-volunteer').click();
+  await page.getByTestId('cons-municipality').selectOption('Santa Lucía');
+  await page.getByTestId('cons-preview').click(); await wait(page, 800);
+  await toId(page, '[data-testid=cons-roles]'); await wait(page, 1200);
+  await shot(page, '26-conservacion-participar.png');
+  await page.getByTestId('cons-summary').scrollIntoViewIfNeeded(); await page.evaluate(() => window.scrollBy(0, 200)); await wait(page, 800);
+  await shot(page, '26b-conservacion-formulario.png');
+});
 await ctx.close();
 
 const m = await mk(390, 844);
@@ -182,6 +231,7 @@ await step('18', async () => {
   await shot(m.page, '18-movil-observatorio.png');
   await go(m.page, '/analytics'); await shot(m.page, '18b-movil-analytics.png');
 });
+await step('27', async () => { await go(m.page, '/conservation'); await shot(m.page, '27-movil-conservacion.png'); });
 await m.ctx.close();
 await browser.close();
 console.log('OK:', done.join(' '), '\nNOTAS:', notes);

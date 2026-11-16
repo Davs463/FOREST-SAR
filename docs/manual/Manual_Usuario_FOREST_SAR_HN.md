@@ -6,11 +6,13 @@
 
 **Real results (catalog consulted on 2026-11-15).** 52 scenes were found (47 provisional, 5 validated), 1,326 pairs were evaluated and 162 were compatible. Four comparisons were processed, all ending on 2026-10-19: 12 days (23 ha, 20 zones), 36 days (17 ha, 11 zones), 60 days (28 ha, 25 zones) and 84 days (165 ha, 98 zones). The valid area is 117,537 ha with 93.8% coverage. These figures are not added up because the periods share the same end date.
 
+**Forest & Conservation.** A separate educational page (`#/conservation`) explains Honduras' forests (ICF 2018 figures, labelled as historical), the protected areas around the Central District (with source discrepancies shown side by side), threats, benefits, radar technology and a demo-only participation flow that collects no personal data. It does not process data; its only system figures are read from the published snapshots.
+
 **What it is not.** A candidate is a *decrease in radar backscatter*, not confirmed deforestation, not an official alert and not a prediction. The vegetation-cover traffic light is shown as "Not evaluated" because comparable vegetation measurements do not exist. The community section is a local demonstration.
 
 **Technology.** React 19, TypeScript, Vite 8 and Leaflet on the front end; Python 3.12 with earthaccess, harmony-py, numpy, rasterio, h5py and shapely in the engine. Development was orchestrated with Claude Code (Opus, Sonnet and Haiku roles) with OpenAI Codex as a hand-over agent and human review of every scientific claim. No generative AI runs inside the product and no image was AI-generated.
 
-**Tests.** pytest: 45 passed. Playwright: 142 passed, 8 skipped, 0 failed. Type check and production build: OK.
+**Tests.** pytest: 45 passed. Playwright: 166 passed, 8 skipped, 0 failed. Type check and production build: OK.
 
 # 1. Presentación
 
@@ -39,7 +41,7 @@ El radar no "ve" árboles caídos ni causas. Mide energía devuelta. FOREST_SAR_
 
 ## 1.3 Cómo está organizado este manual
 
-Las secciones 2 y 3 responden las cinco preguntas del formulario del reto y resumen los resultados. Las secciones 4 a 10 son la guía de uso, pantalla por pantalla. Las secciones 11 a 13 explican el método, la arquitectura y las limitaciones. El final incluye preguntas frecuentes, mejoras futuras, referencias y la declaración de uso de inteligencia artificial.
+Las secciones 2 y 3 responden las cinco preguntas del formulario del reto y resumen los resultados. Las secciones 4 a 11 son la guía de uso, pantalla por pantalla; la 10 presenta la página educativa *Bosques y Conservación*. Las secciones 12 a 14 explican el método, la arquitectura y las limitaciones. El final incluye preguntas frecuentes, mejoras futuras, referencias y la declaración de uso de inteligencia artificial.
 
 ![Flujo general del proyecto, de los datos de NASA a la participación comunitaria](diagramas/flujo-general.png "Diagrama de seis pasos: NASA/NISAR, selección de observaciones, procesamiento, detección de cambios, observatorio y participación")
 
@@ -64,7 +66,8 @@ FOREST_SAR_HN compara pares de escenas reales del satélite NISAR y muestra dón
 - Datos reales de NISAR procesados de punta a punta: 52 escenas catalogadas, 1 326 parejas evaluadas y 4 comparaciones publicadas con sus identificadores, fechas y métricas.
 - Un observatorio público y sin cuenta que muestra el resultado en mapas, indicadores y gráficos, con descarga de CSV para uso técnico.
 - Transparencia: cada cifra indica su fuente, fecha, umbral y limitaciones; las páginas de metodología y de datos técnicos exponen el procesamiento.
-- Reproducibilidad: pruebas automáticas (pytest 45 aprobadas; Playwright 142 aprobadas) y una versión de publicación verificada.
+- Educación ambiental: la página *Bosques y Conservación* explica los bosques de Honduras, las áreas protegidas del Distrito Central y el radar satelital con fuentes citadas y cifras históricas marcadas como tales.
+- Reproducibilidad: pruebas automáticas (pytest 45 aprobadas; Playwright 166 aprobadas) y una versión de publicación verificada.
 - Costo de operación bajo: es un sitio estático que no necesita servidor, base de datos ni credenciales.
 
 **Beneficios potenciales (aún no demostrados).**
@@ -101,6 +104,7 @@ Todo lo listado se verificó en los archivos del repositorio.
 | Construcción | Node.js, npm, esbuild | Instalación de dependencias, build y verificación de publicación |
 | Datos y servicios | NASA Earthdata, CMR, Harmony, ASF DAAC, NISAR L2 GCOV, GIBS/Worldview | Catálogo, descarga de recortes y capas de contexto |
 | Mapas base | OpenStreetMap/Overpass (ODbL), Esri World Imagery, OpenTopoMap | Mapas de referencia y búsqueda de localidades |
+| Fotografías | Wikimedia Commons (CC BY-SA, CC BY, CC0, dominio público), convertidas a WebP | Fotos reales de Honduras en Bosques y Conservación, con autor y licencia visibles |
 | Entorno | Git (rama local), Visual Studio Code con la extensión Claude Code | Control de versiones y edición |
 | Inteligencia artificial | Claude Code (Opus 5.5, Sonnet 5.5, Haiku 5.5) y OpenAI Codex | Apoyo al desarrollo y la documentación, con revisión humana |
 | Hardware | Computadoras personales del equipo y conexión a Internet | Desarrollo y procesamiento local |
@@ -153,7 +157,7 @@ Las cuatro comparaciones comparten la fecha final (2026-10-19), así que se sola
 | Prueba | Resultado |
 |---|---|
 | pytest (motor científico) | 45 aprobadas |
-| Playwright (interfaz) | 142 aprobadas, 8 omitidas, 0 fallidas |
+| Playwright (interfaz) | 166 aprobadas, 8 omitidas, 0 fallidas |
 | Comprobación de tipos y compilación | Correctas |
 | Verificación de la versión de publicación | `npm run build:publish` comprueba que `dist` no incluya claves, rutas locales ni archivos privados |
 
@@ -162,9 +166,9 @@ Las cuatro comparaciones comparten la fecha final (2026-10-19), así que se sola
 El sitio es **público y no requiere cuenta, correo ni claves**. Se abre en cualquier navegador moderno, en computador, tableta o teléfono.
 
 - **Enlace público:** [enlace público pendiente]. El dominio todavía no existe; el repositorio público está previsto, pero no se ha publicado.
-- **Navegación:** la barra superior tiene Inicio, Observatorio, Evolución, Observaciones, Comunidad, Biblioteca, Metodología y Datos técnicos.
+- **Navegación:** la barra superior tiene Observatorio, Evolución, Observaciones, Bosques y Conservación, Comunidad, Biblioteca y Metodología; el logotipo lleva al Inicio. En pantallas medianas y pequeñas el menú se abre con el botón ☰.
 - **Idioma:** el botón ES/EN cambia toda la interfaz; el inglés es completo.
-- **Rutas:** las direcciones usan `#/`, por ejemplo `#/observatory`, `#/analytics`, `#/observations` y `#/data`, así que se pueden guardar como favoritos.
+- **Rutas:** las direcciones usan `#/`, por ejemplo `#/observatory`, `#/analytics`, `#/observations`, `#/conservation` y `#/data`, así que se pueden guardar como favoritos.
 
 ![Interfaz completa en inglés](capturas/20-idioma-en.png "Observatorio con el idioma cambiado a inglés")
 
@@ -359,13 +363,110 @@ Lo que una persona escribe se guarda únicamente en su propio navegador (`localS
 Las publicaciones, votos, encuestas y eventos de ejemplo **no son reales**. Esta sección muestra una idea de participación; no registra denuncias ni conecta con autoridades.
 :::
 
-# 10. Biblioteca
+# 10. Bosques y Conservación
+
+La sección **Bosques y Conservación** (`#/conservation`, con un icono de pino en el menú) es una página educativa. Explica qué son los bosques de Honduras, qué áreas protegidas rodean al Distrito Central, qué los amenaza, por qué conviene conservarlos y cómo el radar satelital puede ayudar a notar cambios. Es independiente del Observatorio: **no procesa datos ni cambia los resultados científicos**, y casi todas sus cifras vienen de fuentes publicadas, no de FOREST_SAR_HN.
+
+![Bosques y Conservación](capturas/21-conservacion-inicio.png "Portada de la sección con una foto real del Parque Nacional La Tigra")
+
+Debajo de la portada hay un **menú de seis apartados** (Bosques, Áreas protegidas, Amenazas, Beneficios, Tecnología espacial y Participar) que acompaña al bajar y marca dónde está la persona. Los botones llevan a cada apartado sin cambiar la dirección de la página. Se usa con teclado, y si el sistema pide reducir el movimiento, las animaciones se detienen.
+
+:::nota Cómo leer las cifras de esta página
+Cada cifra lleva su fuente entre paréntesis; al pulsarla se abre la lista de fuentes al final de la página. Las estadísticas nacionales se marcan **"Cifra histórica · 2018 · No es un resultado de FOREST-SAR"**. Las únicas cifras propias del sistema son las del bloque *Nuestro sistema, con datos reales* y se leen de los mismos archivos publicados que usa el Observatorio.
+:::
+
+## 10.1 Bosques de Honduras
+
+Según el ICF (2018), Honduras tenía **5,384,424.88 ha de bosque**, cerca del **48 %** del territorio. El gráfico de barras muestra la distribución por tipo: latifoliado (57.1 %), conífero (36.6 %), mixto (5.3 %) y mangle (1.0 %). Al pasar el ratón o el foco sobre una barra se ve su superficie; al hacer clic queda fijada y se resalta la tarjeta del mismo tipo. El botón **Ver como tabla** muestra los mismos valores en una tabla.
+
+![Cifras nacionales](capturas/22-conservacion-cifras.png "Cifras forestales de Honduras en 2018 marcadas como históricas")
+
+![Gráfico por tipo de bosque](capturas/22b-conservacion-grafico.png "Gráfico de barras con el bosque conífero seleccionado")
+
+Cada tipo tiene una tarjeta con su porcentaje, su superficie y una **foto representativa** de Honduras: ilustra el tipo de bosque, no un sitio medido. Después se explica la diferencia entre *bosque*, *cobertura forestal* y *uso del suelo*, las tres clases de densidad del dosel (con dibujos ilustrativos) y algunas especies frecuentes.
+
+![Tipos de bosque](capturas/22c-conservacion-tipos.png "Tarjetas de los cuatro tipos de bosque con fotos representativas")
+
+## 10.2 Áreas protegidas y región
+
+Cuatro tarjetas presentan áreas protegidas del Distrito Central o de sus alrededores; el botón **Conocer más** abre una ventana con el detalle (se cierra con *Esc*).
+
+| Área | Superficie reportada | Fuente |
+|---|---|---|
+| Parque Nacional La Tigra | 17,657 ha o ~24,000 ha (las fuentes difieren) | ICF, 2021; SINIT, 2024 |
+| Refugio de Vida Silvestre Corralitos | 3,827.74 ha | ICF |
+| Reserva Biológica Yerba Buena | 189.01 ha | ICF |
+| Refugio de Vida Silvestre "Mero" | 5,107 ha, creado en 2024, en cuatro municipios | Brand Studio, 2024 |
+
+![Áreas protegidas](capturas/23-conservacion-areas.png "Tarjetas de las cuatro áreas protegidas")
+
+:::aviso Las fuentes de La Tigra no coinciden
+Para La Tigra, el ICF (2021) reporta 17,657 ha y el SINIT (2024) unas 24,000 ha. Para el agua de Tegucigalpa, una fuente dice cerca del 30 % y el plan de manejo, con datos de 1997 del SANAA, el 40 %. La página muestra **ambas cifras, cada una con su fuente**, sin promediarlas, y aclara que no se pudo verificar el motivo de la diferencia.
+:::
+
+![Detalle de La Tigra](capturas/23b-conservacion-la-tigra.png "Ventana de La Tigra con las dos superficies, los dos porcentajes de agua y el aviso de discrepancia")
+
+Corralitos, Yerba Buena y "Mero" no tienen una fotografía verificada, así que muestran el texto *"No hay una fotografía verificada de esta área"*. **No se dibujan límites de áreas protegidas** en ningún mapa, porque el proyecto no dispone de límites oficiales verificados.
+
+El bloque **Del país a nuestra ventana de estudio** separa cinco escalas que no deben mezclarse: Honduras, Francisco Morazán, el Distrito Central, La Tigra y la ventana de estudio de FOREST_SAR_HN. Para Francisco Morazán muestra 627,637 ha de bosque (73 % del departamento), 326,261 ha de pino, y 647 incendios y 61,820 ha quemadas en 2024 (ICF). La única cifra propia es el área válida de radar, **117,537 ha** por comparación.
+
+![Escalas de la región](capturas/23c-conservacion-region.png "Cinco escalas: país, departamento, municipio, parque y ventana de estudio")
+
+## 10.3 Amenazas, consecuencias y beneficios
+
+Cuatro tarjetas describen las amenazas: **expansión agrícola y ganadera**, **expansión urbana**, **incendios forestales** y **fragmentación y degradación**. Cada una abre una ventana con más información y su fuente. Debajo hay cuatro consecuencias de la deforestación: pérdida de biodiversidad, emisiones de gases de efecto invernadero, alteración de los ciclos del agua y del clima, y mayor riesgo de desastres.
+
+:::aviso El radar no identifica causas
+Un aviso visible recuerda que **FOREST-SAR detecta cambios en la señal de radar, no su causa**. Ninguna amenaza de esta página se atribuye a una zona candidata del Observatorio.
+:::
+
+![Amenazas](capturas/24-conservacion-amenazas.png "Tarjetas de amenazas con el aviso de que el radar no identifica causas")
+
+El apartado **Bosques saludables. Comunidades más fuertes.** resume siete beneficios de conservar (carbono, agua, biodiversidad, suelo, regulación ambiental, recursos para las comunidades y resiliencia) y explica por qué conviene monitorear de forma continua.
+
+![Beneficios](capturas/24b-conservacion-beneficios.png "Beneficios de conservar los bosques")
+
+## 10.4 Tecnología espacial
+
+Este apartado explica la percepción remota (sensores pasivos y activos), el radar SAR y la misión NISAR con sus bandas L y S. Incluye una **animación ilustrativa** de seis pasos que se puede pausar; está rotulada como ilustración y no muestra datos reales.
+
+![Tecnología espacial](capturas/25-conservacion-tecnologia.png "Animación ilustrativa del funcionamiento del radar")
+
+Las capacidades previstas de la misión NISAR se presentan **separadas** de lo que FOREST_SAR_HN hace hoy. El bloque **Nuestro sistema, con datos reales** muestra cifras leídas del snapshot publicado: 52 escenas catalogadas, 162 pares compatibles, 4 comparaciones y el área candidata de cada una (23, 17, 28 y 165 ha), con la nota de que **no se suman**. Desde aquí se va al Observatorio o a la Metodología.
+
+Las tarjetas de **Investigaciones y aplicaciones del radar** (JERS-1, ALOS, ALOS-2, UAVSAR y radar aerotransportado) llevan la etiqueta **"Misión anterior"**: son ejemplos descritos por la NASA, no resultados de NISAR ni de FOREST_SAR_HN.
+
+![Nuestro sistema e investigaciones](capturas/25b-conservacion-sistema.png "Cifras reales del sistema y ejemplos de misiones anteriores")
+
+## 10.5 Participar
+
+La persona puede elegir **uno o varios roles**: observador de campo, analista de imágenes, enlace comunitario, brigadista forestal, comunicaciones y voluntariado. El rol de brigadista recuerda que la respuesta a incendios requiere capacitación, coordinación y equipo de seguridad.
+
+![Roles de participación](capturas/26-conservacion-participar.png "Seis roles de participación con dos elegidos")
+
+El **formulario** muestra los roles elegidos, permite elegir el municipio y el medio de contacto preferido (sin escribir ningún dato) y genera una **vista previa** de la participación. Desde allí se puede pasar a la sección Comunidad.
+
+:::aviso Prototipo de participación
+Los servicios de registro y contacto todavía no están activos. El formulario **no pide nombre, teléfono ni correo**, no envía nada por Internet y no guarda nada en el navegador: la vista previa solo existe mientras la página está abierta y dice expresamente que no se envió ni se guardó nada.
+:::
+
+![Formulario de demostración](capturas/26b-conservacion-formulario.png "Formulario de demostración con la vista previa de la participación")
+
+## 10.6 Fuentes, fotografías y uso en el teléfono
+
+Al final de la página, **Fuentes** reúne las citas del documento del equipo. Solo tienen enlace las páginas oficiales que se abrieron y comprobaron; las demás aparecen como *"Sin enlace verificado"*. **Créditos de imágenes** lista las 11 fotografías de Wikimedia Commons con autor y licencia (CC BY-SA, CC BY, CC0 o dominio público). Ninguna imagen fue generada por IA.
+
+La página se adapta al teléfono: los apartados pasan a una columna y el menú de apartados se desliza horizontalmente.
+
+![Bosques y Conservación en el teléfono](capturas/27-movil-conservacion.png "Portada de Bosques y Conservación en una pantalla de teléfono")
+
+# 11. Biblioteca
 
 La **Biblioteca** reúne enlaces oficiales para profundizar: documentación del producto NISAR GCOV (ASF), herramientas de datos de OPERA, el buscador de ASF, la documentación de GIBS y NASA Worldview. Se presentan como una galería de tarjetas con una ilustración propia por tipo de recurso (guía, catálogo, capas, API, visor de mapas), su dominio y el botón **Abrir recurso**. Son recursos externos; el sitio no los copia ni muestra capturas de ellos.
 
 ![Biblioteca](capturas/16-biblioteca.png "Biblioteca de recursos oficiales con enlaces")
 
-# 11. Metodología
+# 12. Metodología
 
 La página **Metodología** del sitio explica el procesamiento. Aquí se resume, primero con palabras sencillas y luego con las fórmulas implementadas.
 
@@ -373,7 +474,7 @@ En esa misma página, la tarjeta **Manual de usuario** abre este documento dentr
 
 ![Metodología](capturas/17-metodologia.png "Página de Metodología con los pasos del procesamiento")
 
-## 11.1 Explicación sencilla
+## 12.1 Explicación sencilla
 
 1. Se buscan escenas NISAR públicas y se forman **parejas** de la misma órbita.
 2. Se descarga solo la zona de estudio, el canal HVHV y la máscara de calidad.
@@ -382,7 +483,7 @@ En esa misma página, la tarjeta **Manual de usuario** abre este documento dentr
 5. Si la señal bajó **3 dB o más**, el cuadro es *candidato*.
 6. Los candidatos cercanos se unen en **zonas** y se publican con sus cifras.
 
-## 11.2 Fórmulas y reglas implementadas
+## 12.2 Fórmulas y reglas implementadas
 
 | Paso | Regla implementada |
 |---|---|
@@ -405,27 +506,27 @@ Se promedia primero en potencia lineal y luego se convierte a dB, porque promedi
 
 ![Transparencia](capturas/17c-metodologia-transparencia.png "Sección de transparencia con limitaciones y fuentes")
 
-## 11.3 Qué puede cambiar la señal además de la vegetación
+## 12.3 Qué puede cambiar la señal además de la vegetación
 
 La humedad del suelo y de la vegetación, la lluvia, la estación, el relieve y la geometría de observación también modifican la retrodispersión. El período de 84 días cruza la estación lluviosa. Por eso un candidato no puede interpretarse como pérdida de bosque sin otra evidencia.
 
-## 11.4 Datos técnicos
+## 12.4 Datos técnicos
 
 La página **Datos técnicos** (`#/data`) lista las comparaciones, las escenas y las parejas (compatibles e incompatibles, con el motivo), junto con identificadores reales de cada escena.
 
 ![Datos técnicos](capturas/19-datos-tecnicos.png "Página de Datos técnicos con tablas de comparaciones y escenas")
 
-# 12. Arquitectura
+# 13. Arquitectura
 
 FOREST_SAR_HN separa lo que necesita red y credenciales (el motor) de lo que ve el público (un sitio estático).
 
 ![Arquitectura general](diagramas/arquitectura.png "Fuentes NASA, motor Python, archivos versionados, frontend React, mapas y analytics, usuario")
 
-## 12.1 Por qué el sitio no necesita credenciales
+## 13.1 Por qué el sitio no necesita credenciales
 
 Solo el motor científico se conecta a NASA Earthdata y lo hace desde el computador del equipo, usando un token guardado en el entorno y nunca en el repositorio. El resultado son archivos JSON, GeoJSON y PNG dentro de `public/data/snapshots`. El navegador solo **lee** esos archivos: no hay servidor propio, base de datos ni inicio de sesión. La comprobación `build:publish` se detiene si encuentra claves, rutas locales o archivos privados en la versión que se subirá.
 
-## 12.2 Cómo se agregan nuevas observaciones
+## 13.2 Cómo se agregan nuevas observaciones
 
 Hoy es un proceso manual y supervisado:
 
@@ -436,13 +537,13 @@ Hoy es un proceso manual y supervisado:
 
 Cada resultado conserva el identificador de las escenas, la versión del algoritmo y un registro de procesamiento. No hay actualización automática.
 
-## 12.3 Cómo se organizó el trabajo con agentes de IA
+## 13.3 Cómo se organizó el trabajo con agentes de IA
 
 El desarrollo se organizó por lotes con un coordinador y agentes especializados. Los agentes ayudaron a escribir, revisar y probar; no tomaron decisiones por su cuenta ni publicaron nada. Cada lote se registra en `PROGRESS.md` y `HANDOFF.md`, y una persona del equipo revisa las afirmaciones científicas antes de publicarlas.
 
 ![Organización de agentes](diagramas/agentes.png "Coordinador Opus, agentes Sonnet, Haiku para documentación, relevo con Codex, documentación compartida y revisión humana")
 
-# 13. Limitaciones y uso responsable
+# 14. Limitaciones y uso responsable
 
 :::aviso Lo que este sitio no es
 - No es deforestación confirmada: es una **disminución candidata de retrodispersión**.
@@ -459,10 +560,11 @@ El desarrollo se organizó por lotes con un coordinador y agentes especializados
 - **Semáforo no evaluado.** No hay mediciones comparables de cobertura vegetal.
 - **Mapas de fondo.** No corresponden a la fecha de observación del radar.
 - **Comunidad.** Es demostración local.
+- **Bosques y Conservación.** Sus estadísticas son históricas y de otras fuentes (ICF 2018 y otras), no resultados de FOREST_SAR_HN. Varias citas no tienen enlace verificado, tres áreas protegidas no tienen foto verificada y no se dibujan límites oficiales. El formulario de participación es solo un prototipo.
 
 **Uso responsable.** Use los candidatos como **invitación a mirar con otras fuentes**: imágenes ópticas, información local y visitas de campo. Cite siempre las fechas y el nivel de evidencia, y evite señalar propiedades o personas.
 
-# 14. Preguntas frecuentes
+# 15. Preguntas frecuentes
 
 **1. ¿Esto muestra deforestación?** No. Muestra zonas donde la señal del radar bajó al menos 3 dB. Puede deberse a pérdida de vegetación, pero también a humedad, lluvia, estación o cambios del terreno.
 
@@ -482,9 +584,13 @@ El desarrollo se organizó por lotes con un coordinador y agentes especializados
 
 **9. ¿Las publicaciones de Comunidad son reales?** No. Son una demostración local y quedan solo en su navegador.
 
-**10. ¿Se usó inteligencia artificial?** Sí, para apoyar el desarrollo y la documentación (Claude Code y Codex) con revisión humana. No hay IA en el sitio ni imágenes generadas por IA.
+**10. ¿Las cifras de Bosques y Conservación las calculó FOREST_SAR_HN?** No. Las estadísticas de bosques, áreas protegidas e incendios vienen del ICF y de otras fuentes citadas, y se marcan con su año. Las únicas cifras propias de esa página (escenas, pares, comparaciones y hectáreas candidatas) se leen de los archivos publicados del Observatorio.
 
-# 15. Futuras mejoras
+**11. ¿El formulario de Participar me registra?** No. Es un prototipo: no pide nombre, teléfono ni correo, y no envía ni guarda nada.
+
+**12. ¿Se usó inteligencia artificial?** Sí, para apoyar el desarrollo y la documentación (Claude Code y Codex) con revisión humana. No hay IA en el sitio ni imágenes generadas por IA.
+
+# 16. Futuras mejoras
 
 Lo siguiente **no existe todavía**; es una lista de posibilidades que dependen de tiempo, datos y validación.
 
@@ -497,9 +603,9 @@ Lo siguiente **no existe todavía**; es una lista de posibilidades que dependen 
 - Límites administrativos oficiales para reemplazar la ventana provisional.
 - Evaluación de accesibilidad con usuarios y más idiomas.
 
-# 16. Referencias, declaración de IA y equipo
+# 17. Referencias, declaración de IA y equipo
 
-## 16.1 Referencias
+## 17.1 Referencias
 
 | Recurso | Enlace |
 |---|---|
@@ -514,6 +620,13 @@ Lo siguiente **no existe todavía**; es una lista de posibilidades que dependen 
 | NASA Worldview | [worldview.earthdata.nasa.gov](https://worldview.earthdata.nasa.gov/) |
 | GIBS (documentación) | [nasa-gibs.github.io/gibs-api-docs](https://nasa-gibs.github.io/gibs-api-docs/) |
 | OPERA (herramientas de acceso) | [earthdata.nasa.gov/data/projects/opera](https://www.earthdata.nasa.gov/data/projects/opera/data-access-tools) |
+| ICF (Instituto de Conservación Forestal) | [icf.gob.hn](https://www.icf.gob.hn/) |
+| NASA, misión NISAR | [science.nasa.gov/mission/nisar](https://science.nasa.gov/mission/nisar/) |
+| Percepción remota (Earthdata) | [remote-sensing](https://www.earthdata.nasa.gov/learn/earth-observation-data-basics/remote-sensing) |
+| Deforestación (Our World in Data) | [ourworldindata.org/deforestation](https://ourworldindata.org/deforestation) |
+| Deforestación (National Geographic Education) | [education.nationalgeographic.org](https://education.nationalgeographic.org/resource/deforestation/) |
+| Chazdon et al. (2016), definición de bosque | [doi.org/10.1007/s13280-016-0772-y](https://doi.org/10.1007/s13280-016-0772-y) |
+| Wikimedia Commons (fotografías) | [commons.wikimedia.org](https://commons.wikimedia.org/) |
 | OpenStreetMap (licencia ODbL) | [openstreetmap.org/copyright](https://www.openstreetmap.org/copyright) |
 | ISRO | [isro.gov.in](https://www.isro.gov.in/) |
 | React | [react.dev](https://react.dev/) |
@@ -523,14 +636,14 @@ Lo siguiente **no existe todavía**; es una lista de posibilidades que dependen 
 
 Las menciones a NASA, ISRO y otras instituciones indican la fuente de los datos y no implican su respaldo al proyecto. No se modificó ningún logotipo de NASA ni de ISRO.
 
-## 16.2 Declaración de uso de inteligencia artificial
+## 17.2 Declaración de uso de inteligencia artificial
 
 - **Desarrollo:** el código, la documentación y el procesamiento se orquestaron con **Claude Code** (Anthropic): Claude Opus 5.5 como coordinador, Claude Sonnet 5.5 como agentes de implementación y revisión, y Claude Haiku 5.5 para documentación. **OpenAI Codex** actuó como agente de relevo, según consta en `PROGRESS.md`, `HANDOFF.md` y `CODEX_RELEVO.md`.
 - **En tiempo de ejecución:** el sitio y el motor **no usan IA generativa** y no requieren claves de servicios de IA.
-- **Imágenes:** ninguna imagen del proyecto fue generada por IA. Las ilustraciones son SVG/CSS originales y las capturas de este manual son de la propia aplicación.
+- **Imágenes:** ninguna imagen del proyecto fue generada por IA. Las ilustraciones son SVG/CSS originales, las fotografías de *Bosques y Conservación* son de Wikimedia Commons con autor y licencia, y las capturas de este manual son de la propia aplicación.
 - **Responsabilidad humana:** el equipo revisa las afirmaciones científicas. El resultado de una IA no es un resultado científico validado.
 
-## 16.3 Contribuciones del equipo
+## 17.3 Contribuciones del equipo
 
 :::nota Espacio editable
 Complete esta sección con los nombres y los roles de las personas del equipo.

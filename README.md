@@ -5,7 +5,7 @@
 The project has two parts:
 
 1. **Scientific engine (Python, offline/local):** queries public NASA CMR metadata, selects compatible NISAR GCOV pairs, subsets them through NASA Harmony, and produces static artifacts (JSON, PNG layers, GeoJSON sectors).
-2. **Web app (React + TypeScript + Vite, static):** reads those artifacts and presents the observatory, methodology, and a demo community area. It needs no backend, no login, and no database.
+2. **Web app (React + TypeScript + Vite, static):** reads those artifacts and presents the observatory, analytics, observations, a **Forest & Conservation** educational view, methodology, and a demo community area. It needs no backend, no login, and no database.
 
 > **Status:** prototype. One real NISAR pair has been processed for the study window. Evidence level is 1 (a single pair). See [Scientific limits](#scientific-limits).
 
@@ -148,11 +148,21 @@ src/i18n/                    English and Spanish text
 src/components/              Shared UI (Button, Navbar, Tabs, Modal, Card, ...)
 src/services/               Loads and validates the published science artifacts
 src/shared/                  Types, formatting, semaphore and error helpers
-src/features/                Observatory, observations, community (demo), library, methodology, home
+src/features/                Observatory, analytics, observations, conservation, community (demo), library, methodology, home
+public/conservation/          Optimised WebP photographs used by the Forest & Conservation view
 docs/                        Contracts, plans, architecture, deployment, sources, progress, handoff
 ```
 
 Full map with descriptions: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
+
+## Forest & Conservation view (`#/conservation`)
+
+An educational page that explains why radar changes matter: Honduran forest types (ICF 2018 national statistics, shown as historical figures), protected areas near the study area (La Tigra, Corralitos, Yerba Buena, Suyapa "Mero" refuge), threats and consequences of deforestation, regional context for Francisco Morazán and the Central District, conservation benefits, how SAR and NISAR work, earlier radar research, and a **demo-only** participation flow (role selection and municipality; no personal data is requested, sent or stored).
+
+- Figures come from the team's source document and keep their source and year; none of them is a FOREST-SAR result. Where sources disagree (La Tigra area and its share of Tegucigalpa's water) both values are shown with their sources.
+- FOREST-SAR detects radar changes; the page never attributes a cause to a candidate zone.
+- The "Our system" block reads the published snapshot (scenes, compatible pairs, candidate area per comparison, never summed).
+- Content lives in `src/i18n/sections/conservation.{en,es}.ts`; facts, sources and image credits in `src/features/conservation/conservation.data.ts`. Notes: [`docs/conservation/README.md`](docs/conservation/README.md).
 
 ## Contributing
 
@@ -161,7 +171,7 @@ This is a hackathon project. Before changing science parameters, read `docs/CONT
 ## Credits and licenses
 
 - **Mission:** NISAR is a NASA–ISRO mission. [NASA/JPL NISAR](https://nisar.jpl.nasa.gov/). This project is an independent challenge entry, not an official NASA or ISRO product.
-- **Design:** the visual language is adapted from a supplied landing-page template. The template's remote images and video were not carried over. All scenes in the app are original SVG/CSS illustrations.
+- **Design:** the visual language is adapted from a supplied landing-page template. The template's remote images and video were not carried over. Scenes and diagrams in the app are original SVG/CSS illustrations, except the Forest & Conservation view, which uses real photographs of Honduras from Wikimedia Commons (public domain, CC0, CC BY 4.0, CC BY-SA 3.0/4.0 and one Copernicus Sentinel-2 image), credited on each photo and in the page's credits panel.
 - **Fonts:** Inter Tight and JetBrains Mono (SIL Open Font License), loaded from Google Fonts.
 - **Icons:** Lucide React (ISC license).
 - **Mapping:** Leaflet 1.9.4 (BSD-2-Clause).

@@ -14,7 +14,7 @@ Hoy hay cuatro comparaciones procesadas, todas con fecha final 2026-10-19 (de 17
 
 ## ¿Qué beneficios tiene?
 
-**Beneficios demostrados.** Ya existe un flujo completo con datos reales de NISAR: 52 escenas catalogadas, 1 326 parejas evaluadas (162 compatibles) y cuatro comparaciones publicadas con identificadores, fechas y métricas. El observatorio es público, no requiere cuenta y muestra los resultados en mapas, indicadores y gráficos, con CSV descargables. Es transparente: cada cifra indica fuente, umbral y limitaciones, y hay páginas de metodología y datos técnicos. Es verificable: 45 pruebas de Python y 142 pruebas de interfaz aprobadas, y una versión de publicación comprobada. Al ser un sitio estático, no necesita servidor, base de datos ni credenciales, por lo que su costo de operación es bajo.
+**Beneficios demostrados.** Ya existe un flujo completo con datos reales de NISAR: 52 escenas catalogadas, 1 326 parejas evaluadas (162 compatibles) y cuatro comparaciones publicadas con identificadores, fechas y métricas. El observatorio es público, no requiere cuenta y muestra los resultados en mapas, indicadores y gráficos, con CSV descargables. Es transparente: cada cifra indica fuente, umbral y limitaciones, y hay páginas de metodología y datos técnicos. Es verificable: 45 pruebas de Python y 166 pruebas de interfaz aprobadas, y una versión de publicación comprobada. Al ser un sitio estático, no necesita servidor, base de datos ni credenciales, por lo que su costo de operación es bajo.
 
 **Beneficios potenciales (todavía no demostrados).** Podría orientar a comunidades y docentes sobre dónde conviene mirar con otras fuentes o en campo, servir como material educativo para entender el radar SAR y, con más observaciones y validación en terreno, apoyar una futura vigilancia del cambio de cobertura. Estos beneficios dependen de datos y validación que aún no existen.
 
@@ -42,7 +42,7 @@ Un candidato es una disminución de retrodispersión radar, no deforestación co
 
 **Pruebas y construcción:** pytest, Playwright (con Chrome del sistema), comprobación de tipos de TypeScript, Node.js, npm y esbuild.
 
-**Datos y servicios:** NASA Earthdata, CMR, Harmony, ASF DAAC, producto NISAR L2 GCOV, GIBS/Worldview, OpenStreetMap/Overpass (licencia ODbL), Esri World Imagery y OpenTopoMap.
+**Datos y servicios:** NASA Earthdata, CMR, Harmony, ASF DAAC, producto NISAR L2 GCOV, GIBS/Worldview, OpenStreetMap/Overpass (licencia ODbL), Esri World Imagery y OpenTopoMap. Fotografías reales de Honduras de Wikimedia Commons (con autor y licencia) y estadísticas forestales del ICF para la página Bosques y Conservación.
 
 **Entorno:** Git en una rama local y Visual Studio Code con la extensión Claude Code.
 
@@ -56,4 +56,4 @@ La creatividad de FOREST_SAR_HN está en cómo integra y presenta información e
 
 Traducimos decibelios y retrodispersión a preguntas cotidianas: ¿dónde bajó la señal?, ¿cuánto?, ¿qué no sabemos? Diseñamos la honestidad como parte de la interfaz: el semáforo dice "No evaluado" cuando faltan datos, el mapa advierte que la imagen de fondo no es de la fecha observada y cada cifra lleva sus límites. Unimos en una sola pantalla, en tres pasos (elegir período, explorar el mapa, entender los resultados), datos de NISAR, capas de contexto de NASA GIBS y mapas abiertos de OpenStreetMap, con burbujas que agrupan zonas y búsqueda local de lugares.
 
-También hicimos el procesamiento abierto, versionado y probado para que otras personas puedan repetirlo, y propusimos un espacio comunitario para contrastar la señal satelital con el conocimiento de quienes viven en el territorio. Todas las ilustraciones son originales (SVG y CSS) y no se usaron imágenes generadas por IA.
+También hicimos el procesamiento abierto, versionado y probado para que otras personas puedan repetirlo, y propusimos un espacio comunitario para contrastar la señal satelital con el conocimiento de quienes viven en el territorio. Sumamos una página educativa, Bosques y Conservación, que conecta los bosques y áreas protegidas del Distrito Central con la tecnología de radar, muestra lado a lado las cifras cuando las fuentes no coinciden y propone roles de participación sin pedir datos personales. Todas las ilustraciones son originales (SVG y CSS), las fotografías son de Wikimedia Commons con su licencia y no se usaron imágenes generadas por IA.

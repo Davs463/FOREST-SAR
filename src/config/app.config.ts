@@ -2,7 +2,7 @@
 // Change the brand here only: navbar, footer, home, titles and translations derive from it.
 
 export type Locale = 'en' | 'es';
-export type RouteId = 'home' | 'observatory' | 'analytics' | 'observations' | 'community' | 'library' | 'methodology' | 'data';
+export type RouteId = 'home' | 'observatory' | 'analytics' | 'observations' | 'conservation' | 'community' | 'library' | 'methodology' | 'data';
 
 export interface RouteDef {
   id: RouteId;
@@ -28,6 +28,7 @@ export const APP_CONFIG = Object.freeze({
     { id: 'observatory', path: '/observatory', labelKey: 'nav.observatory', inNav: true },
     { id: 'analytics', path: '/analytics', labelKey: 'nav.analytics', inNav: true },
     { id: 'observations', path: '/observations', labelKey: 'nav.observations', inNav: true },
+    { id: 'conservation', path: '/conservation', labelKey: 'nav.conservation', inNav: true },
     { id: 'community', path: '/community', labelKey: 'nav.community', inNav: true, feature: 'communityDemo' },
     { id: 'library', path: '/library', labelKey: 'nav.library', inNav: true },
     { id: 'methodology', path: '/methodology', labelKey: 'nav.methodology', inNav: true },

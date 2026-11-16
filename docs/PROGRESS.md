@@ -254,3 +254,25 @@ Delegaciones (2, paralelas, archivos sin solape): constructor observatorio; cons
 
 ### Verificación
 tsc 0 · `npm run build:publish` OK (78 archivos, 16,1 MB) · pytest 45 · Playwright **142 passed, 8 skipped, 0 failed** en dos ejecuciones completas consecutivas (antes de la corrección de zoom hubo fallos intermitentes en clusters/observations) · capturas 1440 y 390 revisadas.
+
+## Lote C1 — Vista Bosques y Conservación (`#/conservation`) (coordinador Opus 5.5) — 2026-11-15
+Sin delegaciones (ejecución secuencial en la sesión principal). Sin cambios en motor, snapshots, servicios ni lógica científica.
+
+- Vista nueva lazy con 6 secciones y navegación interna (botones, sin tocar el hash): Bosques de Honduras (cifras ICF 2018 marcadas como históricas, gráfico de barras por tipo con tabla, 4 tarjetas con foto, conceptos, densidad), Áreas protegidas (4 tarjetas + modales; discrepancias de La Tigra mostradas con sus fuentes) y contexto regional (5 escalas, Francisco Morazán, DC, ventana FOREST-SAR desde snapshot), Amenazas (4 + modales, aviso de no atribución de causas) y Consecuencias, Beneficios, Tecnología espacial (sensores, animación SAR ilustrativa, NISAR, bandas L/S, prevista vs implementada, cifras reales del snapshot, investigaciones de misiones anteriores), Participar (6 roles multiselección + formulario demostrativo sin datos personales, sin red ni almacenamiento). Fuentes y créditos en paneles plegables.
+- Contenido EN/ES en `src/i18n/sections/conservation.{en,es}.ts` (tipo compartido); datos y créditos en `conservation.data.ts`. 11 fotos reales de Wikimedia Commons (licencias verificadas por API) en `public/conservation/` (WebP, ~1,7 MB total, `loading=lazy` salvo el hero).
+- Menú: entrada con icono `TreePine`; con 8 entradas el menú usa botón hamburguesa entre 821 y 1120 px (antes se cortaba "Metodología" a 830 px).
+- Paleta del gráfico validada con el validador dataviz (todas las comprobaciones pasan; aviso de contraste del ocre cubierto con etiquetas directas y tabla).
+- Detalle y lista de fuentes/enlaces verificados: `docs/conservation/README.md`.
+
+### Verificación
+tsc 0 · `npm run build:publish` OK (92 archivos, 18,1 MB) · Playwright conservation 24/24 · suite completa **166 passed, 8 skipped, 0 failed** (una corrida intermedia falló porque el equipo entró en suspensión; clusters repetido 42/42) · capturas escritorio/tablet/móvil en `docs/conservation/capturas/` (overflow 0, sin errores de consola).
+
+### Pendientes
+- Bibliografía completa (títulos/URL) para las citas sin enlace; fotos propias de Corralitos, Yerba Buena y "Mero"; límites oficiales de áreas protegidas si se obtienen con licencia.
+
+## Lote C2 — Manual actualizado con Bosques y Conservación (2026-11-15)
+
+- Manual v1.1: nueva sección 10 "Bosques y Conservación" (10.1–10.6) y renumeración de las secciones 11–17. Se actualizaron el resumen ejecutivo, la navegación, las rutas, las pruebas (Playwright 166/8/0), la tabla de herramientas (fotos de Wikimedia Commons), las limitaciones, las preguntas frecuentes (10 y 11 nuevas), la declaración de IA y las referencias (solo enlaces verificados).
+- `docs/manual/tools/capture.mjs`: pasos 21–27 para las capturas de `#/conservation`, más la variable `ONLY=` para tomar solo algunas capturas.
+- `Respuestas_5_preguntas_FOREST_SAR_HN.md`: conteo de pruebas, fuentes y la mención de la nueva página.
+- Comandos: `ONLY=21,...,27 node docs/manual/tools/capture.mjs` (7/7 OK) y `node docs/manual/tools/build-manual.mjs` (PDF de 40 páginas; 0 advertencias y 0 errores; copiado a `public/manual/`).

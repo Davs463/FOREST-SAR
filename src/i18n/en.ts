@@ -31,6 +31,7 @@ export const en = {
     observatory: 'Observatory',
     analytics: 'Analytics',
     observations: 'Observations',
+    conservation: 'Forest & Conservation',
     community: 'Community',
     library: 'Library',
     methodology: 'Methodology',

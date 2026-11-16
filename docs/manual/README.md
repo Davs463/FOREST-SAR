@@ -25,4 +25,4 @@ El script:
 
 ## Pendientes de completar
 
-Enlace público e integrantes del equipo (portada y sección 16.3).
+Enlace público e integrantes del equipo (portada y sección 17.3).

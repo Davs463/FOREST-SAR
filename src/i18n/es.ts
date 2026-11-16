@@ -32,6 +32,7 @@ export const es: Messages = {
     observatory: 'Observatorio',
     analytics: 'Evolución',
     observations: 'Observaciones',
+    conservation: 'Bosques y Conservación',
     community: 'Comunidad',
     library: 'Biblioteca',
     methodology: 'Metodología',

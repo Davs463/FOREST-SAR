@@ -119,3 +119,6 @@ Para regenerar derivados tras procesar nuevas parejas: se hace automáticamente;
 ## Actualización R1 — 2026-11-15
 - Rediseño visual de Observatorio (barra de herramientas, mapa más grande, "Ver mapa en grande"), Observaciones, Evolución y Biblioteca. Lógica y datos sin cambios.
 - Manual regenerado con capturas del diseño nuevo. Pruebas: Playwright 142/8/0 (dos ejecuciones), pytest 45.
+
+## Actualización C1 — 2026-11-15
+Nueva vista **Bosques y Conservación** (`#/conservation`, en el menú con icono de pino). Contenido del documento del equipo transformado en secciones visuales EN/ES; cifras con fuente y año, ninguna presentada como resultado de FOREST-SAR; formulario de participación solo demostrativo. Ver `docs/conservation/README.md` (fuentes, enlaces verificados, licencias de fotos, pendientes). No se hizo commit, push ni deploy.

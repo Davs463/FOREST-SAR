@@ -11,6 +11,7 @@ import { Observations } from '../features/observations/Observations.tsx';
 const Observatory = lazy(() => import('../features/observatory/Observatory'));
 const DataExplorer = lazy(() => import('../features/data/DataExplorer'));
 const Analytics = lazy(() => import('../features/analytics/Analytics'));
+const Conservation = lazy(() => import('../features/conservation/Conservation'));
 
 // Route id -> view. Paths, labels and flags live in config/app.config.ts.
 export const VIEWS: Record<RouteId, ComponentType> = {
@@ -18,6 +19,7 @@ export const VIEWS: Record<RouteId, ComponentType> = {
   observatory: Observatory,
   analytics: Analytics,
   observations: Observations,
+  conservation: Conservation,
   community: CommunityPage,
   library: Library,
   methodology: Methodology,

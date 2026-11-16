@@ -1,9 +1,14 @@
-import { Suspense, useEffect, useRef } from 'react';
+import { Suspense, useEffect, useRef, type ReactNode } from 'react';
+import { TreePine } from 'lucide-react';
 import { BrandMark, Button, EmptyState, ErrorBoundary, Navbar, type NavItem } from '../components';
-import { APP_CONFIG, enabledRoutes, routeHref } from '../config/app.config';
+import { APP_CONFIG, enabledRoutes, routeHref, type RouteId } from '../config/app.config';
 import { localeNames, useI18n } from '../i18n';
 import { useRoute } from './router';
 import { VIEWS } from './routes';
+
+const NAV_ICONS: Partial<Record<RouteId, ReactNode>> = {
+  conservation: <TreePine className="nav-icon" size={13} aria-hidden="true" />,
+};
 
 /** Navbar and footer live outside the routed view, so a failing view never removes navigation. */
 export function Shell() {
@@ -13,7 +18,7 @@ export function Shell() {
   const firstRender = useRef(true);
   const brand = APP_CONFIG.brand.name;
 
-  const items: NavItem[] = enabledRoutes.filter((r) => r.inNav).map((r) => ({ id: r.id, href: `#${r.path}`, label: t(r.labelKey) }));
+  const items: NavItem[] = enabledRoutes.filter((r) => r.inNav).map((r) => ({ id: r.id, href: `#${r.path}`, label: t(r.labelKey), icon: NAV_ICONS[r.id] }));
   const nextLocale = APP_CONFIG.locales.find((l) => l !== locale) ?? locale;
 
   useEffect(() => {
