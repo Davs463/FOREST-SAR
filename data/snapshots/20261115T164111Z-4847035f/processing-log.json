@@ -1,0 +1,850 @@
+{
+ "schema_version": 1,
+ "snapshot_id": "20261115T164111Z-4847035f",
+ "status": "ready",
+ "generated_at": "2026-11-15T16:41:13Z",
+ "algorithm_version": "forest-sar-engine-0.1.0",
+ "config_version": "1.0.0",
+ "config_sha256": "4847035f4cfb1bd9697a27d504bab574b69d2cbb0e03f0284357b0a4ae2aee82",
+ "parameters": {
+  "polarization": "HVHV",
+  "frequency_preference": [
+   "frequencyA",
+   "frequencyB"
+  ],
+  "threshold_db": 3.0,
+  "threshold_note": "Exploratory radar threshold. candidate if delta_db <= -threshold_db. Not a forest-loss threshold.",
+  "multilook_px": 10,
+  "multilook_min_valid_fraction": 0.9,
+  "multilook_note": "Primary product: LINEAR power averaged over non-overlapping multilook_px x multilook_px blocks (10 px = 100 m at 10 m posting) using pixels valid in both dates, to reduce speckle (native 10 m differences are speckle-dominated). A cell is valid if >= 90% of its pixels are valid in both dates: strict enough that cells are mostly real data, tolerant of AOI-edge and swath-edge cells. Native 10 m metrics are kept only as diagnostics.",
+  "minimum_patch_ha": null,
+  "noise_floor_db": null,
+  "normalization_offset_db": 0.0,
+  "minimum_looks": null,
+  "metric_crs": "EPSG:32616",
+  "sector_size_m": 1000,
+  "min_common_coverage_pct": 10.0,
+  "max_output_pixels": 4000000,
+  "mask_rule": "valid if mask in 1..254 (subswath number of a fully focused averaging ensemble); 0 = invalid; 255 = fill. Source: NISAR GCOV product specification as summarized by ASF docs and file attributes; see processing-log for the attributes read from the file."
+ },
+ "source_checksums_sha256": {
+  "initial": {
+   "HVHV": {
+    "file": "GCOV_grids_frequencyA_HVHV_subsetted.tif",
+    "sha256": "a2b51d8f68c478ccd2449ba075d6128c093de4cbda3b9be28f7ac4b2c079e363"
+   },
+   "mask": {
+    "file": "GCOV_grids_frequencyA_mask_subsetted.tif",
+    "sha256": "b45f2c134a923780647fc3f86a6beea4963fe099dbd2609bacb8e3c1625b1b4d"
+   },
+   "numberOfLooks": {
+    "file": "GCOV_grids_frequencyA_numberOfLooks_subsetted.tif",
+    "sha256": "4e5514f64acebadffbf47fa12f2c8119d939663e9d53e19f42af33b9d05d507f"
+   }
+  },
+  "final": {
+   "HVHV": {
+    "file": "GCOV_grids_frequencyA_HVHV_subsetted.tif",
+    "sha256": "44aab4e330f85ffcddf0bb1d70846425a5af344e36faa1147cc3955e2e49708a"
+   },
+   "mask": {
+    "file": "GCOV_grids_frequencyA_mask_subsetted.tif",
+    "sha256": "5ae32bb999d1b3612e97cbafe4676326b88d916a8bf40e90f193304c64df38db"
+   },
+   "numberOfLooks": {
+    "file": "GCOV_grids_frequencyA_numberOfLooks_subsetted.tif",
+    "sha256": "c9b3dc19a06c2de36c8418d57f3c27996bb4fd384f73abd891f766088612ac6d"
+   }
+  }
+ },
+ "dependencies": {
+  "python": "3.12.6",
+  "numpy": "2.5.4",
+  "rasterio": "1.5.2",
+  "shapely": "2.2.0",
+  "h5py": "3.16.0",
+  "earthaccess": "0.19.0",
+  "requests": "2.34.2"
+ },
+ "platform": "Windows-11-10.0.26200-SP0",
+ "stages": [
+  {
+   "stage": "catalog",
+   "status": "ok",
+   "at": "2026-11-15T16:35:34Z",
+   "source": "file",
+   "file": ".bosquevivo-work/catalog/cmr-20261115T045835840671Z.json",
+   "retrieved_at": "2026-11-15T04:58:34.189218+00:00"
+  },
+  {
+   "stage": "inspect",
+   "status": "ok",
+   "at": "2026-11-15T16:35:35Z",
+   "scenes": 52,
+   "notes": [],
+   "in_aoi": 52
+  },
+  {
+   "stage": "pairing",
+   "status": "ok",
+   "at": "2026-11-15T16:35:36Z",
+   "evaluated": 1326,
+   "by_status": {
+    "incompatible": 1164,
+    "compatible": 162
+   },
+   "chosen": "pair-f93b4394cc",
+   "rule": "highest-priority collection tier with a compatible pair; coverage within 90% of the tier maximum; most recent final date; then shortest interval (fewest temporal confounders)"
+  },
+  {
+   "stage": "pair_select",
+   "status": "ok",
+   "at": "2026-11-15T16:35:36Z",
+   "pair": "pair-b791e9876a",
+   "initial": "2026-07-27",
+   "final": "2026-10-19",
+   "interval_days": 83.99998842592592,
+   "coverage_pct": 94.65825108226262,
+   "track": 98,
+   "frame": 81,
+   "pass_": "DESCENDING",
+   "look": "LEFT",
+   "frequency": "A+B",
+   "hvhv_expected": [
+    true,
+    true
+   ],
+   "collection": "NISAR_L2_GCOV_PROVISIONAL_V1"
+  },
+  {
+   "stage": "pair_select",
+   "status": "ok",
+   "at": "2026-11-15T16:35:36Z",
+   "pair": "pair-642e3bf57f",
+   "initial": "2026-08-20",
+   "final": "2026-10-19",
+   "interval_days": 60.0,
+   "coverage_pct": 94.65825108226262,
+   "track": 98,
+   "frame": 81,
+   "pass_": "DESCENDING",
+   "look": "LEFT",
+   "frequency": "A+B",
+   "hvhv_expected": [
+    true,
+    true
+   ],
+   "collection": "NISAR_L2_GCOV_PROVISIONAL_V1"
+  },
+  {
+   "stage": "pair_select",
+   "status": "ok",
+   "at": "2026-11-15T16:35:36Z",
+   "pair": "pair-5517bacb4b",
+   "initial": "2026-09-13",
+   "final": "2026-10-19",
+   "interval_days": 36.0,
+   "coverage_pct": 94.65825108226262,
+   "track": 98,
+   "frame": 81,
+   "pass_": "DESCENDING",
+   "look": "LEFT",
+   "frequency": "A+B",
+   "hvhv_expected": [
+    true,
+    true
+   ],
+   "collection": "NISAR_L2_GCOV_PROVISIONAL_V1"
+  },
+  {
+   "stage": "acquire",
+   "status": "ok",
+   "at": "2026-11-15T16:35:36Z",
+   "scene": "NISAR_L2_PR_GCOV_026_098_D_081_4005_DHDH_A_20260727T001621_20260727T001656_P05023_N_F_J_001",
+   "tag": "initial",
+   "method": [
+    "cache_hit"
+   ]
+  },
+  {
+   "stage": "acquire",
+   "status": "ok",
+   "at": "2026-11-15T16:35:36Z",
+   "scene": "NISAR_L2_PR_GCOV_033_098_D_081_4005_DHDH_A_20261019T001620_20261019T001654_P05023_N_F_J_001",
+   "tag": "final",
+   "method": [
+    "cache_hit"
+   ]
+  },
+  {
+   "stage": "inspect_files",
+   "status": "ok",
+   "at": "2026-11-15T16:35:37Z",
+   "var": "mask",
+   "initial_tags": {
+    "description": "Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0",
+    "grid_mapping": "projection",
+    "long_name": "Valid samples subswath mask",
+    "valid_min": "0",
+    "_FillValue": "255"
+   },
+   "initial_descr": null,
+   "nodata": 255.0
+  },
+  {
+   "stage": "inspect_files",
+   "status": "ok",
+   "at": "2026-11-15T16:35:37Z",
+   "var": "numberOfLooks",
+   "initial_tags": {
+    "description": "Number of averaged radar-grid pixels for covariance estimation",
+    "grid_mapping": "projection",
+    "long_name": "Number of radar looks",
+    "max_value": "21.701948",
+    "mean_value": "4.6711679",
+    "min_value": "2.7464142e-11",
+    "sample_stddev": "1.5287031",
+    "units": "1",
+    "valid_min": "0",
+    "_FillValue": "nan"
+   },
+   "initial_descr": null,
+   "nodata": null
+  },
+  {
+   "stage": "inspect_files",
+   "status": "ok",
+   "at": "2026-11-15T16:35:37Z",
+   "var": "HVHV",
+   "tags_band": {
+    "description": "Covariance between HV and HV",
+    "grid_mapping": "projection",
+    "long_name": "Geocoded polarimetric covariance term HVHV",
+    "max_value": "4267.373",
+    "mean_value": "0.079941265",
+    "min_value": "3.601012e-17",
+    "sample_stddev": "1.5833032",
+    "units": "1",
+    "valid_min": "0",
+    "_FillValue": "nan"
+   },
+   "descr": null,
+   "frequency": "A",
+   "crs": [
+    "EPSG:32616",
+    "EPSG:32616"
+   ],
+   "transform": [
+    [
+     10.0,
+     0.0,
+     462210.0,
+     0.0,
+     -10.0,
+     1586460.0
+    ],
+    [
+     10.0,
+     0.0,
+     462210.0,
+     0.0,
+     -10.0,
+     1586460.0
+    ]
+   ],
+   "shape": [
+    [
+     3873,
+     3239
+    ],
+    [
+     3873,
+     3239
+    ]
+   ]
+  },
+  {
+   "stage": "units",
+   "status": "ok",
+   "at": "2026-11-15T16:35:37Z",
+   "unit": "linear",
+   "initial": {
+    "n": 12529137,
+    "attr_hint": null,
+    "min": 0.00017185509204864502,
+    "p50": 0.05925750732421875,
+    "p99": 0.3703804016113281,
+    "frac_le_zero": 0.0
+   },
+   "final": {
+    "n": 11853450,
+    "attr_hint": null,
+    "min": 0.00013585761189460754,
+    "p50": 0.06332778930664062,
+    "p99": 0.38810160756111145,
+    "frac_le_zero": 0.0
+   }
+  },
+  {
+   "stage": "delta",
+   "status": "ok",
+   "at": "2026-11-15T16:35:38Z",
+   "grid_mode": "identical_grid_passthrough",
+   "valid_px": 11853387,
+   "candidate_px": 1565953,
+   "aoi_px": 12529313,
+   "mask_values_initial": [
+    0,
+    1,
+    255
+   ],
+   "mask_values_final": [
+    0,
+    1,
+    255
+   ],
+   "looks_median_valid": 4.251272201538086
+  },
+  {
+   "stage": "diagnostics",
+   "status": "ok",
+   "at": "2026-11-15T16:35:39Z",
+   "native_10m": {
+    "pixel_m": 10.0,
+    "valid_area_ha": 118533.87,
+    "candidate_area_ha": 15659.53,
+    "candidate_pct": 13.211017239207663,
+    "delta_db_median": 0.23675882068316767,
+    "delta_db_p05": -4.618856505273173,
+    "delta_db_p95": 5.088815794320434,
+    "share_delta_le_minus_threshold_pct": 13.211017239207662,
+    "share_delta_ge_plus_threshold_pct": 16.94954361989531
+   },
+   "multilook": {
+    "multilook_px": 10,
+    "effective_pixel_m": 100.0,
+    "cells_valid": 117537,
+    "cells_candidate": 165,
+    "delta_db_median": 0.21090018198169602,
+    "delta_db_p05": -0.9414429684250265,
+    "delta_db_p95": 1.4603978310833439,
+    "share_delta_le_minus_threshold_pct": 0.140381326731157,
+    "share_delta_ge_plus_threshold_pct": 0.20504181661944748
+   },
+   "note": "Native 10 m differences are speckle-dominated (near-symmetric shares of decreases and increases, median near 0); the published product is the multilook one. Noise is reduced, not separated: no claim of perfect noise separation."
+  },
+  {
+   "stage": "validation",
+   "status": "ok",
+   "at": "2026-11-15T16:35:40Z",
+   "sector_sum_equals_direct": true,
+   "cell_area_m2": 10000.0,
+   "n_sectors": 1320,
+   "sample_cells": [
+    {
+     "cell_row": 1,
+     "cell_col": 256,
+     "valid_pixels_in_block": 100,
+     "block_pixels": 100,
+     "mean_initial_linear": 0.06799495279788971,
+     "mean_final_linear": 0.029258180856704712,
+     "delta_manual_db": -3.6622935649388175,
+     "delta_array_db": -3.6622935649388175,
+     "abs_diff": 0.0,
+     "candidate_manual": true,
+     "candidate_array": true,
+     "same_class": true
+    },
+    {
+     "cell_row": 91,
+     "cell_col": 288,
+     "valid_pixels_in_block": 100,
+     "block_pixels": 100,
+     "mean_initial_linear": 0.08919419407844544,
+     "mean_final_linear": 0.044198391437530515,
+     "delta_manual_db": -3.04930121884264,
+     "delta_array_db": -3.04930121884264,
+     "abs_diff": 0.0,
+     "candidate_manual": true,
+     "candidate_array": true,
+     "same_class": true
+    },
+    {
+     "cell_row": 194,
+     "cell_col": 116,
+     "valid_pixels_in_block": 100,
+     "block_pixels": 100,
+     "mean_initial_linear": 0.1110603666305542,
+     "mean_final_linear": 0.05340894460678101,
+     "delta_manual_db": -3.1794510669341083,
+     "delta_array_db": -3.1794510669341083,
+     "abs_diff": 0.0,
+     "candidate_manual": true,
+     "candidate_array": true,
+     "same_class": true
+    },
+    {
+     "cell_row": 0,
+     "cell_col": 1,
+     "valid_pixels_in_block": 100,
+     "block_pixels": 100,
+     "mean_initial_linear": 0.11430036783218384,
+     "mean_final_linear": 0.11898162603378296,
+     "delta_manual_db": 0.1743227180176472,
+     "delta_array_db": 0.1743227180176472,
+     "abs_diff": 0.0,
+     "candidate_manual": false,
+     "candidate_array": false,
+     "same_class": true
+    },
+    {
+     "cell_row": 123,
+     "cell_col": 65,
+     "valid_pixels_in_block": 100,
+     "block_pixels": 100,
+     "mean_initial_linear": 0.0806603980064392,
+     "mean_final_linear": 0.06429421663284302,
+     "delta_manual_db": -0.98488451435834,
+     "delta_array_db": -0.98488451435834,
+     "abs_diff": 0.0,
+     "candidate_manual": false,
+     "candidate_array": false,
+     "same_class": true
+    },
+    {
+     "cell_row": 244,
+     "cell_col": 278,
+     "valid_pixels_in_block": 100,
+     "block_pixels": 100,
+     "mean_initial_linear": 0.12812875270843505,
+     "mean_final_linear": 0.1587042760848999,
+     "delta_manual_db": 0.9294202997291947,
+     "delta_array_db": 0.9294202997291947,
+     "abs_diff": 0.0,
+     "candidate_manual": false,
+     "candidate_array": false,
+     "same_class": true
+    }
+   ],
+   "max_sample_abs_diff": 0.0
+  },
+  {
+   "stage": "render",
+   "status": "ok",
+   "at": "2026-11-15T16:35:42Z",
+   "layers": {
+    "before": 313157,
+    "after": 310867,
+    "delta": 84569,
+    "candidates": 2071,
+    "quality": 3271
+   }
+  },
+  {
+   "stage": "export",
+   "status": "ok",
+   "at": "2026-11-15T16:35:42Z",
+   "snapshot_id": "20261115T163540Z-4847035f",
+   "published_status": "ready"
+  },
+  {
+   "stage": "acquire",
+   "status": "ok",
+   "at": "2026-11-15T16:41:07Z",
+   "scene": "NISAR_L2_PR_GCOV_028_098_D_081_4005_DHDH_A_20260820T001620_20260820T001654_P05023_N_F_J_001",
+   "tag": "initial",
+   "method": [
+    {
+     "harmony_capabilities": {
+      "subsetting": null,
+      "output_formats": null,
+      "services": [
+       "nasa/harmony-gdal-adapter",
+       "asf/nisar-py"
+      ],
+      "variable_subsetting": null,
+      "bbox_subsetting": null
+     }
+    },
+    {
+     "harmony_subset": [
+      "NISAR_L2_PR_GCOV_028_098_D_081_4005_DHDH_A_20260820T001620_20260820T001654_P05023_N_F_J_001_science_LSAR_GCOV_grids_frequencyA_HHHH_subsetted.tif",
+      "NISAR_L2_PR_GCOV_028_098_D_081_4005_DHDH_A_20260820T001620_20260820T001654_P05023_N_F_J_001_science_LSAR_GCOV_grids_frequencyA_HVHV_subsetted.tif",
+      "NISAR_L2_PR_GCOV_028_098_D_081_4005_DHDH_A_20260820T001620_20260820T001654_P05023_N_F_J_001_science_LSAR_GCOV_grids_frequencyA_mask_subsetted.tif",
+      "NISAR_L2_PR_GCOV_028_098_D_081_4005_DHDH_A_20260820T001620_20260820T001654_P05023_N_F_J_001_science_LSAR_GCOV_grids_frequencyA_numberOfLooks_subsetted.tif",
+      "NISAR_L2_PR_GCOV_028_098_D_081_4005_DHDH_A_20260820T001620_20260820T001654_P05023_N_F_J_001_science_LSAR_GCOV_grids_frequencyA_rtcGammaToSigmaFactor_subsetted.tif",
+      "NISAR_L2_PR_GCOV_028_098_D_081_4005_DHDH_A_20260820T001620_20260820T001654_P05023_N_F_J_001_science_LSAR_GCOV_grids_frequencyB_HHHH_subsetted.tif",
+      "NISAR_L2_PR_GCOV_028_098_D_081_4005_DHDH_A_20260820T001620_20260820T001654_P05023_N_F_J_001_science_LSAR_GCOV_grids_frequencyB_HVHV_subsetted.tif",
+      "NISAR_L2_PR_GCOV_028_098_D_081_4005_DHDH_A_20260820T001620_20260820T001654_P05023_N_F_J_001_science_LSAR_GCOV_grids_frequencyB_mask_subsetted.tif",
+      "NISAR_L2_PR_GCOV_028_098_D_081_4005_DHDH_A_20260820T001620_20260820T001654_P05023_N_F_J_001_science_LSAR_GCOV_grids_frequencyB_numberOfLooks_subsetted.tif",
+      "NISAR_L2_PR_GCOV_028_098_D_081_4005_DHDH_A_20260820T001620_20260820T001654_P05023_N_F_J_001_science_LSAR_GCOV_grids_frequencyB_rtcGammaToSigmaFactor_subsetted.tif"
+     ]
+    }
+   ]
+  },
+  {
+   "stage": "acquire",
+   "status": "ok",
+   "at": "2026-11-15T16:41:07Z",
+   "scene": "NISAR_L2_PR_GCOV_033_098_D_081_4005_DHDH_A_20261019T001620_20261019T001654_P05023_N_F_J_001",
+   "tag": "final",
+   "method": [
+    "cache_hit"
+   ]
+  },
+  {
+   "stage": "inspect_files",
+   "status": "ok",
+   "at": "2026-11-15T16:41:08Z",
+   "var": "mask",
+   "initial_tags": {
+    "description": "Mask indicating the subswath number associated with valid GCOV samples. A GCOV sample is only considered valid if it is generated from fully-focused radar samples. If at least one radar sample in the averaging set is partially focused or invalid, the corresponding mask pixel will contain the value 0",
+    "grid_mapping": "projection",
+    "long_name": "Valid samples subswath mask",
+    "valid_min": "0",
+    "_FillValue": "255"
+   },
+   "initial_descr": null,
+   "nodata": 255.0
+  },
+  {
+   "stage": "inspect_files",
+   "status": "ok",
+   "at": "2026-11-15T16:41:08Z",
+   "var": "numberOfLooks",
+   "initial_tags": {
+    "description": "Number of averaged radar-grid pixels for covariance estimation",
+    "grid_mapping": "projection",
+    "long_name": "Number of radar looks",
+    "max_value": "18.105486",
+    "mean_value": "4.6694903",
+    "min_value": "6.9695694e-11",
+    "sample_stddev": "1.5269248",
+    "units": "1",
+    "valid_min": "0",
+    "_FillValue": "nan"
+   },
+   "initial_descr": null,
+   "nodata": null
+  },
+  {
+   "stage": "inspect_files",
+   "status": "ok",
+   "at": "2026-11-15T16:41:08Z",
+   "var": "HVHV",
+   "tags_band": {
+    "description": "Covariance between HV and HV",
+    "grid_mapping": "projection",
+    "long_name": "Geocoded polarimetric covariance term HVHV",
+    "max_value": "10856.672",
+    "mean_value": "0.079029106",
+    "min_value": "2.6905152e-16",
+    "sample_stddev": "1.7689304",
+    "units": "1",
+    "valid_min": "0",
+    "_FillValue": "nan"
+   },
+   "descr": null,
+   "frequency": "A",
+   "crs": [
+    "EPSG:32616",
+    "EPSG:32616"
+   ],
+   "transform": [
+    [
+     10.0,
+     0.0,
+     462210.0,
+     0.0,
+     -10.0,
+     1586460.0
+    ],
+    [
+     10.0,
+     0.0,
+     462210.0,
+     0.0,
+     -10.0,
+     1586460.0
+    ]
+   ],
+   "shape": [
+    [
+     3873,
+     3239
+    ],
+    [
+     3873,
+     3239
+    ]
+   ]
+  },
+  {
+   "stage": "units",
+   "status": "ok",
+   "at": "2026-11-15T16:41:08Z",
+   "unit": "linear",
+   "initial": {
+    "n": 12092379,
+    "attr_hint": null,
+    "min": 3.0260998755693436e-05,
+    "p50": 0.05287599563598633,
+    "p99": 0.3554466962814331,
+    "frac_le_zero": 0.0
+   },
+   "final": {
+    "n": 11853450,
+    "attr_hint": null,
+    "min": 0.00013585761189460754,
+    "p50": 0.06332778930664062,
+    "p99": 0.38810160756111145,
+    "frac_le_zero": 0.0
+   }
+  },
+  {
+   "stage": "delta",
+   "status": "ok",
+   "at": "2026-11-15T16:41:09Z",
+   "grid_mode": "identical_grid_passthrough",
+   "valid_px": 11853387,
+   "candidate_px": 1115787,
+   "aoi_px": 12529313,
+   "mask_values_initial": [
+    0,
+    1,
+    255
+   ],
+   "mask_values_final": [
+    0,
+    1,
+    255
+   ],
+   "looks_median_valid": 4.2509355545043945
+  },
+  {
+   "stage": "diagnostics",
+   "status": "ok",
+   "at": "2026-11-15T16:41:10Z",
+   "native_10m": {
+    "pixel_m": 10.0,
+    "valid_area_ha": 118533.87,
+    "candidate_area_ha": 11157.87,
+    "candidate_pct": 9.413233534010153,
+    "delta_db_median": 0.7818504301752185,
+    "delta_db_p05": -3.996178202799004,
+    "delta_db_p95": 5.636509247422746,
+    "share_delta_le_minus_threshold_pct": 9.413233534010153,
+    "share_delta_ge_plus_threshold_pct": 21.974951125783708
+   },
+   "multilook": {
+    "multilook_px": 10,
+    "effective_pixel_m": 100.0,
+    "cells_valid": 117537,
+    "cells_candidate": 28,
+    "delta_db_median": 0.7052857162169914,
+    "delta_db_p05": -0.3314763307480121,
+    "delta_db_p95": 2.049523041047138,
+    "share_delta_le_minus_threshold_pct": 0.023822285748317552,
+    "share_delta_ge_plus_threshold_pct": 0.6227826131345874
+   },
+   "note": "Native 10 m differences are speckle-dominated (near-symmetric shares of decreases and increases, median near 0); the published product is the multilook one. Noise is reduced, not separated: no claim of perfect noise separation."
+  },
+  {
+   "stage": "validation",
+   "status": "ok",
+   "at": "2026-11-15T16:41:11Z",
+   "sector_sum_equals_direct": true,
+   "cell_area_m2": 10000.0,
+   "n_sectors": 1320,
+   "sample_cells": [
+    {
+     "cell_row": 50,
+     "cell_col": 102,
+     "valid_pixels_in_block": 100,
+     "block_pixels": 100,
+     "mean_initial_linear": 0.030590425729751586,
+     "mean_final_linear": 0.013031258285045623,
+     "delta_manual_db": -3.705991683719878,
+     "delta_array_db": -3.705991683719878,
+     "abs_diff": 0.0,
+     "candidate_manual": true,
+     "candidate_array": true,
+     "same_class": true
+    },
+    {
+     "cell_row": 116,
+     "cell_col": 106,
+     "valid_pixels_in_block": 100,
+     "block_pixels": 100,
+     "mean_initial_linear": 0.04953040838241577,
+     "mean_final_linear": 0.020533905923366548,
+     "delta_manual_db": -3.8240034083308565,
+     "delta_array_db": -3.8240034083308565,
+     "abs_diff": 0.0,
+     "candidate_manual": true,
+     "candidate_array": true,
+     "same_class": true
+    },
+    {
+     "cell_row": 302,
+     "cell_col": 182,
+     "valid_pixels_in_block": 100,
+     "block_pixels": 100,
+     "mean_initial_linear": 0.3221493685245514,
+     "mean_final_linear": 0.15064776182174683,
+     "delta_manual_db": -3.300946006501629,
+     "delta_array_db": -3.300946006501629,
+     "abs_diff": 0.0,
+     "candidate_manual": true,
+     "candidate_array": true,
+     "same_class": true
+    },
+    {
+     "cell_row": 0,
+     "cell_col": 1,
+     "valid_pixels_in_block": 100,
+     "block_pixels": 100,
+     "mean_initial_linear": 0.11363892912864686,
+     "mean_final_linear": 0.11898162603378296,
+     "delta_manual_db": 0.19952767295008655,
+     "delta_array_db": 0.19952767295008655,
+     "abs_diff": 0.0,
+     "candidate_manual": false,
+     "candidate_array": false,
+     "same_class": true
+    },
+    {
+     "cell_row": 123,
+     "cell_col": 46,
+     "valid_pixels_in_block": 100,
+     "block_pixels": 100,
+     "mean_initial_linear": 0.012283075153827667,
+     "mean_final_linear": 0.01650955021381378,
+     "delta_manual_db": 1.2842813242423574,
+     "delta_array_db": 1.2842813242423574,
+     "abs_diff": 0.0,
+     "candidate_manual": false,
+     "candidate_array": false,
+     "same_class": true
+    },
+    {
+     "cell_row": 244,
+     "cell_col": 258,
+     "valid_pixels_in_block": 100,
+     "block_pixels": 100,
+     "mean_initial_linear": 0.08569538116455078,
+     "mean_final_linear": 0.10155849546194076,
+     "delta_manual_db": 0.7375884357562015,
+     "delta_array_db": 0.7375884357562015,
+     "abs_diff": 0.0,
+     "candidate_manual": false,
+     "candidate_array": false,
+     "same_class": true
+    }
+   ],
+   "max_sample_abs_diff": 0.0
+  },
+  {
+   "stage": "render",
+   "status": "ok",
+   "at": "2026-11-15T16:41:13Z",
+   "layers": {
+    "before": 324638,
+    "after": 310864,
+    "delta": 84646,
+    "candidates": 1444,
+    "quality": 3271
+   }
+  }
+ ],
+ "validation": {
+  "sector_sum_equals_direct": true,
+  "sample_pixels": [
+   {
+    "cell_row": 50,
+    "cell_col": 102,
+    "valid_pixels_in_block": 100,
+    "block_pixels": 100,
+    "mean_initial_linear": 0.030590425729751586,
+    "mean_final_linear": 0.013031258285045623,
+    "delta_manual_db": -3.705991683719878,
+    "delta_array_db": -3.705991683719878,
+    "abs_diff": 0.0,
+    "candidate_manual": true,
+    "candidate_array": true,
+    "same_class": true
+   },
+   {
+    "cell_row": 116,
+    "cell_col": 106,
+    "valid_pixels_in_block": 100,
+    "block_pixels": 100,
+    "mean_initial_linear": 0.04953040838241577,
+    "mean_final_linear": 0.020533905923366548,
+    "delta_manual_db": -3.8240034083308565,
+    "delta_array_db": -3.8240034083308565,
+    "abs_diff": 0.0,
+    "candidate_manual": true,
+    "candidate_array": true,
+    "same_class": true
+   },
+   {
+    "cell_row": 302,
+    "cell_col": 182,
+    "valid_pixels_in_block": 100,
+    "block_pixels": 100,
+    "mean_initial_linear": 0.3221493685245514,
+    "mean_final_linear": 0.15064776182174683,
+    "delta_manual_db": -3.300946006501629,
+    "delta_array_db": -3.300946006501629,
+    "abs_diff": 0.0,
+    "candidate_manual": true,
+    "candidate_array": true,
+    "same_class": true
+   },
+   {
+    "cell_row": 0,
+    "cell_col": 1,
+    "valid_pixels_in_block": 100,
+    "block_pixels": 100,
+    "mean_initial_linear": 0.11363892912864686,
+    "mean_final_linear": 0.11898162603378296,
+    "delta_manual_db": 0.19952767295008655,
+    "delta_array_db": 0.19952767295008655,
+    "abs_diff": 0.0,
+    "candidate_manual": false,
+    "candidate_array": false,
+    "same_class": true
+   },
+   {
+    "cell_row": 123,
+    "cell_col": 46,
+    "valid_pixels_in_block": 100,
+    "block_pixels": 100,
+    "mean_initial_linear": 0.012283075153827667,
+    "mean_final_linear": 0.01650955021381378,
+    "delta_manual_db": 1.2842813242423574,
+    "delta_array_db": 1.2842813242423574,
+    "abs_diff": 0.0,
+    "candidate_manual": false,
+    "candidate_array": false,
+    "same_class": true
+   },
+   {
+    "cell_row": 244,
+    "cell_col": 258,
+    "valid_pixels_in_block": 100,
+    "block_pixels": 100,
+    "mean_initial_linear": 0.08569538116455078,
+    "mean_final_linear": 0.10155849546194076,
+    "delta_manual_db": 0.7375884357562015,
+    "delta_array_db": 0.7375884357562015,
+    "abs_diff": 0.0,
+    "candidate_manual": false,
+    "candidate_array": false,
+    "same_class": true
+   }
+  ]
+ },
+ "note": "No credentials or signed URLs are stored in this log."
+}
