@@ -165,7 +165,7 @@ Las cuatro comparaciones comparten la fecha final (2026-10-19), así que se sola
 
 El sitio es **público y no requiere cuenta, correo ni claves**. Se abre en cualquier navegador moderno, en computador, tableta o teléfono.
 
-- **Enlace público:** [enlace público pendiente]. El dominio todavía no existe; el repositorio público está previsto, pero no se ha publicado.
+- **Enlace público:** [davs463.github.io/FOREST-SAR](https://davs463.github.io/FOREST-SAR/) (publicado con GitHub Pages). Código fuente: [github.com/Davs463/FOREST-SAR](https://github.com/Davs463/FOREST-SAR).
 - **Navegación:** la barra superior tiene Observatorio, Evolución, Observaciones, Bosques y Conservación, Comunidad, Biblioteca y Metodología; el logotipo lleva al Inicio. En pantallas medianas y pequeñas el menú se abre con el botón ☰.
 - **Idioma:** el botón ES/EN cambia toda la interfaz; el inglés es completo.
 - **Rutas:** las direcciones usan `#/`, por ejemplo `#/observatory`, `#/analytics`, `#/observations`, `#/conservation` y `#/data`, así que se pueden guardar como favoritos.
@@ -406,7 +406,7 @@ Para La Tigra, el ICF (2021) reporta 17,657 ha y el SINIT (2024) unas 24,000 ha.
 
 ![Detalle de La Tigra](capturas/23b-conservacion-la-tigra.png "Ventana de La Tigra con las dos superficies, los dos porcentajes de agua y el aviso de discrepancia")
 
-Corralitos, Yerba Buena y "Mero" no tienen una fotografía verificada, así que muestran el texto *"No hay una fotografía verificada de esta área"*. **No se dibujan límites de áreas protegidas** en ningún mapa, porque el proyecto no dispone de límites oficiales verificados.
+Corralitos y Yerba Buena no tienen una fotografía verificada, así que muestran el texto *"No hay una fotografía verificada de esta área"*. La tarjeta de "Mero" usa una foto del **paisaje del entorno** (cerros de Santa Lucía, uno de sus municipios) rotulada como tal: no es una foto del área protegida. **No se dibujan límites de áreas protegidas** en ningún mapa, porque el proyecto no dispone de límites oficiales verificados.
 
 El bloque **Del país a nuestra ventana de estudio** separa cinco escalas que no deben mezclarse: Honduras, Francisco Morazán, el Distrito Central, La Tigra y la ventana de estudio de FOREST_SAR_HN. Para Francisco Morazán muestra 627,637 ha de bosque (73 % del departamento), 326,261 ha de pino, y 647 incendios y 61,820 ha quemadas en 2024 (ICF). La única cifra propia es el área válida de radar, **117,537 ha** por comparación.
 
@@ -454,7 +454,7 @@ Los servicios de registro y contacto todavía no están activos. El formulario *
 
 ## 10.6 Fuentes, fotografías y uso en el teléfono
 
-Al final de la página, **Fuentes** reúne las citas del documento del equipo. Solo tienen enlace las páginas oficiales que se abrieron y comprobaron; las demás aparecen como *"Sin enlace verificado"*. **Créditos de imágenes** lista las 11 fotografías de Wikimedia Commons con autor y licencia (CC BY-SA, CC BY, CC0 o dominio público). Ninguna imagen fue generada por IA.
+Al final de la página, **Fuentes** reúne las citas del documento del equipo. Solo tienen enlace las páginas oficiales que se abrieron y comprobaron; las demás aparecen como *"Sin enlace verificado"*. **Créditos de imágenes** lista las 12 fotografías de Wikimedia Commons con autor y licencia (CC BY-SA, CC BY, CC0 o dominio público). Ninguna imagen fue generada por IA.
 
 La página se adapta al teléfono: los apartados pasan a una columna y el menú de apartados se desliza horizontalmente.
 
@@ -560,7 +560,7 @@ El desarrollo se organizó por lotes con un coordinador y agentes especializados
 - **Semáforo no evaluado.** No hay mediciones comparables de cobertura vegetal.
 - **Mapas de fondo.** No corresponden a la fecha de observación del radar.
 - **Comunidad.** Es demostración local.
-- **Bosques y Conservación.** Sus estadísticas son históricas y de otras fuentes (ICF 2018 y otras), no resultados de FOREST_SAR_HN. Varias citas no tienen enlace verificado, tres áreas protegidas no tienen foto verificada y no se dibujan límites oficiales. El formulario de participación es solo un prototipo.
+- **Bosques y Conservación.** Sus estadísticas son históricas y de otras fuentes (ICF 2018 y otras), no resultados de FOREST_SAR_HN. Varias citas no tienen enlace verificado, dos áreas protegidas no tienen foto verificada y no se dibujan límites oficiales. El formulario de participación es solo un prototipo.
 
 **Uso responsable.** Use los candidatos como **invitación a mirar con otras fuentes**: imágenes ópticas, información local y visitas de campo. Cite siempre las fechas y el nivel de evidencia, y evite señalar propiedades o personas.
 

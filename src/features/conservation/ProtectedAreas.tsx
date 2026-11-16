@@ -72,7 +72,9 @@ export function ProtectedAreas() {
           const tx = text(id);
           return (
             <li key={id} className={`cons-area cons-area--${id}`} data-testid={`area-${id}`}>
-              {id === 'tigra' ? <Photo id="tigra" caption={p.tigra.photo} /> : <Placeholder icon={meta.icon} label={c.noPhoto} />}
+              {id === 'tigra' ? <Photo id="tigra" caption={p.tigra.photo} />
+                : id === 'mero' ? <Photo id="meroSurroundings" caption={p.mero.photo} representative />
+                : <Placeholder icon={meta.icon} label={c.noPhoto} />}
               <div className="cons-area__body">
                 <span className="cons-chip">{tx.category}</span>
                 <h3>{tx.name}</h3>

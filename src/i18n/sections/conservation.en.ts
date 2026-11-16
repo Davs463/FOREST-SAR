@@ -108,6 +108,7 @@ export const conservationEN = {
       summary: 'A refuge shared by four municipalities.',
       detail: 'Established in 2024 with an area of 5,107 hectares distributed across four municipalities.',
       splitTitle: 'Area by municipality (ha)',
+      photo: 'Surrounding landscape: pine-covered hills seen from Santa Lucía, one of the refuge’s municipalities. Not a photo of the protected area itself (image cropped).',
     },
     noMap: 'Verified official boundaries are not available in this prototype, so no limits are drawn on a map.',
   },
@@ -333,7 +334,7 @@ export const conservationEN = {
     imageLabels: {
       hero: 'La Tigra National Park (Rancho Quemado)', tigra: 'San Juancito and La Tigra', tigraWater: 'Waterfall in La Tigra', broadleaf: 'Río Plátano Biosphere Reserve',
       coniferous: 'La Labor, Ocotepeque', mixed: 'Cusuco National Park', mangrove: 'San Lorenzo, Gulf of Fonseca', agriculture: 'Santa Rosa de Copán',
-      urban: 'Tegucigalpa', fire: 'La Tigra wildfire, 18 March 2024 (Sentinel-2)', fragmentation: 'Celaque',
+      urban: 'Tegucigalpa', fire: 'La Tigra wildfire, 18 March 2024 (Sentinel-2)', fragmentation: 'Celaque', meroSurroundings: 'Santa Lucía hills, surroundings of the “Mero” refuge (cropped)',
     },
   },
 };

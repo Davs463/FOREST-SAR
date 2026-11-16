@@ -58,8 +58,9 @@ Sin enlace verificado (se muestran como "Sin enlace verificado"): Brand Studio 2
 | threat-urban | Tegucigalpa | — | Dominio público |
 | threat-fire-la-tigra | Incendio en La Tigra, 18-03-2024 | Unión Europea, Copernicus Sentinel-2 | Atribución |
 | threat-fragmentation | Celaque | Emeinke (Wikipedia en inglés) | CC BY-SA 3.0 |
+| mero-santa-lucia-entorno | Cerros de Santa Lucía (entorno del refugio "Mero"), recortada | Nan Palmero | CC BY 2.0 |
 
-Las fotos de tipos de bosque se marcan "Foto representativa" porque ilustran el tipo, no un sitio medido. Corralitos, Yerba Buena y el refugio "Mero" no tienen foto verificada: se muestra un marcador con el texto "No hay una fotografía verificada de esta área". Las obras CC BY-SA se redimensionaron (adaptación); se mantienen bajo la misma licencia con crédito visible.
+Las fotos de tipos de bosque se marcan "Foto representativa" porque ilustran el tipo, no un sitio medido. La de "Mero" también lleva esa marca y el pie dice que es paisaje del entorno, no el área protegida. Openverse y Wikimedia Commons (búsqueda del 2026-11-15) no tienen fotos con licencia libre de Corralitos ni de Yerba Buena: se muestra un marcador con el texto "No hay una fotografía verificada de esta área". No se usan imágenes copiadas de buscadores sin autor ni licencia. Las obras CC BY-SA se redimensionaron (adaptación); se mantienen bajo la misma licencia con crédito visible.
 
 ## Pendientes
 

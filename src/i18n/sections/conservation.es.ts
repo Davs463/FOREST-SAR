@@ -107,6 +107,7 @@ export const conservationES: ConservationText = {
       summary: 'Un refugio compartido por cuatro municipios.',
       detail: 'Creado en 2024 con una superficie de 5,107 hectáreas distribuidas en cuatro municipios.',
       splitTitle: 'Superficie por municipio (ha)',
+      photo: 'Paisaje del entorno: cerros con pinos vistos desde Santa Lucía, uno de los municipios del refugio. No es una foto del área protegida (imagen recortada).',
     },
     noMap: 'Este prototipo no dispone de límites oficiales verificados, por eso no se dibujan en un mapa.',
   },
@@ -332,7 +333,7 @@ export const conservationES: ConservationText = {
     imageLabels: {
       hero: 'Parque Nacional La Tigra (Rancho Quemado)', tigra: 'San Juancito y La Tigra', tigraWater: 'Cascada en La Tigra', broadleaf: 'Reserva de la Biosfera del Río Plátano',
       coniferous: 'La Labor, Ocotepeque', mixed: 'Parque Nacional Cusuco', mangrove: 'San Lorenzo, Golfo de Fonseca', agriculture: 'Santa Rosa de Copán',
-      urban: 'Tegucigalpa', fire: 'Incendio en La Tigra, 18 de marzo de 2024 (Sentinel-2)', fragmentation: 'Celaque',
+      urban: 'Tegucigalpa', fire: 'Incendio en La Tigra, 18 de marzo de 2024 (Sentinel-2)', fragmentation: 'Celaque', meroSurroundings: 'Cerros de Santa Lucía, entorno del refugio “Mero” (recortada)',
     },
   },
 };

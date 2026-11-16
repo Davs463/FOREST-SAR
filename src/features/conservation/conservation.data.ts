@@ -75,7 +75,7 @@ export const MERO_SPLIT: readonly { name: string; ha: number }[] = [
 
 export type ImageId =
   | 'hero' | 'tigra' | 'tigraWater' | 'broadleaf' | 'coniferous' | 'mixed' | 'mangrove'
-  | 'agriculture' | 'urban' | 'fire' | 'fragmentation';
+  | 'agriculture' | 'urban' | 'fire' | 'fragmentation' | 'meroSurroundings';
 
 export interface ImageCredit {
   file: string;
@@ -104,6 +104,8 @@ export const IMAGES: Record<ImageId, ImageCredit> = {
   urban: { file: 'conservation/threat-urban.webp', width: 900, height: 679, author: 'Wikimedia Commons contributor', license: 'Public domain', page: `${COMMONS}Tegucigalpa.JPG` },
   fire: { file: 'conservation/threat-fire-la-tigra.webp', width: 1000, height: 707, author: 'European Union, Copernicus Sentinel-2 imagery', license: 'Attribution', page: `${COMMONS}Wildfire_in_La_Tigra_National_Park_(Copernicus_2024-03-29).jpg` },
   fragmentation: { file: 'conservation/threat-fragmentation.webp', width: 900, height: 600, author: 'Emeinke (English Wikipedia)', license: 'CC BY-SA 3.0', licenseUrl: BYSA3, page: `${COMMONS}ForestFragmentation.jpg` },
+  // Cropped to the hills (changes indicated in the caption). Surroundings of the refuge, not the refuge itself.
+  meroSurroundings: { file: 'conservation/mero-santa-lucia-entorno.webp', width: 1000, height: 750, author: 'Nan Palmero', license: 'CC BY 2.0', licenseUrl: 'https://creativecommons.org/licenses/by/2.0/', page: `${COMMONS}Mountains_in_Santa_Lucia,_Honduras_(13440749863).jpg` },
 };
 
 export const imageSrc = (id: ImageId): string => `${import.meta.env.BASE_URL}${IMAGES[id].file}`;
